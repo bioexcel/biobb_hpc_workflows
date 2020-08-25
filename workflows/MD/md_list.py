@@ -69,19 +69,19 @@ def main(config, system=None):
         make_ndx_pc(**mut_paths["step8_make_ndx"], properties=mut_prop["step8_make_ndx"])
 
         global_log.info("step9_grompp_nvt: Preprocess system temperature equilibration")
-        grompp_pc(**mut_paths["step9_grompp_nvt"], properties=mut_prop["step9_grompp_nvt"])
+        grompp_ndx_pc(**mut_paths["step9_grompp_nvt"], properties=mut_prop["step9_grompp_nvt"])
 
         global_log.info("step10_mdrun_nvt: Execute system temperature equilibration")
         mdrun_pc(**mut_paths["step10_mdrun_nvt"], properties=mut_prop["step10_mdrun_nvt"])
 
         global_log.info("step11_grompp_npt: Preprocess system pressure equilibration")
-        grompp_pc(**mut_paths["step11_grompp_npt"], properties=mut_prop["step11_grompp_npt"])
+        grompp_ndx_pc(**mut_paths["step11_grompp_npt"], properties=mut_prop["step11_grompp_npt"])
 
         global_log.info("step12_mdrun_npt: Execute system pressure equilibration")
         mdrun_pc(**mut_paths["step12_mdrun_npt"], properties=mut_prop["step12_mdrun_npt"])
 
         global_log.info("step13_grompp_md: Preprocess free dynamics")
-        grompp_pc(**mut_paths["step13_grompp_md"], properties=mut_prop["step13_grompp_md"])
+        grompp_ndx_pc(**mut_paths["step13_grompp_md"], properties=mut_prop["step13_grompp_md"])
 
         global_log.info("step14_mdrun_md: Execute free molecular dynamics simulation")
         mdrun_pc(**mut_paths["step14_mdrun_md"], properties=mut_prop["step14_mdrun_md"])
