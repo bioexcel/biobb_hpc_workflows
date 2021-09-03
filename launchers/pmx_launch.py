@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse
 from Bio.PDB.Polypeptide import three_to_one
 from Bio.PDB.Polypeptide import one_to_three
-import re
+import re,os, sys
 import shutil
 import subprocess
 import oyaml as yaml
@@ -18,6 +18,7 @@ def get_mutation_dict(mutation):
     else:
         pattern = re.compile(r"[A-Z]*:*(?P<wt>[a-zA-Z]{3})(?P<resnum>\d+)(?P<mt>[a-zA-Z]{3})")
         mut_dict = pattern.match(mutation.strip()).groupdict()
+
     return mut_dict
 
 def forward_mutations(mutation,pmx_resnum):
@@ -26,7 +27,8 @@ def forward_mutations(mutation,pmx_resnum):
     for mut in mut_list:
         mut_dict = get_mutation_dict(mut)
         offset_pmx = int(mut_dict['resnum'])-pmx_resnum
-        mut_rev = f"{mut_dict['wt']}{str(offset_pmx)}{mut_dict['mt']}"
+#        mut_rev = f"{mut_dict['wt']}{str(offset_pmx)}{mut_dict['mt']}"
+        mut_rev = f"{str(offset_pmx)}{mut_dict['mt']}"
         for_mut.append(mut_rev)
     return ','.join(for_mut)
 
@@ -36,21 +38,88 @@ def reverse_mutations(mutation,pmx_resnum):
     for mut in mut_list:
         mut_dict = get_mutation_dict(mut)
         offset_pmx = int(mut_dict['resnum'])-pmx_resnum
-        mut_rev = f"{mut_dict['mt']}{str(offset_pmx)}{mut_dict['wt']}"
+#        mut_rev = f"{mut_dict['mt']}{str(offset_pmx)}{mut_dict['wt']}"
+        mut_rev = f"{str(offset_pmx)}{mut_dict['wt']}"
         rev_mut.append(mut_rev)
     return ','.join(rev_mut)
 
 def three_to_one_mutation(mutation):
     mut_dict = get_mutation_dict(mutation)
-    return f"{three_to_one(mut_dict.get('wt').upper())}{mut_dict.get('resnum')}{three_to_one(mut_dict.get('mt').upper())}"
+    return f"{mut_dict.get('resnum')}{three_to_one(mut_dict.get('mt').upper())}"
 
 def get_template_config_dict(config_yaml_path):
     with open(config_yaml_path) as config_yaml_file:
         return yaml.safe_load(config_yaml_file)
 
-def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_nodes, compss_version, fe_nsteps, fe_length,
+def read_sc_params(supercomputer_conf, supercomputer):
+    with open(supercomputer_conf) as sc_yaml_file:
+        params = yaml.safe_load(sc_yaml_file)
+
+        # Check mandatory parameters
+        #   workflows_path: [mandatory] Path to the BioBB_HPC workflows
+        #   biobb_path: [mandatory] Path to the BioBB/PyCOMPSs Conda Pack
+        #   num_cores_node: [mandatory] Number of cores in each computing node
+
+        if supercomputer not in params:
+            sys.exit("Supercomputer name not found in supercomputer config file (sc_conf.yml). Please check it and try again.")
+
+        if 'workflows_path' not in params[supercomputer]:
+            sys.exit("Mandatory parameter workflows_path not found in supercomputer config file (sc_conf.yml). Please check it and try again.")
+
+        if 'biobb_path' not in params[supercomputer]:
+            sys.exit("Mandatory parameter biobb_path not found in supercomputer config file (sc_conf.yml). Please check it and try again.")
+
+        if 'num_cores_node' not in params[supercomputer]:
+            sys.exit("Mandatory parameter num_cores_node not found in supercomputer config file (sc_conf.yml). Please check it and try again.")
+
+        return params[supercomputer]
+
+def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_nodes, compss_version, ions, fe_nsteps, fe_length,
            base_dir, compss_debug, time, output_dir, fe_dt, num_frames, wt_trjconv_skip, mut_trjconv_skip,
-           wt_start, wt_end, mut_start, mut_end, job_name):
+           wt_start, wt_end, mut_start, mut_end, job_name,
+           supercomputer, supercomputer_conf):
+
+    params = read_sc_params(supercomputer_conf, supercomputer)
+
+    # Check optional parameters
+    #   modules: [optional] Computer-specific modules to be loaded
+    #   mpi_env: [optional] MPI environment. Available options: SLURM / MPI / OMPI
+    #   mpi_flags: [optional] MPI extra flags
+    #   project_name: [optional] Account project name
+
+    modules = ''
+    if 'modules_load' in params:
+        modules = params['modules_load']
+
+    modules_unload = ''
+    if 'modules_unload' in params:
+        modules_unload = params['modules_unload']
+
+    project_name = ''
+    if 'project_name' in params:
+        project_name = params['project_name']
+
+    queue = "default"
+    if 'queue' in params:
+        queue = params['queue']
+
+    partition = "default"
+    if 'partition' in params:
+        partition = params['partition']
+
+    mpi_env = "SLURM"
+    if 'mpi_env' in params:
+        mpi_env = params['mpi_env']
+
+    mpi_flags = ''
+    if 'mpi_flags' in params:
+        mpi_flags = params['mpi_flags']
+
+    extra_env = ()
+    if 'extra_env' in params:
+        extra_env = params['extra_env'].split(',')
+
+    base_dir = Path(params['workflows_path'])
 
     #if pmx_resnum == 0:
     #    pmx_resnum = int(get_mutation_dict(mutation)['resnum'])
@@ -64,7 +133,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
 
     mut_list = mutation.split(",")
     nmuts = len(mut_list)
-    ions = 0
+    #ions = 0
 
     ndx1 = ndx1 + (nmuts + ions)*2
     ndx2 = ndx2 + (nmuts + ions)*2
@@ -87,9 +156,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     print(traj_mut_tpr_path, traj_mut_xtc_path)
     print('\n')
 
-
     # Create working dir path
-    work_dir = Path('.')
 
     long_name = f"{mutation_code}_{str(num_frames)}f_{str(fe_length)}ps"
     wt_start_str = str(wt_start)
@@ -103,30 +170,38 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
         mut_start_str = 'all'
         mut_end_str = 'all'
 
-    working_dir_path = work_dir.joinpath('PMX', long_name, f"{wt_start_str}to{wt_end_str}_{mut_start_str}to{mut_end_str}")
+    work_dir = Path('.')
+
+    currentDir = os.getcwd()
+    working_dir_path = work_dir.joinpath(currentDir, 'PMX', long_name, f"{wt_start_str}to{wt_end_str}_{mut_start_str}to{mut_end_str}")
 
     if output_dir:
         if output_dir.startswith('/'):
             working_dir_path = Path(output_dir).resolve()
         else:
-            working_dir_path = work_dir.joinpath('PMX', output_dir)
+            working_dir_path = work_dir.joinpath(currentDir,output_dir)
+
     working_dir_path.mkdir(parents=True, exist_ok=True)
 
     # Check if it's the first launch
     run_number = 0
     run_dir = working_dir_path.joinpath("wf_pmx")
-    config_yaml_path = working_dir_path.joinpath(f"pmx.yaml")
-    wf_py_path = working_dir_path.joinpath(f"pmx.py")
-    launch_path = working_dir_path.joinpath(f"launch.sh")
+    config_yaml_path = working_dir_path.joinpath(f"pmx_biobb.yaml")
+    wf_py_path = working_dir_path.joinpath(f"pmx_biobb.py")
+    prolog_path = working_dir_path.joinpath(f"prolog_biobb.sh")
+    launch_path = working_dir_path.joinpath(f"launch_biobb.sh")
     if not job_name:
         job_name = long_name
+
+    job_name_orig = job_name
     while run_dir.exists():
         run_number += 1
         run_dir = working_dir_path.joinpath(f"wf_pmx_{str(run_number)}")
-        config_yaml_path = working_dir_path.joinpath(f"pmx_{str(run_number)}.yaml")
-        wf_py_path = working_dir_path.joinpath(f"pmx_{str(run_number)}.py")
-        launch_path = working_dir_path.joinpath(f"launch_{str(run_number)}.sh")
-        job_name = f"{job_name}_{str(run_number)}"
+        config_yaml_path = working_dir_path.joinpath(f"pmx_biobb_{str(run_number)}.yaml")
+        wf_py_path = working_dir_path.joinpath(f"pmx_biobb_{str(run_number)}.py")
+        prolog_path = working_dir_path.joinpath(f"prolog_biobb_{str(run_number)}.sh")
+        launch_path = working_dir_path.joinpath(f"launch_biobb_{str(run_number)}.sh")
+        job_name = f"{job_name_orig}_{str(run_number)}"
 
     # Copy py file
     shutil.copyfile(template_py_path, wf_py_path)
@@ -137,7 +212,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     config_dict['working_dir_path'] = str(run_dir)
     forward_mut = forward_mutations(mutation,pmx_resnum)
     reverse_mut = reverse_mutations(mutation,pmx_resnum)
-    #config_dict['mutations']['stateA'] = f"{mutation_dict['wt']}{str(pmx_resnum)}{mutation_dict['mt']}" 
+    #config_dict['mutations']['stateA'] = f"{mutation_dict['wt']}{str(pmx_resnum)}{mutation_dict['mt']}"
     config_dict['mutations']['stateA'] = forward_mut
     config_dict['mutations']['stateB'] = reverse_mut
     #reverse_mut = reverse_mutations(mutation)
@@ -160,49 +235,47 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     with open(config_yaml_path, 'w') as config_yaml_file:
         config_yaml_file.write(yaml.dump(config_dict))
 
+    # Creating prolog (env_script) file
+    with open(prolog_path, 'w') as prolog_file:
+        prolog_file.write(f"#!/bin/bash\n\n")
+        prolog_file.write(f"# BioBB + PyCOMPSs environment\n")
+        prolog_file.write(f"source {params['biobb_path']}/bin/activate\n\n")
+        if modules:
+            prolog_file.write(f"# Machine-specific modules environment (load)\n")
+            prolog_file.write(f"module load {modules}\n\n")
+        if modules_unload:
+            prolog_file.write(f"# Machine-specific modules environment (unload)\n")
+            prolog_file.write(f"module unload {modules_unload}\n\n")
+        prolog_file.write(f"# Multinode MPI environment\n")
+        prolog_file.write(f"export TASK_COMPUTING_NODES=2\n")
+        prolog_file.write(f"export TASK_COMPUTING_UNITS={params['num_cores_node']}\n")
+        prolog_file.write(f"export MULTINODE_MPI_ENV={params['mpi_env']}\n")
+        if mpi_flags:
+            prolog_file.write(f"export MULTINODE_MPI_EXTRA_FLAGS=\"{mpi_flags}\"\n")
+        prolog_file.write(f"\n")
+        if extra_env:
+            prolog_file.write(f"# Extra environment variables\n")
+            for new_env in extra_env:
+                prolog_file.write(f"export {new_env}\n")
+
     # Create launch
     with open(launch_path, 'w') as launch_file:
-        launch_file.write(f"#!/bin/bash\n")
-        launch_file.write(f"\n")
-        launch_file.write(f"module purge\n")
-        launch_file.write(f"\n")
-        launch_file.write(f"module load ANACONDA/2019.10\n")
-        #launch_file.write(f"source activate biobb\n")
-        launch_file.write(f"module load biobb/covid_dev\n")
-        #launch_file.write(f"module load ANACONDA/2018.12_py3\n")
-        #launch_file.write(f"source activate biobb\n")
-        launch_file.write(f"\n")
-        #launch_file.write(f"# COMPSs environment\n")
-        #launch_file.write(f"export COMPSS_PYTHON_VERSION=none\n")
-        #launch_file.write(f"# COMPSs release\n")
-        #launch_file.write(f"module load COMPSs/{compss_version}\n")
-        #launch_file.write(f"\n")
-        #launch_file.write(f"# Singularity\n")
-        #launch_file.write(f"module load singularity\n")
-        #launch_file.write(f"\n")
-        #launch_file.write(f"#GROMACS 2019\n")
-        #launch_file.write(f"module load intel/2018.4 impi/2018.4 mkl/2018.4 gromacs/2019.1\n")
-        launch_file.write(f"\n")
-        launch_file.write(f"#TASK_TIME_OUT env var\n")
-        launch_file.write(f"#3600 seconds = 1h\n")
-        launch_file.write(f"export TASK_TIME_OUT=\"3600\"\n")
-        launch_file.write(f"\n")
-        launch_file.write(f"#Permissions for everyone\n")
-        launch_file.write(f"umask ugo+rwx\n")
-        launch_file.write(f"\n")
+        launch_file.write(f"#!/bin/bash\n\n")
+        launch_file.write(f"# BioBB + PyCOMPSs environment\n")
+        launch_file.write(f"source {params['biobb_path']}/bin/activate\n\n")
         launch_file.write(f"enqueue_compss ")
         if compss_debug:
-            launch_file.write(f"-d ")
-        launch_file.write(f"--job_name={job_name} \
-                          --num_nodes={num_nodes} \
-                          --exec_time={str(time)} \
-                          --base_log_dir=$PWD \
-                          --network=ethernet \
-                          --qos={queue}  \
-                          {wf_py_path} \
-                          --config {config_yaml_path} ")
-        #if imaged_traj_available:
-        #    launch_file.write(f"--imaged_traj_available ")
+            launch_file.write(f"-d --keep_workingdir ")
+#        if num_nodes == 1 or num_nodes == mpi_nodes :
+        if num_nodes == 1 :
+            launch_file.write(f"--worker_in_master_cpus={params['num_cores_node']} ")
+        if project_name:
+            launch_file.write(f"--project_name={project_name} ")
+        launch_file.write(f"--job_name={job_name}  --num_nodes={num_nodes} \
+--exec_time={str(time)} --base_log_dir=$PWD --worker_working_dir=$PWD \
+--master_working_dir=$PWD --network=ethernet --qos={queue}  \
+--sc_cfg={supercomputer}.cfg --worker_in_master_cpus=0 --queue={partition} \
+--env_script={prolog_path} {wf_py_path} --config {config_yaml_path} ")
         launch_file.write(f"\n")
 
     subprocess.call(f"bash {launch_path}", shell=True)
@@ -223,6 +296,7 @@ def main():
     parser.add_argument('-nn', '--num_nodes', required=False, default=1, type=int, help="(1) [integer]")
     parser.add_argument('-cv', '--compss_version', required=False, default='2.6.1', type=str, help="(2.6.1) [version_name]")
     parser.add_argument('-d', '--compss_debug', required=False, help="Compss debug mode", action='store_true')
+    parser.add_argument('-i', '--ions', required=False, default=0, type=int, help="(0) [integer] Number of structural ions")
     parser.add_argument('-fe', '--fe_length', required=False, default=50, type=int, help="(50) [integer] Number of picoseconds")
     parser.add_argument('-nf', '--num_frames', required=False, default=100, type=int, help="(100) [integer] Number of frames to be extracted of trajectory")
     parser.add_argument('--mut_start_end_num_frames', required=False, default=10000, type=int, help="(10000) [integer] Total number of frames between start and end of the mutated trajectory")
@@ -235,6 +309,8 @@ def main():
     parser.add_argument('-o', '--output_dir', required=False, default='', type=str, help="Output dir name: If output_dir is absolute it will be respected if it's a relative path: /base_dir/PMX/pmxlaunch/runs/output_dir', if output_dir not exists, the name is autogenerated.")
     parser.add_argument('-jn', '--job_name', required=False, default='', type=str, help="Job name if it not exists, the name is autogenerated.")
     parser.add_argument('--free_energy_dt', required=False, default=0.002, type=float, help="(0.002) [float] Integration time in picoseconds")
+    parser.add_argument('-sc', '--supercomputer', required=True, default='mn', type=str, help="Supercomputer name or id, included in the supercomputer-specific configuration file (sc_conf parameter).")
+    parser.add_argument('-sc_conf', '--supercomputer_conf', required=True, default='sc_conf.yml', type=str, help="Supercomputer-specific parameters, such as MPI library or modules.")
     args = parser.parse_args()
 
     # Specific call of each building block
@@ -248,6 +324,7 @@ def main():
            time=args.time,
            num_nodes=args.num_nodes,
            compss_version=args.compss_version,
+           ions=args.ions,
            compss_debug=args.compss_debug,
            fe_nsteps=int(args.fe_length/args.free_energy_dt),
            fe_length=args.fe_length,
@@ -261,6 +338,8 @@ def main():
            wt_end=args.wt_end,
            mut_start=args.mut_start,
            mut_end=args.mut_end,
+           supercomputer=args.supercomputer,
+           supercomputer_conf=args.supercomputer_conf,
            base_dir=Path(args.base_dir)
            )
 

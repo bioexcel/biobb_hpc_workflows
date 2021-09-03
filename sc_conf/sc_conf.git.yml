@@ -1,0 +1,62 @@
+########################## System dependent parameters ############################
+
+# Example
+# machine_name: (should be the same name used by PyCOMPSs supercomputer cfg file)
+#   workflows_path: [mandatory] Path to the BioBB_HPC workflows
+#   biobb_path: [mandatory] Path to the BioBB/PyCOMPSs Conda Pack
+#   num_cores_node: [mandatory] Number of cores in each computing node
+#   modules_load: [optional] Computer-specific modules to be loaded
+#   modules_unload: [optional] Computer-specific modules to be unloaded
+#   mpi_env: [optional] MPI environment. Available options: SLURM / MPI / OMPI
+#   mpi_flags: [optional] MPI extra flags
+#   project_name: [optional] Account project name
+#   extra_env: [optional] Optional environment variables, separated by commas
+#   queue: [optional] Queue name
+#   partition: [optional] Queue partition
+
+# BSC Marenostrum4
+mn:
+  workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
+  biobb_path: XXXX/BioExcel/BioBB_HPC/biobb_v3.6_pycompss_v2.9_MN0
+  modules_load: intel/2018.4 impi/2018.4 mkl/2018.4 gromacs/2019.1 java
+  modules_unload: python
+  extra_env: JAVA_TOOL_OPTIONS=-Xss1280k
+  mpi_env: SLURM
+  num_cores_node: 48
+
+# EPCC Cirrus
+cirrus:
+  workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
+  biobb_path: XXXX/BioExcel/BioBB_HPC/biobb_v3.6_pycompss_v2.9_MN0
+  modules_load: gromacs
+  mpi_env: SLURM
+  num_cores_node: 36
+  queue: standard
+  partition: standard
+
+# JSC Jusuf
+jusuf:
+  workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
+  biobb_path: XXXX/BioExcel/BioBB_HPC/biobb_v3.6_pycompss_v2.9_MN0
+  modules_load: Intel/2020.2.254-GCC-9.3.0  ParaStationMPI/5.4.7-1 GROMACS/2020.4
+  mpi_env: SLURM
+  num_cores_node: 128
+  project_name: icei-prace-2020-0002
+
+# JSC Juwels Cluster
+juwels:
+  workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
+  biobb_path: XXXX/BioExcel/BioBB_HPC/biobb_v3.6_pycompss_v2.9_MN0
+  modules_load: Intel/2020.2.254-GCC-9.3.0  ParaStationMPI/5.4.7-1 GROMACS/2020.4
+  mpi_env: SLURM
+  mpi_flags: -A prcoe04
+  num_cores_node: 48
+  project_name: prcoe04
+
+# CENITS Lusitania
+lusitania:
+  workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
+  biobb_path: XXXX/BioExcel/BioBB_HPC/biobb_v3.6_pycompss_v2.9_MN0
+  modules_load: intel16 gromacs
+  mpi_env: SLURM
+  num_cores_node: 20

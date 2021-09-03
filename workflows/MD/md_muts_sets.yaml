@@ -18,6 +18,7 @@ step2_pdb2gmx:
     output_top_zip_path: mut_gmx.top.zip
   properties:
     force_field : amber99sb-ildn
+    merge: all
 
 step3_editconf:
   paths:
@@ -40,8 +41,9 @@ step5_grompp_genion:
     input_top_zip_path: dependency/step4_solvate/output_top_zip_path
     output_tpr_path: gppion.tpr
   properties:
+    simulation_type: minimization
+    maxwarn: 1
     mdp:
-      type: minimization
       nsteps: 5000
 
 step6_genion:
@@ -60,19 +62,21 @@ step7_grompp_min:
     input_top_zip_path: dependency/step6_genion/output_top_zip_path
     output_tpr_path: gppmin.tpr
   properties:
+    simulation_type: minimization
     mdp:
-      type: minimization
       nsteps: 5000
       emtol: 500
 
 step8_mdrun_min:
   paths:
     input_tpr_path: dependency/step7_grompp_min/output_tpr_path
-    output_xtc_path: min.xtc
     output_trr_path: min.trr
     output_gro_path: min.gro
     output_edr_path: min.edr
     output_log_path: min.log
+  properties:
+    mpi_bin: srun
+    gmx_path: gmx_mpi
 
 step9_grompp_nvt:
   paths:
@@ -80,9 +84,10 @@ step9_grompp_nvt:
     input_top_zip_path: dependency/step6_genion/output_top_zip_path
     output_tpr_path: gppnvt.tpr
   properties:
+    simulation_type: nvt
     mdp:
-      type: nvt
       nsteps: 50000
+      nstxout: 100000
 
 step10_mdrun_nvt:
   paths:
@@ -93,6 +98,9 @@ step10_mdrun_nvt:
     output_edr_path: nvt.edr
     output_log_path: nvt.log
     output_cpt_path: nvt.cpt
+  properties:
+    mpi_bin: srun
+    gmx_path: gmx_mpi
 
 step11_grompp_npt:
   paths:
@@ -101,9 +109,10 @@ step11_grompp_npt:
     output_tpr_path: gppnpt.tpr
     input_cpt_path: dependency/step10_mdrun_nvt/output_cpt_path
   properties:
+    simulation_type: npt
     mdp:
-      type: npt
       nsteps: 50000
+      nstxout: 100000
 
 step12_mdrun_npt:
   paths:
@@ -114,6 +123,9 @@ step12_mdrun_npt:
     output_edr_path: npt.edr
     output_log_path: npt.log
     output_cpt_path: npt.cpt
+  properties:
+    mpi_bin: srun
+    gmx_path: gmx_mpi
 
 step13_grompp_md:
   paths:
@@ -122,9 +134,10 @@ step13_grompp_md:
     output_tpr_path: gppmd.tpr
     input_cpt_path: dependency/step12_mdrun_npt/output_cpt_path
   properties:
+    simulation_type: free
     mdp:
-      type: free
       nsteps: 500000
+      nstxout: 100000
 
 step14_mdrun_md:
   paths:
@@ -136,5 +149,5 @@ step14_mdrun_md:
     output_log_path: md.log
     output_cpt_path: md.cpt
   properties:
-    mpi_bin: mpirun
+    mpi_bin: srun
     gmx_path: gmx_mpi

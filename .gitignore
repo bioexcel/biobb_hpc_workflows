@@ -94,22 +94,11 @@ com_crashlytics_export_strings.xml
 # nohup files
 .nohup.out
 
-# Test Files
-test/data/temp_results/
-testworkflow/
-testworkflow*
-
-# Gromacs
-\#*
-mdout.mdp
-traj_comp.xtc
-
-# Jupyter notebook
-.ipynb_checkpoints/
-
 # Pycharm
 .idea
 
-# MN4 Execution
-runs/
-compss-*
+# Config files
+sc_conf/sc_conf.yml
+
+# Test files
+test_data
