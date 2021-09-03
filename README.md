@@ -28,7 +28,13 @@ https://mmb.irbbarcelona.org/biobb/availability/condapacks
 ```git clone https://github.com/bioexcel/biobb_hpc_workflows.git```
 
 * Generate and modify HPC cluster/supercomputer configuration file from template in [sc_conf](sc_conf/sc_conf.git.yml):<br>
-```cp sc_conf/sc_conf.git.yml sc_conf/sc_conf.yaml``` (The template should be modified with particular HPC cluster/supercomputer paths)
+```cp sc_conf/sc_conf.git.yml sc_conf/sc_conf.yaml```<br>
+The template should be modified with specific HPC cluster/supercomputer paths. In particular, these two important fields should be added:<br>   
+   > 
+   > **workflows_path**: Path to this repo in the cluster file system.
+   > 
+   > **biobb_path**: Path to the BioBB Conda Pack in the cluster file system. 
+   > 
 
 ### Testing
 
