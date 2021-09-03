@@ -33,6 +33,7 @@ https://mmb.irbbarcelona.org/biobb/availability/condapacks
 ### Testing
 
 * Different tests can be found in the ([README.doc](README.doc)) file.
+* Test data can be found in https://mmb.irbbarcelona.org/biobb/availability/condapacks
 
 ### Biobb modules used
 
