@@ -1,0 +1,2252 @@
+
+
+<html>
+<head>
+
+
+<script type="application/ld+json"> 
+  {
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      },
+      "license": {
+        "@id": "https://spdx.org/licenses/CC0-1.0"
+      },
+      "author": {
+        "@id": "https://orcid.org/0000-0001-9842-9718"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        }
+      ],
+      "citation": {
+        "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+      },
+      "contactPoint": {
+        "@id": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23"
+      },
+      "datePublished": "2021-09-28T17:27:00+0100",
+      "description": "This PyCOMPSs workflow tutorial aims to illustrate the process of setting up a simulation system containing a protein, step by step, using the BioExcel Building Blocks library (biobb) in PyCOMPSs for execution on HPC. Three variants of the MD Setup workflows are included, supporting a list of structures, a list of mutations, or a cumulative set of mutations. ",
+      "hasPart": [
+        {
+          "@id": "workflows/"
+        },
+        {
+          "@id": "launchers/"
+        }
+      ],
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "mainEntity": {
+        "@id": "workflows/MD/md_list.py"
+      },
+      "name": "Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "url": "https://github.com/bioexcel/biobb_hpc_workflows",
+      "@reverse": {
+        "about": [
+          {
+            "@id": "ro-crate-metadata.json"
+          }
+        ],
+        "license": [
+          {
+            "@id": "https://pypi.org/project/numpy/1.21.2/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb",
+      "@type": "Person",
+      "name": "Marc Del Pino",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#5fa8795e-6828-4714-b894-d68359b9590c",
+      "@type": "Person",
+      "name": "Laia Codo",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5",
+      "@type": "Person",
+      "name": "Luis Jordá",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#ambertools-20.0",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1016/0010-4655(95)00041-D"
+      },
+      "description": "AmberTools is a set of programs for biomolecular simulation and analysis",
+      "installUrl": "https://anaconda.org/conda-forge/ambertools",
+      "name": "AmberTools20",
+      "softwareHelp": "http://ambermd.org/doc12/Amber20.pdf",
+      "url": "http://ambermd.org/AmberTools.php",
+      "version": "20.0",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#frank-kauff",
+      "@type": "Person",
+      "name": "Frank Kauff",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "#servaas-michielssens",
+      "@type": "Person",
+      "name": "Servaas Michielssens",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1002/jcc.23804"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "launchers/",
+      "@type": "Dataset",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "HPC launchers for PyCOMPSs workflows",
+      "hasPart": [
+        {
+          "@id": "launchers/md_launch.py"
+        },
+        {
+          "@id": "launchers/mdmut_launch.py"
+        }
+      ],
+      "name": "launchers",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "./"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "launchers/md_launch.py",
+      "@type": "File",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Launcher for the md_list workflow.",
+      "name": "md_launch.py",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "launchers/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "launchers/mdmut_launch.py",
+      "@type": "File",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Launcher for the md_muts_sets and md_add_muts_wt workflows",
+      "name": "mdmut_launch.py",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "launchers/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/",
+      "@type": "Dataset",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "HPC workflows using PyCOMPSs",
+      "hasPart": {
+        "@id": "workflows/MD/"
+      },
+      "name": "workflows",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "./"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/",
+      "@type": "Dataset",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Molecular dynamics workflows",
+      "hasPart": [
+        {
+          "@id": "workflows/MD/md_add_muts_wt.py"
+        },
+        {
+          "@id": "workflows/MD/md_list.py"
+        },
+        {
+          "@id": "workflows/MD/md_list.yaml"
+        },
+        {
+          "@id": "workflows/MD/md_muts_sets.py"
+        },
+        {
+          "@id": "workflows/MD/md_muts_sets.yaml"
+        }
+      ],
+      "name": "MD",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/md_add_muts_wt.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        }
+      ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "isBasedOn": {
+        "@id": "workflows/MD/md_list.py"
+      },
+      "name": "md_add_muts_wt.py",
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/md_list.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        }
+      ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "isBasedOn": {
+        "@id": "https://doi.org/10.48546/workflowhub.workflow.120.2"
+      },
+      "name": "md_list.py",
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "@reverse": {
+        "mainEntity": [
+          {
+            "@id": "./"
+          }
+        ],
+        "hasPart": [
+          {
+            "@id": "workflows/MD/"
+          }
+        ],
+        "isBasedOn": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.48546/workflowhub.workflow.120.2",
+      "@type": [
+        "Dataset",
+        "ComputationalWorkflow"
+      ],
+      "identifier": "https://doi.org/10.48546/workflowhub.workflow.120.2",
+      "url": "https://workflowhub.eu/workflows/120/ro_crate?version=2",
+      "name": "Research Object Crate for Protein MD Setup tutorial using BioExcel Building Blocks (biobb)",
+      "isBasedOn": "https://github.com/bioexcel/biobb_wf_md_setup",
+      "distribution": {
+        "@id": "https://workflowhub.eu/workflows/120/ro_crate?version=2"
+      },
+      "@reverse": {
+        "isBasedOn": [
+          {
+            "@id": "workflows/MD/md_list.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://workflowhub.eu/workflows/120/ro_crate?version=2",
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentSize": "11867",
+      "@reverse": {
+        "distribution": [
+          {
+            "@id": "https://doi.org/10.48546/workflowhub.workflow.120.2"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/md_list.yaml",
+      "@type": "File",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Input and path configuration for md_list.py workflow",
+      "name": "md_list.yaml",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/md_muts_sets.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        }
+      ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "isBasedOn": {
+        "@id": "workflows/MD/md_list.py"
+      },
+      "name": "md_muts_sets.py",
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "workflows/MD/md_muts_sets.yaml",
+      "@type": "File",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Input and path configuration for md_muts_sets.py workflow",
+      "name": "md_muts_sets.yaml",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://mmb.irbbarcelona.org/",
+      "@type": "Organization",
+      "memberOf": [
+        {
+          "@id": "https://ror.org/01z1gye03"
+        },
+        {
+          "@id": "https://ror.org/05sd8tv96"
+        },
+        {
+          "@id": "https://www.ub.edu/"
+        },
+        {
+          "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"
+        },
+        {
+          "@id": "https://www.icrea.cat/"
+        }
+      ],
+      "name": "Molecular Modeling and Bioinformatics unit",
+      "url": "https://mmb.irbbarcelona.org/",
+      "@reverse": {
+        "publisher": [
+          {
+            "@id": "./"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5081-7244",
+      "@type": "Person",
+      "name": "Daniele Lezzi",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-6363-2521",
+      "@type": "Person",
+      "name": "Mark James Abraham",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-6401-6229",
+      "@type": "Person",
+      "name": "Javier Conejero",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8933-8830",
+      "@type": "Person",
+      "name": "Andrew Dalke",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9513-9993",
+      "@type": "Person",
+      "name": "Peter J. A. Cock",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9842-9718",
+      "@type": "Person",
+      "name": "Stian Soiland-Reyes",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "ro-crate-metadata.json"
+          },
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-0566-7723",
+      "@type": "Person",
+      "name": "Josep Ll. Gelpi",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1789-8000",
+      "@type": "Person",
+      "name": "Iddo Friedberg",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2734-2794",
+      "@type": "Person",
+      "name": "Erik Lindahl",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2978-3227",
+      "@type": "Person",
+      "name": "Jeremy C. Smith",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-3026-1856",
+      "@type": "Person",
+      "name": "Brad A. Chapman",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4119-6068",
+      "@type": "Person",
+      "name": "Daniel Seeliger",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1002/jcc.23804"
+          },
+          {
+            "@id": "https://doi.org/10.1016/j.bpj.2010.01.051"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4578-5636",
+      "@type": "Person",
+      "name": "Jeffrey T. Chang",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4927-979X",
+      "@type": "Person",
+      "name": "Cymon J. Cox",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-6761-7780",
+      "@type": "Person",
+      "name": "Vytautas Gapsys",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1002/jcc.23804"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7269-5513",
+      "@type": "Person",
+      "name": "Tiago Antao",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7498-7763",
+      "@type": "Person",
+      "name": "Berk Hess",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8134-0589",
+      "@type": "Person",
+      "name": "Bartek Wilczynski",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8291-8071",
+      "@type": "Person",
+      "name": "Adam Hospital",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "./"
+          },
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          },
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8608-3278",
+      "@type": "Person",
+      "name": "Modesto Orozco",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0489-2352",
+      "@type": "Person",
+      "name": "Michiel J. L. de Hoon",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0603-5514",
+      "@type": "Person",
+      "name": "Szilárd Páll",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1219-2137",
+      "@type": "Person",
+      "name": "Carole Goble",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1603-2413",
+      "@type": "Person",
+      "name": "Roland Schulz",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2116-3880",
+      "@type": "Person",
+      "name": "Pau Andrio",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "./"
+          },
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          },
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2917-3602",
+      "@type": "Person",
+      "name": "Thomas Hamelryck",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2932-9590",
+      "@type": "Person",
+      "name": "Teemu Murtola",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2941-5499",
+      "@type": "Person",
+      "name": "Rosa M. Badia",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3570-3534",
+      "@type": "Person",
+      "name": "Bert L. de Groot",
+      "@reverse": {
+        "author": [
+          {
+            "@id": "https://doi.org/10.1002/jcc.23804"
+          },
+          {
+            "@id": "https://doi.org/10.1016/j.bpj.2010.01.051"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-analysis/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to analyse Molecular Dynamics trajectories",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_analysis",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_analysis",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-analysis.readthedocs.io/en/latest/",
+      "softwareRequirements": [
+        {
+          "@id": "https://doi.org/10.5281/zenodo.2564764"
+        },
+        {
+          "@id": "#ambertools-20.0"
+        }
+      ],
+      "url": "https://github.com/bioexcel/biobb_analysis",
+      "version": "3.6.0",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-md/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to setup and run Molecular Dynamics simulations.",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_md",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_md",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-md.readthedocs.io/en/latest/",
+      "softwareRequirements": {
+        "@id": "https://doi.org/10.5281/zenodo.2564764"
+      },
+      "url": "https://github.com/bioexcel/biobb_md",
+      "version": "3.6.0",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-pmx/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to setup and run Alchemical Free Energy calculations",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_pmx",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_pmx",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://pypi.org/project/biobb-pmx/3.6.0/en/latest/",
+      "softwareRequirements": {
+        "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+      },
+      "url": "https://github.com/bioexcel/biobb_pmx",
+      "version": "3.6.0",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_structure_utils",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_structure_utils",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-structure-utils.readthedocs.io/en/latest/",
+      "softwareRequirements": [
+        {
+          "@id": "https://biopython.org/"
+        },
+        {
+          "@id": "https://pypi.org/project/numpy/1.21.2/"
+        }
+      ],
+      "url": "https://github.com/bioexcel/biobb_structure_utils",
+      "version": "3.6.1",
+      "@reverse": {
+        "hasPart": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/biobb/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "BioExcel Building Blocks",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "url": "https://github.com/bioexcel/biobb",
+      "version": "3.6.0"
+    },
+    {
+      "@id": "https://pypi.org/project/numpy/1.21.2/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "./"
+      },
+      "name": "numpy",
+      "version": "1.21.1",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+          },
+          {
+            "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/pmx-biobb/1.0.1/",
+      "@type": "SoftwareApplication",
+      "citation": [
+        {
+          "@id": "https://doi.org/10.1002/jcc.23804"
+        },
+        {
+          "@id": "https://doi.org/10.1016/j.bpj.2010.01.051"
+        }
+      ],
+      "description": "pmx is a python library that allows users to setup and analyse molecular dynamics simulations with the Gromacs package. Among its main features are the setup and analysis of alchemical free energy calculations for protein, nucleic acid, and small molecule mutations.\n",
+      "license": {
+        "@id": "https://spdx.org/licenses/LGPL-3.0-only"
+      },
+      "name": "pmx-biobb",
+      "softwareRequirements": [
+        {
+          "@id": "https://pypi.org/project/numpy/1.21.2/"
+        },
+        {
+          "@id": "https://pypi.org/project/scipy/1.7.1/"
+        }
+      ],
+      "url": "https://degrootlab.github.io/pmx/",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/pycompss/2.9/",
+      "@type": [
+        "ComputerLanguage",
+        "SoftwareApplication"
+      ],
+      "description": "Python Binding for COMP Superscalar Runtime",
+      "name": "PyCOMPSs",
+      "publisher": {
+        "@id": "https://ror.org/05sd8tv96"
+      },
+      "softwareRequirements": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "url": "http://compss.bsc.es/",
+      "version": "2.9",
+      "@reverse": {
+        "programmingLanguage": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://pypi.org/project/scipy/1.7.1/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "https://www.scipy.org/scipylib/license.html"
+      },
+      "name": "SciPy",
+      "url": "https://www.scipy.org/",
+      "version": "1.7.1.",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://ror.org/01z1gye03",
+      "@type": "Organization",
+      "name": "Institute for Research in Biomedicine",
+      "url": "https://www.irbbarcelona.org/",
+      "@reverse": {
+        "memberOf": [
+          {
+            "@id": "https://mmb.irbbarcelona.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://ror.org/027m9bs27",
+      "@type": "Organization",
+      "name": "The University of Manchester",
+      "url": "https://www.manchester.ac.uk/",
+      "@reverse": {
+        "parentOrganization": [
+          {
+            "@id": "https://www.cs.manchester.ac.uk/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://ror.org/05sd8tv96",
+      "@type": "Organization",
+      "name": "Barcelona Supercomputing Centre",
+      "url": "https://www.bsc.es/",
+      "@reverse": {
+        "memberOf": [
+          {
+            "@id": "https://mmb.irbbarcelona.org/"
+          }
+        ],
+        "publisher": [
+          {
+            "@id": "https://pypi.org/project/pycompss/2.9/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/Apache-2.0",
+      "@type": "CreativeWork",
+      "identifier": "https://www.apache.org/licenses/LICENSE-2.0",
+      "name": "Apache License 2.0",
+      "description": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0 \n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "./"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/BSD-3-Clause",
+      "@type": "CreativeWork",
+      "identifier": "BSD-3-Clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "@reverse": {
+        "isBasedOn": [
+          {
+            "@id": "https://www.scipy.org/scipylib/license.html"
+          }
+        ],
+        "license": [
+          {
+            "@id": "https://biopython.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC-BY-4.0",
+      "@type": "CreativeWork",
+      "identifier": "CC-BY-4.0",
+      "name": "Creative Commons Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC0-1.0",
+      "@type": "CreativeWork",
+      "identifier": "CC0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "ro-crate-metadata.json"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/LGPL-2.1-or-later",
+      "@type": "CreativeWork",
+      "identifier": "LGPL-2.1-or-later",
+      "name": "GNU Lesser General Public License v2.1 or later",
+      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "https://doi.org/10.5281/zenodo.2564764"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/LGPL-3.0-only",
+      "@type": "CreativeWork",
+      "identifier": "LGPL-3.0-only",
+      "name": "GNU Lesser General Public License v3.0 only",
+      "url": "https://www.gnu.org/licenses/lgpl-3.0-standalone.html",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.cs.manchester.ac.uk/",
+      "@type": "Organization",
+      "name": "Department of Computer Science",
+      "parentOrganization": {
+        "@id": "https://ror.org/027m9bs27"
+      },
+      "url": "https://www.cs.manchester.ac.uk/",
+      "@reverse": {
+        "parentOrganization": [
+          {
+            "@id": "https://esciencelab.org.uk/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.icrea.cat/",
+      "@type": "Organization",
+      "name": "ICREA",
+      "url": "https://www.icrea.cat/",
+      "@reverse": {
+        "memberOf": [
+          {
+            "@id": "https://mmb.irbbarcelona.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm",
+      "@type": "Organization",
+      "name": "CECH",
+      "url": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm",
+      "@reverse": {
+        "memberOf": [
+          {
+            "@id": "https://mmb.irbbarcelona.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.python.org/downloads/release/python-380/",
+      "@type": [
+        "ComputerLanguage",
+        "SoftwareApplication"
+      ],
+      "name": "Python 3.8.0",
+      "url": "https://www.python.org/downloads/release/python-380/",
+      "version": "3.8.0",
+      "@reverse": {
+        "runtimePlatform": [
+          {
+            "@id": "workflows/MD/md_add_muts_wt.py"
+          },
+          {
+            "@id": "workflows/MD/md_list.py"
+          },
+          {
+            "@id": "workflows/MD/md_muts_sets.py"
+          }
+        ],
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/pycompss/2.9/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.scipy.org/scipylib/license.html",
+      "@type": "CreativeWork",
+      "identifier": "BSD-3-Clause",
+      "isBasedOn": {
+        "@id": "https://spdx.org/licenses/BSD-3-Clause"
+      },
+      "url": "https://www.scipy.org/scipylib/license.html",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "https://pypi.org/project/scipy/1.7.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://www.ub.edu/",
+      "@type": "Organization",
+      "name": "Universitat de Barcelona",
+      "url": "https://www.ub.edu/",
+      "@reverse": {
+        "memberOf": [
+          {
+            "@id": "https://mmb.irbbarcelona.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23",
+      "@type": "ContactPoint",
+      "name": "biobb forum at ask.bioexcel.eu",
+      "url": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23",
+      "@reverse": {
+        "contactPoint": [
+          {
+            "@id": "./"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://biopython.org/",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+      },
+      "installUrl": "https://anaconda.org/bioconda/biopython",
+      "license": [
+        {
+          "@id": "https://github.com/biopython/biopython/blob/master/LICENSE.rst#biopython-license-agreement"
+        },
+        {
+          "@id": "https://spdx.org/licenses/BSD-3-Clause"
+        }
+      ],
+      "name": "BioPython",
+      "url": "https://biopython.org/",
+      "version": "1.70",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1002/jcc.23804",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0002-6761-7780"
+        },
+        {
+          "@id": "#servaas-michielssens"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4119-6068"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-3570-3534"
+        }
+      ],
+      "datePublished": "2015-01-01T00:00:00Z",
+      "name": "pmx: Automated protein structure and topology",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1016/0010-4655(95)00041-D",
+      "@type": "ScholarlyArticle",
+      "datePublished": "1995-09-02T00:00:00.000Z",
+      "name": "AMBER, a package of computer programs for applying molecular mechanics, normal mode analysis, molecular dynamics and free energy calculations to simulate the structural and energetic properties of molecules",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "#ambertools-20.0"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1016/j.bpj.2010.01.051",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0002-4119-6068"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-3570-3534"
+        }
+      ],
+      "datePublished": "2010-01-01T00:00:00Z",
+      "name": "Protein Thermostability Calculations Using Alchemical Free Energy Simulations",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1016/j.softx.2015.06.001",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0001-6363-2521"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2932-9590"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-1603-2413"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-0603-5514"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-2978-3227"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-7498-7763"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-2734-2794"
+        }
+      ],
+      "name": "GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "https://doi.org/10.5281/zenodo.2564764"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1038/s41597-019-0177-4",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-6401-6229"
+        },
+        {
+          "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5"
+        },
+        {
+          "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb"
+        },
+        {
+          "@id": "#5fa8795e-6828-4714-b894-d68359b9590c"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-9842-9718"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-1219-2137"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-5081-7244"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2941-5499"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8608-3278"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-0566-7723"
+        }
+      ],
+      "copyrightYear": "2019-09-10T00:00:00.000Z",
+      "datePublished": "2019-09-10T00:00:00.000Z",
+      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
+      "license": {
+        "@id": "https://spdx.org/licenses/CC-BY-4.0"
+      },
+      "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "./"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1093/bioinformatics/btp163",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0001-9513-9993"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-7269-5513"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4578-5636"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-3026-1856"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4927-979X"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-8933-8830"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-1789-8000"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2917-3602"
+        },
+        {
+          "@id": "#frank-kauff"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8134-0589"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-0489-2352"
+        }
+      ],
+      "datePublished": "2009-03-20T00:00:00.000Z",
+      "name": "Biopython: freely available Python tools for computational molecular biology and bioinformatics",
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "https://biopython.org/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://doi.org/10.5281/zenodo.2564764",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+      },
+      "downloadUrl": "https://manual.gromacs.org/documentation/2019.1/download.html",
+      "installUrl": "https://anaconda.org/bioconda/gromacs",
+      "license": {
+        "@id": "https://spdx.org/licenses/LGPL-2.1-or-later"
+      },
+      "name": "GROMACS",
+      "softwareHelp": "https://doi.org/10.5281/zenodo.2564761",
+      "url": "https://manual.gromacs.org/documentation/2019.1/",
+      "version": "2019.1",
+      "@reverse": {
+        "softwareRequirements": [
+          {
+            "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+          },
+          {
+            "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "https://esciencelab.org.uk/",
+      "@type": "Organization",
+      "name": "eScience Lab",
+      "parentOrganization": {
+        "@id": "https://www.cs.manchester.ac.uk/"
+      },
+      "url": "https://esciencelab.org.uk/"
+    },
+    {
+      "@id": "https://github.com/biopython/biopython/blob/master/LICENSE.rst#biopython-license-agreement",
+      "@type": "CreativeWork",
+      "description": "Permission to use, copy, modify, and distribute this software and its documentation with or without modifications and for any purpose and without fee is hereby granted, provided that any copyright notices appear in all copies and that both those copyright notices and this permission notice appear in supporting documentation, and that the names of the contributors or copyright holders not be used in advertising or publicity pertaining to distribution of the software without specific prior permission.\n\n          THE CONTRIBUTORS AND COPYRIGHT HOLDERS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL THE CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE",
+      "name": "Biopython License Agreement",
+      "@reverse": {
+        "license": [
+          {
+            "@id": "https://biopython.org/"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+    
+<!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script -->
+<script src="https://unpkg.com/ro-crate-html-js/dist/ro-crate-dynamic.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta charset='utf-8'/>
+<style>
+
+table.table {
+  padding-bottom: 300px;
+}
+</style>
+</head>
+
+
+<body>
+
+  <nav class="navbar">
+
+    <ul class="nav navbar-nav" >
+        <li ><a href="#"><span class="glyphicon glyphicon-home dataset_name">&nbsp;Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</span></a></li>
+    </ul>
+
+  </nav>
+<div class="container">
+<div class="jumbotron">
+<h4 class="citation"></h3>
+<h3 class="item_name">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</h4>
+
+
+<a href="./ro-crate-metadata.json">⬇️🏷️ Download all the metadata for <span class='name'>Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</span> in JSON-LD format</a>
+
+
+<div id="check"></div>
+
+
+</div>
+
+
+
+<div id="summary">
+<div class='all-meta'>
+           <div>
+            <h3> Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</h3>
+            
+            
+            
+            
+        <div id="./">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>./</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Dataset</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>This PyCOMPSs workflow tutorial aims to illustrate the process of setting up a simulation system containing a protein, step by step, using the BioExcel Building Blocks library (biobb) in PyCOMPSs for execution on HPC. Three variants of the MD Setup workflows are included, supporting a list of structures, a list of mutations, or a cumulative set of mutations. </span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">datePublished<span>&nbsp;</span><a href="http://schema.org/datePublished">[?]</a></th>
+            <td style='text-align:left'><span>2021-09-28T17:27:00+0100</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#https%3A//orcid.org/0000-0002-8291-8071">Adam Hospital</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0003-2116-3880">Pau Andrio</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">citation<span>&nbsp;</span><a href="http://schema.org/citation">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//doi.org/10.1038/s41597-019-0177-4">BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">contactPoint<span>&nbsp;</span><a href="http://schema.org/contactPoint">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23">biobb forum at ask.bioexcel.eu</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#workflows/">workflows</a></li>
+                        
+                        <li><a href="#launchers/">launchers</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">license<span>&nbsp;</span><a href="http://schema.org/license">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//spdx.org/licenses/Apache-2.0">Apache License 2.0</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">mainEntity<span>&nbsp;</span><a href="http://schema.org/mainEntity">[?]</a></th>
+            <td style='text-align:left'><a href="#workflows/MD/md_list.py">md_list.py</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">publisher<span>&nbsp;</span><a href="http://schema.org/publisher">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//mmb.irbbarcelona.org/">Molecular Modeling and Bioinformatics unit</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">url<span>&nbsp;</span><a href="http://schema.org/url">[?]</a></th>
+            <td style='text-align:left'><a href="https://github.com/bioexcel/biobb_hpc_workflows">https://github.com/bioexcel/biobb_hpc_workflows</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">about<span>&nbsp;</span><a href="http://schema.org/about">[?]</a></th>
+            <td style='text-align:left'><a href="#ro-crate-metadata.json">ro-crate-metadata.json</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">license<span>&nbsp;</span><a href="http://schema.org/license">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//pypi.org/project/numpy/1.21.2/">numpy</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://orcid.org/0000-0002-8291-8071">Go to: </a> Adam Hospital</h3>
+            
+            
+            
+            
+        <div id="https://orcid.org/0000-0002-8291-8071">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://orcid.org/0000-0002-8291-8071">https://orcid.org/0000-0002-8291-8071</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Adam Hospital</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Person</span></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></li>
+                        
+                        <li><a href="#workflows/MD/md_add_muts_wt.py">md_add_muts_wt.py</a></li>
+                        
+                        <li><a href="#workflows/MD/md_list.py">md_list.py</a></li>
+                        
+                        <li><a href="#workflows/MD/md_muts_sets.py">md_muts_sets.py</a></li>
+                        
+                        <li><a href="#https%3A//doi.org/10.1038/s41597-019-0177-4">BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows</a></li>
+                        </ul></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://orcid.org/0000-0003-2116-3880">Go to: </a> Pau Andrio</h3>
+            
+            
+            
+            
+        <div id="https://orcid.org/0000-0003-2116-3880">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://orcid.org/0000-0003-2116-3880">https://orcid.org/0000-0003-2116-3880</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Pau Andrio</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Person</span></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></li>
+                        
+                        <li><a href="#workflows/MD/md_add_muts_wt.py">md_add_muts_wt.py</a></li>
+                        
+                        <li><a href="#workflows/MD/md_list.py">md_list.py</a></li>
+                        
+                        <li><a href="#workflows/MD/md_muts_sets.py">md_muts_sets.py</a></li>
+                        
+                        <li><a href="#https%3A//doi.org/10.1038/s41597-019-0177-4">BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows</a></li>
+                        </ul></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://doi.org/10.1038/s41597-019-0177-4">Go to: </a> BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows</h3>
+            
+            
+            
+            
+        <div id="https://doi.org/10.1038/s41597-019-0177-4">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://doi.org/10.1038/s41597-019-0177-4">https://doi.org/10.1038/s41597-019-0177-4</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ScholarlyArticle</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">datePublished<span>&nbsp;</span><a href="http://schema.org/datePublished">[?]</a></th>
+            <td style='text-align:left'><span>2019-09-10T00:00:00.000Z</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#https%3A//orcid.org/0000-0003-2116-3880">Pau Andrio</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0002-8291-8071">Adam Hospital</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0001-6401-6229">Javier Conejero</a></li>
+                        
+                        <li><a href="#%2367572c85-eb81-4a77-a25c-f006c98a07b5">Luis Jordá</a></li>
+                        
+                        <li><a href="#%232249fe94-27ad-4bd5-91ed-f4801e41eafb">Marc Del Pino</a></li>
+                        
+                        <li><a href="#%235fa8795e-6828-4714-b894-d68359b9590c">Laia Codo</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0001-9842-9718">Stian Soiland-Reyes</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0003-1219-2137">Carole Goble</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0001-5081-7244">Daniele Lezzi</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0003-2941-5499">Rosa M. Badia</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0002-8608-3278">Modesto Orozco</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0002-0566-7723">Josep Ll. Gelpi</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">copyrightYear<span>&nbsp;</span><a href="http://schema.org/copyrightYear">[?]</a></th>
+            <td style='text-align:left'><span>2019-09-10T00:00:00.000Z</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">license<span>&nbsp;</span><a href="http://schema.org/license">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//spdx.org/licenses/CC-BY-4.0">Creative Commons Attribution 4.0 International</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">citation<span>&nbsp;</span><a href="http://schema.org/citation">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23">Go to: </a> biobb forum at ask.bioexcel.eu</h3>
+            
+            
+            
+            
+        <div id="https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23">https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>biobb forum at ask.bioexcel.eu</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ContactPoint</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">url<span>&nbsp;</span><a href="http://schema.org/url">[?]</a></th>
+            <td style='text-align:left'><a href="https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23">https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">contactPoint<span>&nbsp;</span><a href="http://schema.org/contactPoint">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3> workflows</h3>
+            
+            
+            
+            
+        <div id="workflows/">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>workflows/</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>workflows</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Dataset</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>HPC workflows using PyCOMPSs</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">dateModified<span>&nbsp;</span><a href="http://schema.org/dateModified">[?]</a></th>
+            <td style='text-align:left'><span>2021-09-28T10:02:17.833Z</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#workflows/MD/">MD</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3> launchers</h3>
+            
+            
+            
+            
+        <div id="launchers/">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>launchers/</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>launchers</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Dataset</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>HPC launchers for PyCOMPSs workflows</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">dateModified<span>&nbsp;</span><a href="http://schema.org/dateModified">[?]</a></th>
+            <td style='text-align:left'><span>2021-09-28T10:02:17.833Z</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#launchers/md_launch.py">md_launch.py</a></li>
+                        
+                        <li><a href="#launchers/mdmut_launch.py">mdmut_launch.py</a></li>
+                        </ul></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://spdx.org/licenses/Apache-2.0">Go to: </a> Apache License 2.0</h3>
+            
+            
+            
+            
+        <div id="https://spdx.org/licenses/Apache-2.0">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://spdx.org/licenses/Apache-2.0">https://spdx.org/licenses/Apache-2.0</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Apache License 2.0</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>CreativeWork</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">identifier<span>&nbsp;</span><a href="http://schema.org/identifier">[?]</a></th>
+            <td style='text-align:left'><a href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">license<span>&nbsp;</span><a href="http://schema.org/license">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-analysis/3.6.0/">biobb_analysis</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-md/3.6.0/">biobb_md</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-pmx/3.6.0/">biobb_pmx</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-structure-utils/3.6.1/">biobb_structure_utils</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb/">BioExcel Building Blocks</a></li>
+                        </ul></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="workflows/MD/md_list.py">⬇️ Download: </a> md_list.py</h3>
+            
+            
+            
+            
+        <div id="workflows/MD/md_list.py">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>workflows/MD/md_list.py</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>md_list.py</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><ul>
+                        <li><span>File</span></li>
+                        
+                        <li><span>SoftwareSourceCode</span></li>
+                        
+                        <li><span>ComputationalWorkflow</span></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#https%3A//orcid.org/0000-0003-2116-3880">Pau Andrio</a></li>
+                        
+                        <li><a href="#https%3A//orcid.org/0000-0002-8291-8071">Adam Hospital</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">dateModified<span>&nbsp;</span><a href="http://schema.org/dateModified">[?]</a></th>
+            <td style='text-align:left'><span>2021-09-03T00:00:00.000Z</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#https%3A//pypi.org/project/biobb-pmx/3.6.0/">biobb_pmx</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-md/3.6.0/">biobb_md</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-analysis/3.6.0/">biobb_analysis</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-structure-utils/3.6.1/">biobb_structure_utils</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">isBasedOn<span>&nbsp;</span><a href="http://schema.org/isBasedOn">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//doi.org/10.48546/workflowhub.workflow.120.2">Research Object Crate for Protein MD Setup tutorial using BioExcel Building Blocks (biobb)</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">programmingLanguage<span>&nbsp;</span><a href="http://schema.org/programmingLanguage">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//pypi.org/project/pycompss/2.9/">PyCOMPSs</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">runtimePlatform<span>&nbsp;</span><a href="http://schema.org/runtimePlatform">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//www.python.org/downloads/release/python-380/">Python 3.8.0</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">mainEntity<span>&nbsp;</span><a href="http://schema.org/mainEntity">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#workflows/MD/">MD</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">isBasedOn<span>&nbsp;</span><a href="http://schema.org/isBasedOn">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#workflows/MD/md_add_muts_wt.py">md_add_muts_wt.py</a></li>
+                        
+                        <li><a href="#workflows/MD/md_muts_sets.py">md_muts_sets.py</a></li>
+                        </ul></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/>
+           <div>
+            <h3><a href="https://mmb.irbbarcelona.org/">Go to: </a> Molecular Modeling and Bioinformatics unit</h3>
+            
+            
+            
+            
+        <div id="https://mmb.irbbarcelona.org/">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://mmb.irbbarcelona.org/">https://mmb.irbbarcelona.org/</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Molecular Modeling and Bioinformatics unit</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Organization</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">memberOf<span>&nbsp;</span><a href="http://schema.org/memberOf">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#https%3A//ror.org/01z1gye03">Institute for Research in Biomedicine</a></li>
+                        
+                        <li><a href="#https%3A//ror.org/05sd8tv96">Barcelona Supercomputing Centre</a></li>
+                        
+                        <li><a href="#https%3A//www.ub.edu/">Universitat de Barcelona</a></li>
+                        
+                        <li><a href="#https%3A//www.imim.cat/programesrecerca/neurociencies/en_cech.htm">CECH</a></li>
+                        
+                        <li><a href="#https%3A//www.icrea.cat/">ICREA</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">url<span>&nbsp;</span><a href="http://schema.org/url">[?]</a></th>
+            <td style='text-align:left'><a href="https://mmb.irbbarcelona.org/">https://mmb.irbbarcelona.org/</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">publisher<span>&nbsp;</span><a href="http://schema.org/publisher">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#./">Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-analysis/3.6.0/">biobb_analysis</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-md/3.6.0/">biobb_md</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-pmx/3.6.0/">biobb_pmx</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb-structure-utils/3.6.1/">biobb_structure_utils</a></li>
+                        
+                        <li><a href="#https%3A//pypi.org/project/biobb/">BioExcel Building Blocks</a></li>
+                        </ul></td>
+            </tr></tbody>
+            </table>
+        </div>
+
+        </div>
+        <hr/><br/><br/></div>
+</div>
+
+
+
+
+
+</body>
+</html>
