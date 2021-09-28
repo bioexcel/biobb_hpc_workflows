@@ -12,12 +12,12 @@ We are working on some new workflows that will be added to the current list of w
     * [pmx_cv_cufix_term](workflows/PMX/pmx_cv_cufix_term.py): Performs a fast-growth mutation free energy calculation from two equilibrium trajectories.
 
 * Launchers:
-    * [md_launch](MN4/md_launch.py): Launcher for the [md_list](workflows/MD/md_list.py) workflow.
-    * [mdmut_launch](MN4/mdmut_launch.py): Launcher for the [md_muts_sets](workflows/MD/md_muts_sets.py) and [md_add_muts_wt](workflows/MD/md_add_muts_wt.py) workflows.
-    * [pmx_launch](MN4/pmx_launch.py): Launcher for the [pmx_cv_cufix_term](workflows/PMX/pmx_cv_cufix_term.py).
+    * [md_launch](launchers/md_launch.py): Launcher for the [md_list](workflows/MD/md_list.py) workflow.
+    * [mdmut_launch](launchers/mdmut_launch.py): Launcher for the [md_muts_sets](workflows/MD/md_muts_sets.py) and [md_add_muts_wt](workflows/MD/md_add_muts_wt.py) workflows.
+    * [pmx_launch](launchers/pmx_launch.py): Launcher for the [pmx_cv_cufix_term](workflows/PMX/pmx_cv_cufix_term.py).
 
 The launchers are available in:
-    * Mare Nostrum IV (MN4) at the Barcelona Supercomputing Center (BSC) (/apps/BIOBB/workflows)
+    * Mare Nostrum IV (MN4) at the Barcelona Supercomputing Center (BSC) (`/apps/BIOBB/workflows`)
 
 ### Installation
 
