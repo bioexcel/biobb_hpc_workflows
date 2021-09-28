@@ -40,7 +40,7 @@
           "@id": "workflows/"
         },
         {
-          "@id": "MN4/"
+          "@id": "launchers/"
         }
       ],
       "license": {
@@ -161,11 +161,11 @@
           "@id": "workflows/MD/"
         }
       ],
+      "description": "HPC workflows using PyCOMPSs",
       "@id": "workflows/"
     },
     {
       "@type": "ScholarlyArticle",
-      "@id": "https://doi.org/10.1038/s41597-019-0177-4",
       "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows",
       "author": [
         {
@@ -219,19 +219,20 @@
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments."
+      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
+      "@id": "https://doi.org/10.1038/s41597-019-0177-4"
     },
     {
       "@type": "Person",
       "name": "Javier Conejero",
-      "@id": "https://orcid.org/0000-0001-6401-6229",
       "@reverse": {
         "author": [
           {
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://orcid.org/0000-0001-6401-6229"
     },
     {
       "@type": "Person",
@@ -271,7 +272,6 @@
     },
     {
       "@type": "Person",
-      "@id": "http://orcid.org/0000-0001-9842-9718",
       "name": "Stian Soiland-Reyes",
       "@reverse": {
         "author": [
@@ -279,11 +279,11 @@
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "http://orcid.org/0000-0001-9842-9718"
     },
     {
       "@type": "Person",
-      "@id": "https://orcid.org/0000-0003-1219-2137",
       "name": "Carole Goble",
       "@reverse": {
         "author": [
@@ -291,59 +291,59 @@
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://orcid.org/0000-0003-1219-2137"
     },
     {
       "@type": "Person",
       "name": "Daniele Lezzi",
-      "@id": "https://orcid.org/0000-0001-5081-7244",
       "@reverse": {
         "author": [
           {
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://orcid.org/0000-0001-5081-7244"
     },
     {
       "@type": "Person",
       "name": "Rosa M. Badia",
-      "@id": "https://orcid.org/0000-0003-2941-5499",
       "@reverse": {
         "author": [
           {
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://orcid.org/0000-0003-2941-5499"
     },
     {
       "@type": "Person",
       "name": "Modesto Orozco",
-      "@id": "https://orcid.org/0000-0002-8608-3278",
       "@reverse": {
         "author": [
           {
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://orcid.org/0000-0002-8608-3278"
     },
     {
       "@type": "Person",
       "name": "Josep Ll. Gelpi",
-      "@id": "http://orcid.org/0000-0002-0566-7723",
       "@reverse": {
         "author": [
           {
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "http://orcid.org/0000-0002-0566-7723"
     },
     {
       "@type": "CreativeWork",
-      "@id": "https://spdx.org/licenses/CC-BY-4.0",
       "name": "Creative Commons Attribution 4.0 International",
       "identifier": [
         "CC-BY-4.0"
@@ -354,10 +354,11 @@
             "@id": "https://doi.org/10.1038/s41597-019-0177-4"
           }
         ]
-      }
+      },
+      "@id": "https://spdx.org/licenses/CC-BY-4.0"
     },
     {
-      "name": "MN4",
+      "name": "launchers",
       "@type": "Dataset",
       "dateModified": "2021-09-28T10:02:17.833Z",
       "@reverse": {
@@ -369,13 +370,14 @@
       },
       "hasPart": [
         {
-          "@id": "MN4/md_launch.py"
+          "@id": "launchers/md_launch.py"
         },
         {
-          "@id": "MN4/mdmut_launch.py"
+          "@id": "launchers/mdmut_launch.py"
         }
       ],
-      "@id": "MN4/"
+      "description": "HPC launchers for PyCOMPSs workflows",
+      "@id": "launchers/"
     },
     {
       "name": "md_launch.py",
@@ -384,12 +386,12 @@
       "@reverse": {
         "hasPart": [
           {
-            "@id": "MN4/"
+            "@id": "launchers/"
           }
         ]
       },
       "description": "Launcher for the md_list workflow.",
-      "@id": "MN4/md_launch.py"
+      "@id": "launchers/md_launch.py"
     },
     {
       "name": "mdmut_launch.py",
@@ -398,12 +400,12 @@
       "@reverse": {
         "hasPart": [
           {
-            "@id": "MN4/"
+            "@id": "launchers/"
           }
         ]
       },
       "description": "Launcher for the md_muts_sets and md_add_muts_wt workflows",
-      "@id": "MN4/mdmut_launch.py"
+      "@id": "launchers/mdmut_launch.py"
     },
     {
       "name": "MD",
@@ -433,6 +435,7 @@
           "@id": "workflows/MD/md_muts_sets.yaml"
         }
       ],
+      "description": "Molecular dynamics workflows",
       "@id": "workflows/MD/"
     },
     {
