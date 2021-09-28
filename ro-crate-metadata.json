@@ -53,169 +53,42 @@
       "url": "https://github.com/bioexcel/biobb_hpc_workflows"
     },
     {
-      "@id": "https://orcid.org/0000-0001-9842-9718",
+      "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb",
       "@type": "Person",
-      "name": "Stian Soiland-Reyes"
+      "name": "Marc Del Pino"
     },
     {
-      "@id": "https://orcid.org/0000-0002-0566-7723",
+      "@id": "#5fa8795e-6828-4714-b894-d68359b9590c",
       "@type": "Person",
-      "name": "Josep Ll. Gelpi"
-    },
-
-    {
-      "@id": "https://orcid.org/0000-0001-6363-2521",
-      "@type": "Person",
-      "name": "Mark James Abraham"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0003-2932-9590",
-      "@type": "Person",
-      "name": "Teemu Murtola"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0003-1603-2413",
-      "@type": "Person",
-      "name": "Roland Schulz"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0003-0603-5514",
-      "@type": "Person",
-      "name": "Szilárd Páll"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0002-2978-3227",
-      "@type": "Person",
-      "name": "Jeremy C. Smith"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0002-7498-7763",
-      "@type": "Person",
-      "name": "Berk Hess"
-    },    
-    {
-      "@id": "https://orcid.org/0000-0002-2734-2794",
-      "@type": "Person",
-      "name": "Erik Lindahl"
-    },        
-    { "@id": "https://doi.org/10.1093/bioinformatics/btp163",
-      "@type": "ScholarlyArticle",
-      "name": "Biopython: freely available Python tools for computational molecular biology and bioinformatics",
-      "datePublished": "2009-03-20T00:00:00.000Z"
-    },
-    { "@id": "https://doi.org/10.1016/j.softx.2015.06.001",
-      "@type": "ScholarlyArticle",
-      "name": "GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers",
-      "author": [
-        {"@id": "https://orcid.org/0000-0001-6363-2521"},
-        {"@id": "https://orcid.org/0000-0003-2932-9590"},
-        {"@id": "https://orcid.org/0000-0003-1603-2413"},
-        {"@id": "https://orcid.org/0000-0003-0603-5514"},
-        {"@id": "https://orcid.org/0000-0002-2978-3227"},
-        {"@id": "https://orcid.org/0000-0002-7498-7763"},
-        {"@id": "https://orcid.org/0000-0002-2734-2794"}
-      ]
+      "name": "Laia Codo"
     },
     {
-      "@id": "https://doi.org/10.1038/s41597-019-0177-4",
-      "@type": "ScholarlyArticle",
-      "author": [
-        {
-          "@id": "https://orcid.org/0000-0003-2116-3880"
-        },
-        {
-          "@id": "https://orcid.org/0000-0002-8291-8071"
-        },
-        {
-          "@id": "https://orcid.org/0000-0001-6401-6229"
-        },
-        {
-          "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5"
-        },
-        {
-          "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb"
-        },
-        {
-          "@id": "#5fa8795e-6828-4714-b894-d68359b9590c"
-        },
-        {
-          "@id": "https://orcid.org/0000-0001-9842-9718"
-        },
-        {
-          "@id": "https://orcid.org/0000-0003-1219-2137"
-        },
-        {
-          "@id": "https://orcid.org/0000-0001-5081-7244"
-        },
-        {
-          "@id": "https://orcid.org/0000-0003-2941-5499"
-        },
-        {
-          "@id": "https://orcid.org/0000-0002-8608-3278"
-        },
-        {
-          "@id": "https://orcid.org/0000-0002-0566-7723"
-        }
-      ],
-      "copyrightYear": "2019-09-10T00:00:00.000Z",
-      "datePublished": "2019-09-10T00:00:00.000Z",
-      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
-      "license": {
-        "@id": "https://spdx.org/licenses/CC-BY-4.0"
+      "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5",
+      "@type": "Person",
+      "name": "Luis Jordá"
+    },
+    {
+      "@id": "#ambertools-20.0",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1016/0010-4655(95)00041-D"
       },
-      "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows"
+      "description": "AmberTools is a set of programs for biomolecular simulation and analysis",
+      "installUrl": "https://anaconda.org/conda-forge/ambertools",
+      "name": "AmberTools20",
+      "softwareHelp": "http://ambermd.org/doc12/Amber20.pdf",
+      "url": "http://ambermd.org/AmberTools.php",
+      "version": "20.0"
     },
     {
-      "@id": "https://doi.org/10.1016/0010-4655(95)00041-D",
-      "@type": "ScholarlyArticle",
-      "name": "AMBER, a package of computer programs for applying molecular mechanics, normal mode analysis, molecular dynamics and free energy calculations to simulate the structural and energetic properties of molecules",
-      "datePublished": "1995-09-02T00:00:00.000Z"
-    },
-    {
-      "@id": "https://orcid.org/0000-0001-5081-7244",
+      "@id": "#frank-kauff",
       "@type": "Person",
-      "name": "Daniele Lezzi"
+      "name": "Frank Kauff"
     },
     {
-      "@id": "https://orcid.org/0000-0001-6401-6229",
+      "@id": "#servaas-michielssens",
       "@type": "Person",
-      "name": "Javier Conejero"
-    },
-    {
-      "@id": "https://orcid.org/0000-0002-8608-3278",
-      "@type": "Person",
-      "name": "Modesto Orozco"
-    },
-    {
-      "@id": "https://orcid.org/0000-0003-1219-2137",
-      "@type": "Person",
-      "name": "Carole Goble"
-    },
-    {
-      "@id": "https://orcid.org/0000-0003-2941-5499",
-      "@type": "Person",
-      "name": "Rosa M. Badia"
-    },
-    {
-      "@id": "https://spdx.org/licenses/CC-BY-4.0",
-      "@type": "CreativeWork",
-      "identifier": "CC-BY-4.0",
-      "name": "Creative Commons Attribution 4.0 International",
-      "url": "https://creativecommons.org/licenses/by/4.0/"
-    },
-    {
-      "@id": "https://spdx.org/licenses/CC0-1.0",
-      "@type": "CreativeWork",
-      "identifier": "CC0-1.0",
-      "name": "Creative Commons Zero v1.0 Universal",
-      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
-    },    
-    {
-      "@id": "https://spdx.org/licenses/LGPL-2.1-or-later",
-      "@type": "CreativeWork",      
-      "name": "GNU Lesser General Public License v2.1 or later",
-      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
-      "identifier": "LGPL-2.1-or-later"
+      "name": "Servaas Michielssens"
     },
     {
       "@id": "launchers/",
@@ -282,7 +155,11 @@
     },
     {
       "@id": "workflows/MD/md_add_muts_wt.py",
-      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -291,25 +168,37 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "name": "md_add_muts_wt.py",
       "programmingLanguage": {
         "@id": "https://pypi.org/project/pycompss/2.9/"
       },
       "runtimePlatform": {
         "@id": "https://www.python.org/downloads/release/python-380/"
-      },
-      "hasPart": [
-        {"@id": "https://biobb-pmx.readthedocs.io/"},
-        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
-      ],      
-      "dateModified": "2021-09-03T00:00:00.000Z",
-      "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
-      "name": "md_add_muts_wt.py"
+      }
     },
     {
       "@id": "workflows/MD/md_list.py",
-      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -318,153 +207,29 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "name": "md_list.py",
       "programmingLanguage": {
         "@id": "https://pypi.org/project/pycompss/2.9/"
       },
       "runtimePlatform": {
         "@id": "https://www.python.org/downloads/release/python-380/"
-      },
-      "hasPart": [
-        {"@id": "https://biobb-pmx.readthedocs.io/"},
-        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
-      ],      
-      "dateModified": "2021-09-03T00:00:00.000Z",
-      "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
-      "name": "md_list.py"
-    },
-    {
-      "@id": "https://pypi.org/project/pycompss/2.9/",
-      "@type": ["ComputerLanguage", "SoftwareApplication"],
-      "name": "PyCOMPSs",
-      "publisher": {"@id": "https://ror.org/05sd8tv96"},
-      "description": "Python Binding for COMP Superscalar Runtime",
-      "version": "2.9",
-      "softwareRequirements": {
-        "@id": "https://www.python.org/downloads/release/python-380/"
-      },
-      "url": "http://compss.bsc.es/"
-    },
-    {
-      "@id": "https://www.python.org/downloads/release/python-380/",
-      "@type": ["ComputerLanguage", "SoftwareApplication"],
-      "name": "Python 3.8.0",
-      "version": "3.8.0",
-      "url": "https://www.python.org/downloads/release/python-380/"
-    },
-    { "@id": "https://biobb-pmx.readthedocs.io/",
-      "@type": "SoftwareApplication",
-      "name": "biobb_pmx",
-      "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
-      },
-      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-      "description": "Bio Building Blocks to setup and run Alchemical Free Energy calculations",
-      "url": "https://github.com/bioexcel/biobb_pmx",
-      "downloadUrl": "https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0",
-      "installUrl": "https://anaconda.org/bioconda/biobb_pmx",
-      "softwareHelp": "https://biobb-pmx.readthedocs.io/en/latest/",
-      "isPartOf": "https://pypi.org/project/biobb/",
-      "version": "3.6.0"
-    },
-    { "@id": "https://pypi.org/project/biobb-md/3.6.0/",
-      "@type": "SoftwareApplication",
-      "name": "biobb_md",
-      "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
-      },
-      "softwareRequirements": [
-        {"@id": "https://doi.org/10.5281/zenodo.2564764"}
-      ],
-      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-      "description": "Bio Building Blocks to setup and run Molecular Dynamics simulations.",
-      "url": "https://github.com/bioexcel/biobb_md",
-      "downloadUrl": "https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0",
-      "installUrl": "https://anaconda.org/bioconda/biobb_md",
-      "softwareHelp": "https://biobb-md.readthedocs.io/en/latest/",
-      "isPartOf": "https://pypi.org/project/biobb/",
-      "version": "3.6.0"
-    },
-    { "@id": "https://doi.org/10.5281/zenodo.2564764",
-      "@type": "SoftwareApplication",
-      "name": "GROMACS",
-      "version": "2019.1",
-      "url": "https://manual.gromacs.org/documentation/2019.1/",
-      "softwareHelp": "https://doi.org/10.5281/zenodo.2564761",
-      "installUrl": "https://anaconda.org/bioconda/gromacs",
-      "license": {"@id": "https://spdx.org/licenses/LGPL-2.1-or-later"},
-      "citation": {"@id": "https://doi.org/10.1016/j.softx.2015.06.001"},
-      "downloadUrl": "https://manual.gromacs.org/documentation/2019.1/download.html"
-    },
-    {
-      "@id": "#ambertools-20.0",
-      "@type": "SoftwareApplication",
-      "name": "AmberTools20",
-      "description": "AmberTools is a set of programs for biomolecular simulation and analysis",
-      "softwareHelp": "http://ambermd.org/doc12/Amber20.pdf",
-      "url": "http://ambermd.org/AmberTools.php",
-      "installUrl": "https://anaconda.org/conda-forge/ambertools",
-      "citation": {"@id": "https://doi.org/10.1016/0010-4655(95)00041-D"},
-      "version": "20.0"
-    },
-    { "@id": "https://pypi.org/project/biobb-analysis/3.6.0/",
-      "@type": "SoftwareApplication",
-      "name": "biobb_analysis",
-      "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
-      },
-      "softwareRequirements": [
-        {"@id": "https://doi.org/10.5281/zenodo.2564764"},
-        {"@id": "#ambertools-20.0"}
-      ],
-
-      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-      "description": "Bio Building Blocks to analyse Molecular Dynamics trajectories",
-      "url": "https://github.com/bioexcel/biobb_analysis",
-      "downloadUrl": "https://quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0",
-      "installUrl": "https://anaconda.org/bioconda/biobb_analysis",
-      "softwareHelp": "https://biobb-analysis.readthedocs.io/en/latest/",
-      "isPartOf": "https://pypi.org/project/biobb/",
-      "version": "3.6.0"
-    },
-    { "@id": "https://biopython.org/",
-      "@type": "SoftwareApplication",
-      "name": "BioPython",
-      "version": "1.70",
-      "installUrl": "https://anaconda.org/bioconda/biopython",
-      "url": "https://biopython.org/",
-      "citation": {"@id": "https://doi.org/10.1093/bioinformatics/btp163"}
-   },
-
-    { "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/",
-      "@type": "SoftwareApplication",
-      "name": "biobb_structure_utils",
-      "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
-      },
-      "softwareRequirements": [
-        {"@id": "https://biopython.org/"}        
-      ],
-      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-      "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
-      "url": "https://github.com/bioexcel/biobb_structure_utils",
-      "downloadUrl": "https://quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0",
-      "installUrl": "https://anaconda.org/bioconda/biobb_structure_utils",
-      "softwareHelp": "https://biobb-structure-utils.readthedocs.io/en/latest/",
-      "isPartOf": "https://pypi.org/project/biobb/",
-      "version": "3.6.1"
-    },    
-    {"@id": "https://pypi.org/project/biobb/",
-     "@type": "SoftwareApplication",
-     "name": "BioExcel Building Blocks",
-     "license": {
-      "@id": "https://spdx.org/licenses/Apache-2.0"
-    },
-     "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-     "url": "https://github.com/bioexcel/biobb",
-     "softwareHelp": "https://mmb.irbbarcelona.org/biobb/documentation/source",
-     "version": "3.6.0"
+      }
     },
     {
       "@id": "workflows/MD/md_list.yaml",
@@ -475,7 +240,11 @@
     },
     {
       "@id": "workflows/MD/md_muts_sets.py",
-      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -484,21 +253,29 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "dateModified": "2021-09-03T00:00:00.000Z",
+      "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
+      "hasPart": [
+        {
+          "@id": "https://pypi.org/project/biobb-pmx/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-md/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-analysis/3.6.0/"
+        },
+        {
+          "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"
+        }
+      ],
+      "name": "md_muts_sets.py",
       "programmingLanguage": {
         "@id": "https://pypi.org/project/pycompss/2.9/"
       },
       "runtimePlatform": {
         "@id": "https://www.python.org/downloads/release/python-380/"
-      },
-      "hasPart": [
-        {"@id": "https://biobb-pmx.readthedocs.io/"},
-        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
-        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
-      ],      
-      "dateModified": "2021-09-03T00:00:00.000Z",
-      "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
-      "name": "md_muts_sets.py"
+      }
     },
     {
       "@id": "workflows/MD/md_muts_sets.yaml",
@@ -508,15 +285,147 @@
       "name": "md_muts_sets.yaml"
     },
     {
-      "@id": "https://spdx.org/licenses/Apache-2.0",
-      "@type": "CreativeWork",
-      "identifier": "https://www.apache.org/licenses/LICENSE-2.0",
-      "name": "Apache License 2.0"
+      "@id": "https://mmb.irbbarcelona.org/",
+      "@type": "Organization",
+      "memberOf": [
+        {
+          "@id": "https://ror.org/01z1gye03"
+        },
+        {
+          "@id": "https://ror.org/05sd8tv96"
+        },
+        {
+          "@id": "https://www.ub.edu/"
+        },
+        {
+          "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"
+        },
+        {
+          "@id": "https://www.icrea.cat/"
+        }
+      ],
+      "name": "Molecular Modeling and Bioinformatics unit",
+      "url": "https://mmb.irbbarcelona.org/"
     },
     {
-      "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb",
+      "@id": "https://orcid.org/0000-0001-5081-7244",
       "@type": "Person",
-      "name": "Marc Del Pino"
+      "name": "Daniele Lezzi"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-6363-2521",
+      "@type": "Person",
+      "name": "Mark James Abraham"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-6401-6229",
+      "@type": "Person",
+      "name": "Javier Conejero"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8933-8830",
+      "@type": "Person",
+      "name": "Andrew Dalke"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9513-9993",
+      "@type": "Person",
+      "name": "Peter J. A. Cock"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9842-9718",
+      "@type": "Person",
+      "name": "Stian Soiland-Reyes"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-0566-7723",
+      "@type": "Person",
+      "name": "Josep Ll. Gelpi"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1789-8000",
+      "@type": "Person",
+      "name": "Iddo Friedberg"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2734-2794",
+      "@type": "Person",
+      "name": "Erik Lindahl"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2978-3227",
+      "@type": "Person",
+      "name": "Jeremy C. Smith"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-3026-1856",
+      "@type": "Person",
+      "name": "Brad A. Chapman"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4119-6068",
+      "@type": "Person",
+      "name": "Daniel Seeliger"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4578-5636",
+      "@type": "Person",
+      "name": "Jeffrey T. Chang"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4927-979X",
+      "@type": "Person",
+      "name": "Cymon J. Cox"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-6761-7780",
+      "@type": "Person",
+      "name": "Vytautas Gapsys"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7269-5513",
+      "@type": "Person",
+      "name": "Tiago Antao"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7498-7763",
+      "@type": "Person",
+      "name": "Berk Hess"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8134-0589",
+      "@type": "Person",
+      "name": "Bartek Wilczynski"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8291-8071",
+      "@type": "Person",
+      "name": "Adam Hospital"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8608-3278",
+      "@type": "Person",
+      "name": "Modesto Orozco"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0489-2352",
+      "@type": "Person",
+      "name": "Michiel J. L. de Hoon"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0603-5514",
+      "@type": "Person",
+      "name": "Szilárd Páll"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1219-2137",
+      "@type": "Person",
+      "name": "Carole Goble"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1603-2413",
+      "@type": "Person",
+      "name": "Roland Schulz"
     },
     {
       "@id": "https://orcid.org/0000-0003-2116-3880",
@@ -524,83 +433,298 @@
       "name": "Pau Andrio"
     },
     {
-      "@id": "https://mmb.irbbarcelona.org/",
-      "@type": "Organization",
-      "name": "Molecular Modeling and Bioinformatics unit",
-      "alternativeName": "MMB",
-      "memberOf": [
-        {"@id": "https://ror.org/01z1gye03"},
-        {"@id": "https://ror.org/05sd8tv96"},
-        {"@id": "https://www.ub.edu/"},
-        {"@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"},
-        {"@id": "https://www.icrea.cat/"}
+      "@id": "https://orcid.org/0000-0003-2917-3602",
+      "@type": "Person",
+      "name": "Thomas Hamelryck"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2932-9590",
+      "@type": "Person",
+      "name": "Teemu Murtola"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2941-5499",
+      "@type": "Person",
+      "name": "Rosa M. Badia"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3570-3534",
+      "@type": "Person",
+      "name": "Bert L. de Groot"
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-analysis/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to analyse Molecular Dynamics trajectories",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_analysis",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_analysis",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-analysis.readthedocs.io/en/latest/",
+      "softwareRequirements": [
+        {
+          "@id": "https://doi.org/10.5281/zenodo.2564764"
+        },
+        {
+          "@id": "#ambertools-20.0"
+        }
       ],
-      "url": "https://mmb.irbbarcelona.org/"
+      "url": "https://github.com/bioexcel/biobb_analysis",
+      "version": "3.6.0"
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-md/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to setup and run Molecular Dynamics simulations.",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_md",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_md",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-md.readthedocs.io/en/latest/",
+      "softwareRequirements": {
+        "@id": "https://doi.org/10.5281/zenodo.2564764"
+      },
+      "url": "https://github.com/bioexcel/biobb_md",
+      "version": "3.6.0"
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-pmx/3.6.0/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to setup and run Alchemical Free Energy calculations",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_pmx",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_pmx",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://pypi.org/project/biobb-pmx/3.6.0/en/latest/",
+      "softwareRequirements": {
+        "@id": "https://pypi.org/project/pmx-biobb/1.0.1/"
+      },
+      "url": "https://github.com/bioexcel/biobb_pmx",
+      "version": "3.6.0"
+    },
+    {
+      "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/",
+      "@type": "SoftwareApplication",
+      "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_structure_utils",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "biobb_structure_utils",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://biobb-structure-utils.readthedocs.io/en/latest/",
+      "softwareRequirements": [
+        {
+          "@id": "https://biopython.org/"
+        },
+        {
+          "@id": "https://pypi.org/project/numpy/1.21.2/"
+        }
+      ],
+      "url": "https://github.com/bioexcel/biobb_structure_utils",
+      "version": "3.6.1"
+    },
+    {
+      "@id": "https://pypi.org/project/biobb/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "name": "BioExcel Building Blocks",
+      "publisher": {
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "softwareHelp": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "url": "https://github.com/bioexcel/biobb",
+      "version": "3.6.0"
+    },
+    {
+      "@id": "https://pypi.org/project/numpy/1.21.2/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "./"
+      },
+      "name": "numpy",
+      "version": "1.21.1"
+    },
+    {
+      "@id": "https://pypi.org/project/pmx-biobb/1.0.1/",
+      "@type": "SoftwareApplication",
+      "citation": [
+        {
+          "@id": "https://doi.org/10.1002/jcc.23804"
+        },
+        {
+          "@id": "https://doi.org/10.1016/j.bpj.2010.01.051"
+        }
+      ],
+      "description": "pmx is a python library that allows users to setup and analyse molecular dynamics simulations with the Gromacs package. Among its main features are the setup and analysis of alchemical free energy calculations for protein, nucleic acid, and small molecule mutations.\n",
+      "license": {
+        "@id": "https://spdx.org/licenses/LGPL-3.0-only"
+      },
+      "name": "pmx-biobb",
+      "softwareRequirements": [
+        {
+          "@id": "https://pypi.org/project/numpy/1.21.2/"
+        },
+        {
+          "@id": "https://pypi.org/project/scipy/1.7.1/"
+        }
+      ],
+      "url": "https://degrootlab.github.io/pmx/"
+    },
+    {
+      "@id": "https://pypi.org/project/pycompss/2.9/",
+      "@type": [
+        "ComputerLanguage",
+        "SoftwareApplication"
+      ],
+      "description": "Python Binding for COMP Superscalar Runtime",
+      "name": "PyCOMPSs",
+      "publisher": {
+        "@id": "https://ror.org/05sd8tv96"
+      },
+      "softwareRequirements": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "url": "http://compss.bsc.es/",
+      "version": "2.9"
+    },
+    {
+      "@id": "https://pypi.org/project/scipy/1.7.1/",
+      "@type": "SoftwareApplication",
+      "license": {
+        "@id": "https://www.scipy.org/scipylib/license.html"
+      },
+      "name": "SciPy",
+      "url": "https://www.scipy.org/",
+      "version": "1.7.1."
     },
     {
       "@id": "https://ror.org/01z1gye03",
       "@type": "Organization",
       "name": "Institute for Research in Biomedicine",
-      "alternativeName": "IRB Barcelona",      
       "url": "https://www.irbbarcelona.org/"
+    },
+    {
+      "@id": "https://ror.org/027m9bs27",
+      "@type": "Organization",
+      "name": "The University of Manchester",
+      "url": "https://www.manchester.ac.uk/"
     },
     {
       "@id": "https://ror.org/05sd8tv96",
       "@type": "Organization",
       "name": "Barcelona Supercomputing Centre",
-      "alternativeName": "BSC",
       "url": "https://www.bsc.es/"
-    },    
-    {
-      "@id": "https://www.ub.edu/",
-      "@type": "Organization",
-      "name": "Universitat de Barcelona",
-      "alternativeName": "UB",
-      "url": "https://www.ub.edu/"
-    },   
-    {
-      "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm",
-      "@type": "Organization",
-      "name": "CECH",
-      "alternativeName": "Emergent Cluster of the Human Brain",
-      "url": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"
-    },  
-    {
-      "@id": "https://www.icrea.cat/",
-      "@type": "Organization",
-      "name": "ICREA",
-      "alternativeName": "Catalan Institution for Research and Advanced Studies",
-      "url": "https://www.icrea.cat/"
     },
     {
-      "@id": "https://esciencelab.org.uk/",
-      "@type": "Organization",
-      "name": "eScience Lab",      
-      "url": "https://esciencelab.org.uk/",
-      "parentOrganization": {"@id": "https://www.cs.manchester.ac.uk/"}
+      "@id": "https://spdx.org/licenses/Apache-2.0",
+      "@type": "CreativeWork",
+      "identifier": "https://www.apache.org/licenses/LICENSE-2.0",
+      "name": "Apache License 2.0"
+    },
+    {
+      "@id": "https://spdx.org/licenses/BSD-3-Clause",
+      "@type": "CreativeWork",
+      "identifier": "BSD-3-Clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License"
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC-BY-4.0",
+      "@type": "CreativeWork",
+      "identifier": "CC-BY-4.0",
+      "name": "Creative Commons Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC0-1.0",
+      "@type": "CreativeWork",
+      "identifier": "CC0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "@id": "https://spdx.org/licenses/LGPL-2.1-or-later",
+      "@type": "CreativeWork",
+      "identifier": "LGPL-2.1-or-later",
+      "name": "GNU Lesser General Public License v2.1 or later",
+      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html"
+    },
+    {
+      "@id": "https://spdx.org/licenses/LGPL-3.0-only",
+      "@type": "CreativeWork",
+      "identifier": "LGPL-3.0-only",
+      "name": "GNU Lesser General Public License v3.0 only",
+      "url": "https://www.gnu.org/licenses/lgpl-3.0-standalone.html"
     },
     {
       "@id": "https://www.cs.manchester.ac.uk/",
       "@type": "Organization",
-      "name": "Department of Computer Science",      
-      "url": "https://www.cs.manchester.ac.uk/",
-      "parentOrganization": {"@id": "https://ror.org/027m9bs27"}
-    },    
+      "name": "Department of Computer Science",
+      "parentOrganization": {
+        "@id": "https://ror.org/027m9bs27"
+      },
+      "url": "https://www.cs.manchester.ac.uk/"
+    },
     {
-      "@id": "https://ror.org/027m9bs27",
+      "@id": "https://www.icrea.cat/",
       "@type": "Organization",
-      "name": "The University of Manchester",      
-      "url": "https://www.manchester.ac.uk/"      
+      "name": "ICREA",
+      "url": "https://www.icrea.cat/"
     },
     {
-      "@id": "#5fa8795e-6828-4714-b894-d68359b9590c",
-      "@type": "Person",
-      "name": "Laia Codo"
+      "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm",
+      "@type": "Organization",
+      "name": "CECH",
+      "url": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"
     },
     {
-      "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5",
-      "@type": "Person",
-      "name": "Luis Jordá"
+      "@id": "https://www.python.org/downloads/release/python-380/",
+      "@type": [
+        "ComputerLanguage",
+        "SoftwareApplication"
+      ],
+      "name": "Python 3.8.0",
+      "url": "https://www.python.org/downloads/release/python-380/",
+      "version": "3.8.0"
+    },
+    {
+      "@id": "https://www.scipy.org/scipylib/license.html",
+      "@type": "CreativeWork",
+      "identifier": "BSD-3-Clause",
+      "isBasedOn": {
+        "@id": "https://spdx.org/licenses/BSD-3-Clause"
+      },
+      "url": "https://www.scipy.org/scipylib/license.html"
+    },
+    {
+      "@id": "https://www.ub.edu/",
+      "@type": "Organization",
+      "name": "Universitat de Barcelona",
+      "url": "https://www.ub.edu/"
     },
     {
       "@id": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23",
@@ -609,9 +733,212 @@
       "url": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23"
     },
     {
-      "@id": "https://orcid.org/0000-0002-8291-8071",
-      "@type": "Person",
-      "name": "Adam Hospital"
+      "@id": "https://biopython.org/",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1093/bioinformatics/btp163"
+      },
+      "installUrl": "https://anaconda.org/bioconda/biopython",
+      "license": [
+        {
+          "@id": "https://github.com/biopython/biopython/blob/master/LICENSE.rst#biopython-license-agreement"
+        },
+        {
+          "@id": "https://spdx.org/licenses/BSD-3-Clause"
+        }
+      ],
+      "name": "BioPython",
+      "url": "https://biopython.org/",
+      "version": "1.70"
+    },
+    {
+      "@id": "https://doi.org/10.1002/jcc.23804",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0002-6761-7780"
+        },
+        {
+          "@id": "#servaas-michielssens"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4119-6068"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-3570-3534"
+        }
+      ],
+      "datePublished": "2015-01-01T00:00:00Z",
+      "name": "pmx: Automated protein structure and topology"
+    },
+    {
+      "@id": "https://doi.org/10.1016/0010-4655(95)00041-D",
+      "@type": "ScholarlyArticle",
+      "datePublished": "1995-09-02T00:00:00.000Z",
+      "name": "AMBER, a package of computer programs for applying molecular mechanics, normal mode analysis, molecular dynamics and free energy calculations to simulate the structural and energetic properties of molecules"
+    },
+    {
+      "@id": "https://doi.org/10.1016/j.bpj.2010.01.051",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0002-4119-6068"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-3570-3534"
+        }
+      ],
+      "datePublished": "2010-01-01T00:00:00Z",
+      "name": "Protein Thermostability Calculations Using Alchemical Free Energy Simulations"
+    },
+    {
+      "@id": "https://doi.org/10.1016/j.softx.2015.06.001",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0001-6363-2521"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2932-9590"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-1603-2413"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-0603-5514"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-2978-3227"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-7498-7763"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-2734-2794"
+        }
+      ],
+      "name": "GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers"
+    },
+    {
+      "@id": "https://doi.org/10.1038/s41597-019-0177-4",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-6401-6229"
+        },
+        {
+          "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5"
+        },
+        {
+          "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb"
+        },
+        {
+          "@id": "#5fa8795e-6828-4714-b894-d68359b9590c"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-9842-9718"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-1219-2137"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-5081-7244"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2941-5499"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8608-3278"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-0566-7723"
+        }
+      ],
+      "copyrightYear": "2019-09-10T00:00:00.000Z",
+      "datePublished": "2019-09-10T00:00:00.000Z",
+      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
+      "license": {
+        "@id": "https://spdx.org/licenses/CC-BY-4.0"
+      },
+      "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows"
+    },
+    {
+      "@id": "https://doi.org/10.1093/bioinformatics/btp163",
+      "@type": "ScholarlyArticle",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0001-9513-9993"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-7269-5513"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4578-5636"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-3026-1856"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-4927-979X"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-8933-8830"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-1789-8000"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-2917-3602"
+        },
+        {
+          "@id": "#frank-kauff"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8134-0589"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-0489-2352"
+        }
+      ],
+      "datePublished": "2009-03-20T00:00:00.000Z",
+      "name": "Biopython: freely available Python tools for computational molecular biology and bioinformatics"
+    },
+    {
+      "@id": "https://doi.org/10.5281/zenodo.2564764",
+      "@type": "SoftwareApplication",
+      "citation": {
+        "@id": "https://doi.org/10.1016/j.softx.2015.06.001"
+      },
+      "downloadUrl": "https://manual.gromacs.org/documentation/2019.1/download.html",
+      "installUrl": "https://anaconda.org/bioconda/gromacs",
+      "license": {
+        "@id": "https://spdx.org/licenses/LGPL-2.1-or-later"
+      },
+      "name": "GROMACS",
+      "softwareHelp": "https://doi.org/10.5281/zenodo.2564761",
+      "url": "https://manual.gromacs.org/documentation/2019.1/",
+      "version": "2019.1"
+    },
+    {
+      "@id": "https://esciencelab.org.uk/",
+      "@type": "Organization",
+      "name": "eScience Lab",
+      "parentOrganization": {
+        "@id": "https://www.cs.manchester.ac.uk/"
+      },
+      "url": "https://esciencelab.org.uk/"
+    },
+    {
+      "@id": "https://github.com/biopython/biopython/blob/master/LICENSE.rst#biopython-license-agreement",
+      "@type": "CreativeWork",
+      "description": "Permission to use, copy, modify, and distribute this software and its documentation with or without modifications and for any purpose and without fee is hereby granted, provided that any copyright notices appear in all copies and that both those copyright notices and this permission notice appear in supporting documentation, and that the names of the contributors or copyright holders not be used in advertising or publicity pertaining to distribution of the software without specific prior permission.\n\n          THE CONTRIBUTORS AND COPYRIGHT HOLDERS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL THE CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE",
+      "name": "Biopython License Agreement"
     }
   ]
 }
