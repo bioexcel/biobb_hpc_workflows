@@ -62,6 +62,57 @@
       "@type": "Person",
       "name": "Josep Ll. Gelpi"
     },
+
+    {
+      "@id": "https://orcid.org/0000-0001-6363-2521",
+      "@type": "Person",
+      "name": "Mark James Abraham"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0003-2932-9590",
+      "@type": "Person",
+      "name": "Teemu Murtola"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0003-1603-2413",
+      "@type": "Person",
+      "name": "Roland Schulz"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0003-0603-5514",
+      "@type": "Person",
+      "name": "Szilárd Páll"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0002-2978-3227",
+      "@type": "Person",
+      "name": "Jeremy C. Smith"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0002-7498-7763",
+      "@type": "Person",
+      "name": "Berk Hess"
+    },    
+    {
+      "@id": "https://orcid.org/0000-0002-2734-2794",
+      "@type": "Person",
+      "name": "Erik Lindahl"
+    },    
+
+    
+    { "@id": "https://doi.org/10.1016/j.softx.2015.06.001",
+      "@type": "ScholarlyArticle",
+      "name": "GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers",
+      "author": [
+        {"@id": "https://orcid.org/0000-0001-6363-2521"},
+        {"@id": "https://orcid.org/0000-0003-2932-9590"},
+        {"@id": "https://orcid.org/0000-0003-1603-2413"},
+        {"@id": "https://orcid.org/0000-0003-0603-5514"},
+        {"@id": "https://orcid.org/0000-0002-2978-3227"},
+        {"@id": "https://orcid.org/0000-0002-7498-7763"},
+        {"@id": "https://orcid.org/0000-0002-2734-2794"}
+      ]
+    },
     {
       "@id": "https://doi.org/10.1038/s41597-019-0177-4",
       "@type": "ScholarlyArticle",
@@ -103,13 +154,19 @@
           "@id": "https://orcid.org/0000-0002-0566-7723"
         }
       ],
-      "copyrightYear": "2019-09-09T23:00:00.000Z",
-      "datePublished": "2019-09-09T23:00:00.000Z",
+      "copyrightYear": "2019-09-10T00:00:00.000Z",
+      "datePublished": "2019-09-10T00:00:00.000Z",
       "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
       "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows"
+    },
+    {
+      "@id": "https://doi.org/10.1016/0010-4655(95)00041-D",
+      "@type": "ScholarlyArticle",
+      "name": "AMBER, a package of computer programs for applying molecular mechanics, normal mode analysis, molecular dynamics and free energy calculations to simulate the structural and energetic properties of molecules",
+      "datePublished": "1995-09-02T00:00:00.000Z"
     },
     {
       "@id": "https://orcid.org/0000-0001-5081-7244",
@@ -150,6 +207,13 @@
       "name": "Creative Commons Zero v1.0 Universal",
       "url": "https://creativecommons.org/publicdomain/zero/1.0/"
     },    
+    {
+      "@id": "https://spdx.org/licenses/LGPL-2.1-or-later",
+      "@type": "CreativeWork",      
+      "name": "GNU Lesser General Public License v2.1 or later",
+      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+      "identifier": "LGPL-2.1-or-later"
+    },
     {
       "@id": "launchers/",
       "@type": "Dataset",
@@ -231,12 +295,12 @@
         "@id": "https://www.python.org/downloads/release/python-380/"
       },
       "hasPart": [
-        {"@id": "#biobb-pmx"},
-        {"@id": "#biobb-md"},
-        {"@id": "#biobb-analysis"},
-        {"@id": "#biobb-structure_utils"}
+        {"@id": "https://biobb-pmx.readthedocs.io/"},
+        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
       ],      
-      "dateModified": "2021-09-02T23:00:00.000Z",
+      "dateModified": "2021-09-03T00:00:00.000Z",
       "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
       "name": "md_add_muts_wt.py"
     },
@@ -258,12 +322,12 @@
         "@id": "https://www.python.org/downloads/release/python-380/"
       },
       "hasPart": [
-        {"@id": "#biobb-pmx"},
-        {"@id": "#biobb-md"},
-        {"@id": "#biobb-analysis"},
-        {"@id": "#biobb-structure_utils"}
+        {"@id": "https://biobb-pmx.readthedocs.io/"},
+        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
       ],      
-      "dateModified": "2021-09-02T23:00:00.000Z",
+      "dateModified": "2021-09-03T00:00:00.000Z",
       "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
       "name": "md_list.py"
     },
@@ -271,6 +335,7 @@
       "@id": "https://pypi.org/project/pycompss/2.9/",
       "@type": ["ComputerLanguage", "SoftwareApplication"],
       "name": "PyCOMPSs",
+      "publisher": {"@id": "https://ror.org/05sd8tv96"},
       "description": "Python Binding for COMP Superscalar Runtime",
       "version": "2.9",
       "softwareRequirements": {
@@ -285,56 +350,107 @@
       "version": "3.8.0",
       "url": "https://www.python.org/downloads/release/python-380/"
     },
-    { "@id": "#biobb-pmx",
+    { "@id": "https://biobb-pmx.readthedocs.io/",
       "@type": "SoftwareApplication",
       "name": "biobb_pmx",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
       "description": "Bio Building Blocks to setup and run Alchemical Free Energy calculations",
-      "url": "https://biobb-pmx.readthedocs.io/en/latest/",
+      "url": "https://github.com/bioexcel/biobb_pmx",
       "downloadUrl": "https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0",
       "installUrl": "https://anaconda.org/bioconda/biobb_pmx",
       "softwareHelp": "https://biobb-pmx.readthedocs.io/en/latest/",
-      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "isPartOf": "https://pypi.org/project/biobb/",
       "version": "3.6.0"
     },
-    { "@id": "#biobb-md",
+    { "@id": "https://pypi.org/project/biobb-md/3.6.0/",
       "@type": "SoftwareApplication",
-      "name": "biobb_TODO",
+      "name": "biobb_md",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "softwareRequirements": [
+        {"@id": "https://doi.org/10.5281/zenodo.2564764"}
+      ],
+      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
       "description": "Bio Building Blocks to setup and run Molecular Dynamics simulations.",
-      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "downloadUrl": "https://quay.io/biocontainers/TODO",
-      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
-      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
-      "version": "TODO"
+      "url": "https://github.com/bioexcel/biobb_md",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_md",
+      "softwareHelp": "https://biobb-md.readthedocs.io/en/latest/",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "version": "3.6.0"
     },
-    { "@id": "#biobb-analysis",
+    { "@id": "https://doi.org/10.5281/zenodo.2564764",
       "@type": "SoftwareApplication",
-      "name": "biobb_TODO",
+      "name": "GROMACS",
+      "version": "2019.1",
+      "url": "https://manual.gromacs.org/documentation/2019.1/",
+      "softwareHelp": "https://doi.org/10.5281/zenodo.2564761",
+      "installUrl": "https://anaconda.org/bioconda/gromacs",
+      "license": {"@id": "https://spdx.org/licenses/LGPL-2.1-or-later"},
+      "citation": {"@id": "https://doi.org/10.1016/j.softx.2015.06.001"},
+      "downloadUrl": "https://manual.gromacs.org/documentation/2019.1/download.html"
+    },
+    {
+      "@id": "#ambertools-20.0",
+      "@type": "SoftwareApplication",
+      "name": "AmberTools20",
+      "description": "AmberTools is a set of programs for biomolecular simulation and analysis",
+      "softwareHelp": "http://ambermd.org/doc12/Amber20.pdf",
+      "url": "http://ambermd.org/AmberTools.php",
+      "installUrl": "https://anaconda.org/conda-forge/ambertools",
+      "citation": {"@id": "https://doi.org/10.1016/0010-4655(95)00041-D"},
+      "version": "20.0"
+    },
+
+    { "@id": "https://pypi.org/project/biobb-analysis/3.6.0/",
+      "@type": "SoftwareApplication",
+      "name": "biobb_analysis",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "softwareRequirements": [
+        {"@id": "https://doi.org/10.5281/zenodo.2564764"},
+        {"#ambertools-20.0"}
+      ],
+
+      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
       "description": "Bio Building Blocks to analyse Molecular Dynamics trajectories",
-      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "downloadUrl": "https://quay.io/biocontainers/TODO",
-      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
-      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
-      "version": "TODO"
+      "url": "https://github.com/bioexcel/biobb_analysis",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_analysis",
+      "softwareHelp": "https://biobb-analysis.readthedocs.io/en/latest/",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "version": "3.6.0"
     },
-    { "@id": "#biobb-structure_utils",
+    { "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/",
       "@type": "SoftwareApplication",
-      "name": "biobb_TODO",
+      "name": "biobb_structure_utils",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
       "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
-      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "downloadUrl": "https://quay.io/biocontainers/TODO",
-      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
-      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
-      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
-      "version": "TODO"
-    },
-    
-    {"@id": "https://mmb.irbbarcelona.org/biobb/documentation/source",
-     "@type": "Dataset",
+      "url": "https://github.com/bioexcel/biobb_structure_utils",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_structure_utils",
+      "softwareHelp": "https://biobb-structure-utils.readthedocs.io/en/latest/",
+      "isPartOf": "https://pypi.org/project/biobb/",
+      "version": "3.6.1"
+    },    
+    {"@id": "https://pypi.org/project/biobb/",
+     "@type": "SoftwareApplication",
      "name": "BioExcel Building Blocks",
+     "license": {
+      "@id": "https://spdx.org/licenses/Apache-2.0"
+    },
      "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
-     "url": "https://mmb.irbbarcelona.org/biobb/documentation/source"
+     "url": "https://github.com/bioexcel/biobb",
+     "softwareHelp": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+     "version": "3.6.0"
     },
     {
       "@id": "workflows/MD/md_list.yaml",
@@ -361,12 +477,12 @@
         "@id": "https://www.python.org/downloads/release/python-380/"
       },
       "hasPart": [
-        {"@id": "#biobb-pmx"},
-        {"@id": "#biobb-md"},
-        {"@id": "#biobb-analysis"},
-        {"@id": "#biobb-structure_utils"}
+        {"@id": "https://biobb-pmx.readthedocs.io/"},
+        {"@id": "https://pypi.org/project/biobb-md/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-analysis/3.6.0/"},
+        {"@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/"}
       ],      
-      "dateModified": "2021-09-02T23:00:00.000Z",
+      "dateModified": "2021-09-03T00:00:00.000Z",
       "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
       "name": "md_muts_sets.py"
     },
