@@ -1,40 +1,37 @@
 {
-  "@context": [
-    "https://w3id.org/ro/crate/1.0/context",
-    {
-      "@vocab": "https://schema.org/"
-    }
-  ],
+  "@context": "https://w3id.org/ro/crate/1.1/context",
   "@graph": [
     {
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
       "about": {
         "@id": "./"
       },
-      "identifier": "ro-crate-metadata.json",
-      "conformsTo": {
-        "@id": "https://w3id.org/ro/crate/1.0"
-      },
       "license": {
-        "@id": "https://creativecommons.org/licenses/by-sa/3.0"
-      },
-      "description": "Made with Describo: https://uts-eresearch.github.io/describo/"
+        "@id": "https://spdx.org/licenses/CC0-1.0"
+      }
     },
     {
+      "@id": "./",
       "@type": "Dataset",
       "author": [
         {
-          "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
+          "@id": "https://orcid.org/0000-0002-8291-8071"
         },
         {
-          "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
+          "@id": "https://orcid.org/0000-0003-2116-3880"
         }
       ],
+      "citation": {
+        "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+      },
       "contactPoint": {
         "@id": "#7010ed40-c3db-4f7b-804d-548b6e978a13"
       },
-      "description": "\nThis PyCOMPSs workflow tutorial aims to illustrate the process of setting up a simulation system containing a protein, step by step, using the BioExcel Building Blocks library (biobb) in PyCOMPSs for execution on HPC. Three variants of the MD Setup workflows are included, supporting a list of structures, a list of mutations, or a cumulative set of mutations. ",
+      "description": "This PyCOMPSs workflow tutorial aims to illustrate the process of setting up a simulation system containing a protein, step by step, using the BioExcel Building Blocks library (biobb) in PyCOMPSs for execution on HPC. Three variants of the MD Setup workflows are included, supporting a list of structures, a list of mutations, or a cumulative set of mutations. ",
       "hasPart": [
         {
           "@id": "workflows/"
@@ -44,135 +41,32 @@
         }
       ],
       "license": {
-        "@id": "#08c2f070-e8a1-4b2a-b11b-0bfffcce82b4"
+        "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "publisher": [
-        {
-          "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a"
-        }
-      ],
       "name": "Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs",
-      "citation": [
-        {
-          "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-        }
-      ],
-      "@id": "./"
+      "publisher": {
+        "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a"
+      }
     },
     {
-      "@type": "CreativeWork",
-      "identifier": "https://www.apache.org/licenses/LICENSE-2.0",
-      "name": "Apache License 2.0",
-      "@reverse": {
-        "license": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
-      "@id": "#08c2f070-e8a1-4b2a-b11b-0bfffcce82b4"
-    },
-    {
+      "@id": "https://orcid.org/0000-0001-9842-9718",
       "@type": "Person",
-      "name": "Pau Andrio",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "./"
-          },
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          },
-          {
-            "@id": "workflows/MD/md_list.py"
-          },
-          {
-            "@id": "workflows/MD/md_add_muts_wt.py"
-          },
-          {
-            "@id": "workflows/MD/md_muts_sets.py"
-          }
-        ]
-      },
-      "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
+      "name": "Stian Soiland-Reyes"
     },
     {
-      "@type": "Organization",
-      "name": "MMB group at BSC & IRB",
-      "@reverse": {
-        "publisher": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
-      "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a"
-    },
-    {
-      "@type": "ContactPoint",
-      "name": "biobb",
-      "url": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23",
-      "@reverse": {
-        "contactPoint": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
-      "@id": "#7010ed40-c3db-4f7b-804d-548b6e978a13"
-    },
-    {
+      "@id": "https://orcid.org/0000-0002-0566-7723",
       "@type": "Person",
-      "name": "Adam Hospital",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "./"
-          },
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          },
-          {
-            "@id": "workflows/MD/md_list.py"
-          },
-          {
-            "@id": "workflows/MD/md_add_muts_wt.py"
-          },
-          {
-            "@id": "workflows/MD/md_muts_sets.py"
-          }
-        ]
-      },
-      "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
+      "name": "Josep Ll. Gelpi"
     },
     {
-      "name": "workflows",
-      "@type": "Dataset",
-      "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
-      "hasPart": [
-        {
-          "@id": "workflows/MD/"
-        }
-      ],
-      "description": "HPC workflows using PyCOMPSs",
-      "@id": "workflows/"
-    },
-    {
+      "@id": "https://doi.org/10.1038/s41597-019-0177-4",
       "@type": "ScholarlyArticle",
-      "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows",
       "author": [
         {
-          "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
+          "@id": "https://orcid.org/0000-0003-2116-3880"
         },
         {
-          "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
+          "@id": "https://orcid.org/0000-0002-8291-8071"
         },
         {
           "@id": "https://orcid.org/0000-0001-6401-6229"
@@ -187,7 +81,7 @@
           "@id": "#5fa8795e-6828-4714-b894-d68359b9590c"
         },
         {
-          "@id": "http://orcid.org/0000-0001-9842-9718"
+          "@id": "https://orcid.org/0000-0001-9842-9718"
         },
         {
           "@id": "https://orcid.org/0000-0003-1219-2137"
@@ -202,172 +96,61 @@
           "@id": "https://orcid.org/0000-0002-8608-3278"
         },
         {
-          "@id": "http://orcid.org/0000-0002-0566-7723"
+          "@id": "https://orcid.org/0000-0002-0566-7723"
         }
       ],
-      "@reverse": {
-        "citation": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
-      "copyrightYear": [
-        "2019-09-09T23:00:00.000Z"
-      ],
+      "copyrightYear": "2019-09-09T23:00:00.000Z",
       "datePublished": "2019-09-09T23:00:00.000Z",
+      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "In the recent years, the improvement of software and hardware performance has made biomolecular simulations a mature tool for the study of biological processes. Simulation length and the size and complexity of the analyzed systems make simulations both complementary and compatible with other bioinformatics disciplines. However, the characteristics of the software packages used for simulation have prevented the adoption of the technologies accepted in other bioinformatics fields like automated deployment systems, workflow orchestration, or the use of software containers. We present here a comprehensive exercise to bring biomolecular simulations to the “bioinformatics way of working”. The exercise has led to the development of the BioExcel Building Blocks (BioBB) library. BioBB’s are built as Python wrappers to provide an interoperable architecture. BioBB’s have been integrated in a chain of usual software management tools to generate data ontologies, documentation, installation packages, software containers and ways of integration with workflow managers, that make them usable in most computational environments.",
-      "@id": "https://doi.org/10.1038/s41597-019-0177-4"
+      "name": "BioExcel Building Blocks, a software library for interoperable biomolecular simulation workflows"
     },
     {
+      "@id": "https://orcid.org/0000-0001-5081-7244",
       "@type": "Person",
-      "name": "Javier Conejero",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://orcid.org/0000-0001-6401-6229"
+      "name": "Daniele Lezzi"
     },
     {
+      "@id": "https://orcid.org/0000-0001-6401-6229",
       "@type": "Person",
-      "name": "Luis Jordá",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5"
+      "name": "Javier Conejero"
     },
     {
+      "@id": "https://orcid.org/0000-0002-8608-3278",
       "@type": "Person",
-      "name": "Marc Del Pino",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb"
+      "name": "Modesto Orozco"
     },
     {
+      "@id": "https://orcid.org/0000-0003-1219-2137",
       "@type": "Person",
-      "name": "Laia Codo",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "#5fa8795e-6828-4714-b894-d68359b9590c"
+      "name": "Carole Goble"
     },
     {
+      "@id": "https://orcid.org/0000-0003-2941-5499",
       "@type": "Person",
-      "name": "Stian Soiland-Reyes",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "http://orcid.org/0000-0001-9842-9718"
+      "name": "Rosa M. Badia"
     },
     {
-      "@type": "Person",
-      "name": "Carole Goble",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://orcid.org/0000-0003-1219-2137"
-    },
-    {
-      "@type": "Person",
-      "name": "Daniele Lezzi",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://orcid.org/0000-0001-5081-7244"
-    },
-    {
-      "@type": "Person",
-      "name": "Rosa M. Badia",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://orcid.org/0000-0003-2941-5499"
-    },
-    {
-      "@type": "Person",
-      "name": "Modesto Orozco",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://orcid.org/0000-0002-8608-3278"
-    },
-    {
-      "@type": "Person",
-      "name": "Josep Ll. Gelpi",
-      "@reverse": {
-        "author": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "http://orcid.org/0000-0002-0566-7723"
-    },
-    {
+      "@id": "https://spdx.org/licenses/CC-BY-4.0",
       "@type": "CreativeWork",
+      "identifier": "CC-BY-4.0",
       "name": "Creative Commons Attribution 4.0 International",
-      "identifier": [
-        "CC-BY-4.0"
-      ],
-      "@reverse": {
-        "license": [
-          {
-            "@id": "https://doi.org/10.1038/s41597-019-0177-4"
-          }
-        ]
-      },
-      "@id": "https://spdx.org/licenses/CC-BY-4.0"
+      "url": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
-      "name": "launchers",
+      "@id": "https://spdx.org/licenses/CC0-1.0",
+      "@type": "CreativeWork",
+      "identifier": "CC0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },    
+    {
+      "@id": "launchers/",
       "@type": "Dataset",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "./"
-          }
-        ]
-      },
+      "description": "HPC launchers for PyCOMPSs workflows",
       "hasPart": [
         {
           "@id": "launchers/md_launch.py"
@@ -376,48 +159,37 @@
           "@id": "launchers/mdmut_launch.py"
         }
       ],
-      "description": "HPC launchers for PyCOMPSs workflows",
-      "@id": "launchers/"
+      "name": "launchers"
     },
     {
-      "name": "md_launch.py",
+      "@id": "launchers/md_launch.py",
       "@type": "File",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "launchers/"
-          }
-        ]
-      },
       "description": "Launcher for the md_list workflow.",
-      "@id": "launchers/md_launch.py"
+      "name": "md_launch.py"
     },
     {
-      "name": "mdmut_launch.py",
+      "@id": "launchers/mdmut_launch.py",
       "@type": "File",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "launchers/"
-          }
-        ]
-      },
       "description": "Launcher for the md_muts_sets and md_add_muts_wt workflows",
-      "@id": "launchers/mdmut_launch.py"
+      "name": "mdmut_launch.py"
     },
     {
-      "name": "MD",
+      "@id": "workflows/",
       "@type": "Dataset",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/"
-          }
-        ]
+      "description": "HPC workflows using PyCOMPSs",
+      "hasPart": {
+        "@id": "workflows/MD/"
       },
+      "name": "workflows"
+    },
+    {
+      "@id": "workflows/MD/",
+      "@type": "Dataset",
+      "dateModified": "2021-09-28T10:02:17.833Z",
+      "description": "Molecular dynamics workflows",
       "hasPart": [
         {
           "@id": "workflows/MD/md_add_muts_wt.py"
@@ -435,102 +207,108 @@
           "@id": "workflows/MD/md_muts_sets.yaml"
         }
       ],
-      "description": "Molecular dynamics workflows",
-      "@id": "workflows/MD/"
+      "name": "MD"
     },
     {
-      "name": "md_add_muts_wt.py",
+      "@id": "workflows/MD/md_add_muts_wt.py",
       "@type": "File",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        }
+      ],
       "dateModified": "2021-09-02T23:00:00.000Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/MD/"
-          }
-        ]
-      },
       "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
-      "author": [
-        {
-          "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
-        },
-        {
-          "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
-        }
-      ],
-      "@id": "workflows/MD/md_add_muts_wt.py"
+      "name": "md_add_muts_wt.py"
     },
     {
-      "name": "md_list.py",
+      "@id": "workflows/MD/md_list.py",
       "@type": "File",
+      "author": [
+        {
+          "@id": "https://orcid.org/0000-0003-2116-3880"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-8291-8071"
+        }
+      ],
       "dateModified": "2021-09-02T23:00:00.000Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/MD/"
-          }
-        ]
-      },
       "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
-      "author": [
-        {
-          "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
-        },
-        {
-          "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
-        }
-      ],
-      "@id": "workflows/MD/md_list.py"
+      "name": "md_list.py"
     },
     {
-      "name": "md_list.yaml",
+      "@id": "workflows/MD/md_list.yaml",
       "@type": "File",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/MD/"
-          }
-        ]
-      },
       "description": "Input and path configuration for md_list.py workflow",
-      "@id": "workflows/MD/md_list.yaml"
+      "name": "md_list.yaml"
     },
     {
-      "name": "md_muts_sets.py",
+      "@id": "workflows/MD/md_muts_sets.py",
       "@type": "File",
-      "dateModified": "2021-09-02T23:00:00.000Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/MD/"
-          }
-        ]
-      },
-      "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
       "author": [
         {
-          "@id": "#2e24ae00-6ad9-4d98-a0db-d052c7e331d2"
+          "@id": "https://orcid.org/0000-0003-2116-3880"
         },
         {
-          "@id": "#7bc9d407-7bfc-426e-9412-a7a16bc0a0b1"
+          "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
-      "@id": "workflows/MD/md_muts_sets.py"
+      "dateModified": "2021-09-02T23:00:00.000Z",
+      "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
+      "name": "md_muts_sets.py"
     },
     {
-      "name": "md_muts_sets.yaml",
+      "@id": "workflows/MD/md_muts_sets.yaml",
       "@type": "File",
       "dateModified": "2021-09-28T10:02:17.833Z",
-      "@reverse": {
-        "hasPart": [
-          {
-            "@id": "workflows/MD/"
-          }
-        ]
-      },
       "description": "Input and path configuration for md_muts_sets.py workflow",
-      "@id": "workflows/MD/md_muts_sets.yaml"
+      "name": "md_muts_sets.yaml"
+    },
+    {
+      "@id": "https://spdx.org/licenses/Apache-2.0",
+      "@type": "CreativeWork",
+      "identifier": "https://www.apache.org/licenses/LICENSE-2.0",
+      "name": "Apache License 2.0"
+    },
+    {
+      "@id": "#2249fe94-27ad-4bd5-91ed-f4801e41eafb",
+      "@type": "Person",
+      "name": "Marc Del Pino"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2116-3880",
+      "@type": "Person",
+      "name": "Pau Andrio"
+    },
+    {
+      "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a",
+      "@type": "Organization",
+      "name": "MMB group at BSC & IRB"
+    },
+    {
+      "@id": "#5fa8795e-6828-4714-b894-d68359b9590c",
+      "@type": "Person",
+      "name": "Laia Codo"
+    },
+    {
+      "@id": "#67572c85-eb81-4a77-a25c-f006c98a07b5",
+      "@type": "Person",
+      "name": "Luis Jordá"
+    },
+    {
+      "@id": "#7010ed40-c3db-4f7b-804d-548b6e978a13",
+      "@type": "ContactPoint",
+      "name": "biobb",
+      "url": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8291-8071",
+      "@type": "Person",
+      "name": "Adam Hospital"
     }
   ]
 }
