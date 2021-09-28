@@ -29,7 +29,7 @@
         "@id": "https://doi.org/10.1038/s41597-019-0177-4"
       },
       "contactPoint": {
-        "@id": "#7010ed40-c3db-4f7b-804d-548b6e978a13"
+        "@id": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23"
       },
       "description": "This PyCOMPSs workflow tutorial aims to illustrate the process of setting up a simulation system containing a protein, step by step, using the BioExcel Building Blocks library (biobb) in PyCOMPSs for execution on HPC. Three variants of the MD Setup workflows are included, supporting a list of structures, a list of mutations, or a cumulative set of mutations. ",
       "hasPart": [
@@ -43,10 +43,14 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
+      "mainEntity": {
+        "@id": "workflows/MD/md_list.yaml"
+      },
       "name": "Protein MD Setup HPC tutorial using BioExcel Building Blocks (biobb) in PyCOMPSs",
       "publisher": {
-        "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a"
-      }
+        "@id": "https://mmb.irbbarcelona.org/"
+      },
+      "url": "https://github.com/bioexcel/biobb_hpc_workflows"
     },
     {
       "@id": "https://orcid.org/0000-0001-9842-9718",
@@ -211,7 +215,7 @@
     },
     {
       "@id": "workflows/MD/md_add_muts_wt.py",
-      "@type": "File",
+      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -220,13 +224,25 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "hasPart": [
+        {"@id": "#biobb-pmx"},
+        {"@id": "#biobb-md"},
+        {"@id": "#biobb-analysis"},
+        {"@id": "#biobb-structure_utils"}
+      ],      
       "dateModified": "2021-09-02T23:00:00.000Z",
       "description": "Applies a list of mutations over the initial structure obtaining a set of structures (initial structure + one mutation, initial structure + two mutations, initial structure + three mutations, ...). Finally performs a system setup and runs a molecular dynamics simulation for each of the structures in the set.",
       "name": "md_add_muts_wt.py"
     },
     {
       "@id": "workflows/MD/md_list.py",
-      "@type": "File",
+      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -235,9 +251,90 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "hasPart": [
+        {"@id": "#biobb-pmx"},
+        {"@id": "#biobb-md"},
+        {"@id": "#biobb-analysis"},
+        {"@id": "#biobb-structure_utils"}
+      ],      
       "dateModified": "2021-09-02T23:00:00.000Z",
       "description": "Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.",
       "name": "md_list.py"
+    },
+    {
+      "@id": "https://pypi.org/project/pycompss/2.9/",
+      "@type": ["ComputerLanguage", "SoftwareApplication"],
+      "name": "PyCOMPSs",
+      "description": "Python Binding for COMP Superscalar Runtime",
+      "version": "2.9",
+      "softwareRequirements": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "url": "http://compss.bsc.es/"
+    },
+    {
+      "@id": "https://www.python.org/downloads/release/python-380/",
+      "@type": ["ComputerLanguage", "SoftwareApplication"],
+      "name": "Python 3.8.0",
+      "version": "3.8.0",
+      "url": "https://www.python.org/downloads/release/python-380/"
+    },
+    { "@id": "#biobb-pmx",
+      "@type": "SoftwareApplication",
+      "name": "biobb_pmx",
+      "description": "Bio Building Blocks to setup and run Alchemical Free Energy calculations",
+      "url": "https://biobb-pmx.readthedocs.io/en/latest/",
+      "downloadUrl": "https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0",
+      "installUrl": "https://anaconda.org/bioconda/biobb_pmx",
+      "softwareHelp": "https://biobb-pmx.readthedocs.io/en/latest/",
+      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "version": "3.6.0"
+    },
+    { "@id": "#biobb-md",
+      "@type": "SoftwareApplication",
+      "name": "biobb_TODO",
+      "description": "Bio Building Blocks to setup and run Molecular Dynamics simulations.",
+      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "downloadUrl": "https://quay.io/biocontainers/TODO",
+      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
+      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "version": "TODO"
+    },
+    { "@id": "#biobb-analysis",
+      "@type": "SoftwareApplication",
+      "name": "biobb_TODO",
+      "description": "Bio Building Blocks to analyse Molecular Dynamics trajectories",
+      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "downloadUrl": "https://quay.io/biocontainers/TODO",
+      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
+      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "version": "TODO"
+    },
+    { "@id": "#biobb-structure_utils",
+      "@type": "SoftwareApplication",
+      "name": "biobb_TODO",
+      "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
+      "url": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "downloadUrl": "https://quay.io/biocontainers/TODO",
+      "installUrl": "https://anaconda.org/bioconda/biobb_TODO",
+      "softwareHelp": "https://biobb-TODO.readthedocs.io/en/latest/",
+      "isPartOf": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+      "version": "TODO"
+    },
+    
+    {"@id": "https://mmb.irbbarcelona.org/biobb/documentation/source",
+     "@type": "Dataset",
+     "name": "BioExcel Building Blocks",
+     "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
+     "url": "https://mmb.irbbarcelona.org/biobb/documentation/source"
     },
     {
       "@id": "workflows/MD/md_list.yaml",
@@ -248,7 +345,7 @@
     },
     {
       "@id": "workflows/MD/md_muts_sets.py",
-      "@type": "File",
+      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
       "author": [
         {
           "@id": "https://orcid.org/0000-0003-2116-3880"
@@ -257,6 +354,18 @@
           "@id": "https://orcid.org/0000-0002-8291-8071"
         }
       ],
+      "programmingLanguage": {
+        "@id": "https://pypi.org/project/pycompss/2.9/"
+      },
+      "runtimePlatform": {
+        "@id": "https://www.python.org/downloads/release/python-380/"
+      },
+      "hasPart": [
+        {"@id": "#biobb-pmx"},
+        {"@id": "#biobb-md"},
+        {"@id": "#biobb-analysis"},
+        {"@id": "#biobb-structure_utils"}
+      ],      
       "dateModified": "2021-09-02T23:00:00.000Z",
       "description": "Performs a system setup and runs a molecular dynamics simulation for each one of the listed mutations in a given structure",
       "name": "md_muts_sets.py"
@@ -285,9 +394,73 @@
       "name": "Pau Andrio"
     },
     {
-      "@id": "#5bfac42f-2471-415d-ae33-635ac81f653a",
+      "@id": "https://mmb.irbbarcelona.org/",
       "@type": "Organization",
-      "name": "MMB group at BSC & IRB"
+      "name": "Molecular Modeling and Bioinformatics unit",
+      "alternativeName": "MMB",
+      "memberOf": [
+        {"@id": "https://ror.org/01z1gye03"},
+        {"@id": "https://ror.org/05sd8tv96"},
+        {"@id": "https://www.ub.edu/"},
+        {"@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"},
+        {"@id": "https://www.icrea.cat/"}
+      ],
+      "url": "https://mmb.irbbarcelona.org/"
+    },
+    {
+      "@id": "https://ror.org/01z1gye03",
+      "@type": "Organization",
+      "name": "Institute for Research in Biomedicine",
+      "alternativeName": "IRB Barcelona",      
+      "url": "https://www.irbbarcelona.org/"
+    },
+    {
+      "@id": "https://ror.org/05sd8tv96",
+      "@type": "Organization",
+      "name": "Barcelona Supercomputing Centre",
+      "alternativeName": "BSC",
+      "url": "https://www.bsc.es/"
+    },    
+    {
+      "@id": "https://www.ub.edu/",
+      "@type": "Organization",
+      "name": "Universitat de Barcelona",
+      "alternativeName": "UB",
+      "url": "https://www.ub.edu/"
+    },   
+    {
+      "@id": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm",
+      "@type": "Organization",
+      "name": "CECH",
+      "alternativeName": "Emergent Cluster of the Human Brain",
+      "url": "https://www.imim.cat/programesrecerca/neurociencies/en_cech.htm"
+    },  
+    {
+      "@id": "https://www.icrea.cat/",
+      "@type": "Organization",
+      "name": "ICREA",
+      "alternativeName": "Catalan Institution for Research and Advanced Studies",
+      "url": "https://www.icrea.cat/"
+    },
+    {
+      "@id": "https://esciencelab.org.uk/",
+      "@type": "Organization",
+      "name": "eScience Lab",      
+      "url": "https://esciencelab.org.uk/",
+      "parentOrganization": {"@id": "https://www.cs.manchester.ac.uk/"}
+    },
+    {
+      "@id": "https://www.cs.manchester.ac.uk/",
+      "@type": "Organization",
+      "name": "Department of Computer Science",      
+      "url": "https://www.cs.manchester.ac.uk/",
+      "parentOrganization": {"@id": "https://ror.org/027m9bs27"}
+    },    
+    {
+      "@id": "https://ror.org/027m9bs27",
+      "@type": "Organization",
+      "name": "The University of Manchester",      
+      "url": "https://www.manchester.ac.uk/"      
     },
     {
       "@id": "#5fa8795e-6828-4714-b894-d68359b9590c",
@@ -300,9 +473,9 @@
       "name": "Luis Jordá"
     },
     {
-      "@id": "#7010ed40-c3db-4f7b-804d-548b6e978a13",
+      "@id": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23",
       "@type": "ContactPoint",
-      "name": "biobb",
+      "name": "biobb forum at ask.bioexcel.eu",
       "url": "https://ask.bioexcel.eu/c/BioExcel-Building-Blocks-library/23"
     },
     {
