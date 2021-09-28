@@ -97,9 +97,12 @@
       "@id": "https://orcid.org/0000-0002-2734-2794",
       "@type": "Person",
       "name": "Erik Lindahl"
-    },    
-
-    
+    },        
+    { "@id": "https://doi.org/10.1093/bioinformatics/btp163",
+      "@type": "ScholarlyArticle",
+      "name": "Biopython: freely available Python tools for computational molecular biology and bioinformatics",
+      "datePublished": "2009-03-20T00:00:00.000Z"
+    },
     { "@id": "https://doi.org/10.1016/j.softx.2015.06.001",
       "@type": "ScholarlyArticle",
       "name": "GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers",
@@ -405,7 +408,6 @@
       "citation": {"@id": "https://doi.org/10.1016/0010-4655(95)00041-D"},
       "version": "20.0"
     },
-
     { "@id": "https://pypi.org/project/biobb-analysis/3.6.0/",
       "@type": "SoftwareApplication",
       "name": "biobb_analysis",
@@ -414,7 +416,7 @@
       },
       "softwareRequirements": [
         {"@id": "https://doi.org/10.5281/zenodo.2564764"},
-        {"#ambertools-20.0"}
+        {"@id": "#ambertools-20.0"}
       ],
 
       "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
@@ -426,12 +428,24 @@
       "isPartOf": "https://pypi.org/project/biobb/",
       "version": "3.6.0"
     },
+    { "@id": "https://biopython.org/",
+      "@type": "SoftwareApplication",
+      "name": "BioPython",
+      "version": "1.70",
+      "installUrl": "https://anaconda.org/bioconda/biopython",
+      "url": "https://biopython.org/",
+      "citation": {"@id": "https://doi.org/10.1093/bioinformatics/btp163"}
+   },
+
     { "@id": "https://pypi.org/project/biobb-structure-utils/3.6.1/",
       "@type": "SoftwareApplication",
       "name": "biobb_structure_utils",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
+      "softwareRequirements": [
+        {"@id": "https://biopython.org/"}        
+      ],
       "publisher": {"@id": "https://mmb.irbbarcelona.org/"},
       "description": "Bio Building Blocks to modify or extract information from a PDB structure file",
       "url": "https://github.com/bioexcel/biobb_structure_utils",
