@@ -37,7 +37,7 @@ from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import g
 # pycompss: biobb structure utils modules
 from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extractatoms
 
-@constraint(computing_units="48")
+@constraint(computing_units="XXXX")
 @multinode(computing_nodes="1")
 @task(output_structure_path = FILE_IN, input_structure_path = FILE_IN, output_ndx_path= FILE_OUT, input_gro_path=FILE_IN, output_tpr_path=FILE_OUT, input_top_zip_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_xtc_path=FILE_OUT, output_log_path=FILE_OUT, on_failure="IGNORE")
 def check_structure_and_run_ndx(ensemble, output_structure_path, input_structure_path, output_ndx_path, properties_makendx, input_gro_path, input_top_zip_path, output_tpr_path, properties_grompp, output_trr_path, output_gro_path, output_edr_path, output_xtc_path, output_log_path, properties_mdrun, **kwargs):

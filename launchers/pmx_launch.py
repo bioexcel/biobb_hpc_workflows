@@ -198,13 +198,20 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
         run_number += 1
         run_dir = working_dir_path.joinpath(f"wf_pmx_{str(run_number)}")
         config_yaml_path = working_dir_path.joinpath(f"pmx_biobb_{str(run_number)}.yaml")
+        wf_py_path_tmp = working_dir_path.joinpath(f"pmx_biobb_{str(run_number)}.py.tmp")
         wf_py_path = working_dir_path.joinpath(f"pmx_biobb_{str(run_number)}.py")
         prolog_path = working_dir_path.joinpath(f"prolog_biobb_{str(run_number)}.sh")
         launch_path = working_dir_path.joinpath(f"launch_biobb_{str(run_number)}.sh")
         job_name = f"{job_name_orig}_{str(run_number)}"
 
     # Copy py file
-    shutil.copyfile(template_py_path, wf_py_path)
+    shutil.copyfile(template_py_path, wf_py_path_tmp)
+
+    # Replacing needed info from py file
+    with open(wf_py_path_tmp, "rt") as fin:
+        with open(wf_py_path, "wt") as fout:
+            for line in fin:
+                fout.write(line.replace('XXXX', params['num_cores_node']))
 
     # Read yaml template file
     config_dict = get_template_config_dict(template_yaml_path)
@@ -228,6 +235,10 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     config_dict['step1_trjconv_stateB']['properties']['skip'] = mut_trjconv_skip
     config_dict['step1_trjconv_stateB']['properties']['start'] = mut_start
     config_dict['step1_trjconv_stateB']['properties']['end'] = mut_end
+    config_dict['step2_gmx_pdb2gmx']['properties']['gmx_lib'] = f"{params['biobb_path']}/lib/python3.7/site-packages/pmx/data/mutff45/"
+    config_dict['step5_gmx_grompp']['properties']['gmx_lib'] = f"{params['biobb_path']}/lib/python3.7/site-packages/pmx/data/mutff45/"
+    config_dict['step7_gmx_grompp']['properties']['gmx_lib'] = f"{params['biobb_path']}/lib/python3.7/site-packages/pmx/data/mutff45/"
+    config_dict['step9_gmx_grompp']['properties']['gmx_lib'] = f"{params['biobb_path']}/lib/python3.7/site-packages/pmx/data/mutff45/"
     config_dict['step4_gmx_makendx']['properties']['selection'] = " a D*\\n0 & ! {}\\nname {} FREEZE".format(str(ndx1),str(ndx2))
     config_dict['step9_gmx_grompp']['properties']['mdp']['nsteps'] = fe_nsteps
     config_dict['step9_gmx_grompp']['properties']['mdp']['delta-lambda'] =  float(f'{1 / fe_nsteps:.0g}')
@@ -247,7 +258,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
             prolog_file.write(f"# Machine-specific modules environment (unload)\n")
             prolog_file.write(f"module unload {modules_unload}\n\n")
         prolog_file.write(f"# Multinode MPI environment\n")
-        prolog_file.write(f"export TASK_COMPUTING_NODES=2\n")
+        #prolog_file.write(f"export TASK_COMPUTING_NODES=2\n")
         prolog_file.write(f"export TASK_COMPUTING_UNITS={params['num_cores_node']}\n")
         prolog_file.write(f"export MULTINODE_MPI_ENV={params['mpi_env']}\n")
         if mpi_flags:
