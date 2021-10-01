@@ -23,16 +23,24 @@ The launchers are available in:
 
 * Download and install BioBB HPC Conda Pack (BioBB library + PyCOMPSs Workflow manager):<br>
 https://mmb.irbbarcelona.org/biobb/condapacks/biobb_v3.6_pycompss_v2.9.tar.gz
-```tar -zxvf biobb_v3.6_pycompss_v2.9.tar.gz
-source biobb_v3.6_pycompss_v2.9/bin/activate
-conda-unpack```
+   ```
+      tar -zxvf biobb_v3.6_pycompss_v2.9.tar.gz
+      source biobb_v3.6_pycompss_v2.9/bin/activate
+      conda-unpack
+   ```
 
 * Clone GitHub repository:<br>
-```git clone https://github.com/bioexcel/biobb_hpc_workflows.git```
+   ```
+      git clone https://github.com/bioexcel/biobb_hpc_workflows.git
+   ```
 
 * Generate and modify HPC cluster/supercomputer configuration file from template in [sc_conf](sc_conf/sc_conf.git.yml):<br>
-```cp sc_conf/sc_conf.git.yml sc_conf/sc_conf.yaml```<br>
+   ```
+      cp sc_conf/sc_conf.git.yml sc_conf/sc_conf.yaml
+   ```
+   <br>
 The template should be modified with specific HPC cluster/supercomputer paths. In particular, these two important fields should be added:<br>   
+
    >
    > **workflows_path**: Path to this repo in the cluster file system.
    >
