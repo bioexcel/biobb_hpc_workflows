@@ -77,9 +77,14 @@ def read_sc_params(supercomputer_conf, supercomputer):
 def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_nodes, compss_version, ions, fe_nsteps, fe_length,
            base_dir, compss_debug, time, output_dir, fe_dt, num_frames, wt_trjconv_skip, mut_trjconv_skip,
            wt_start, wt_end, mut_start, mut_end, job_name,
-           supercomputer, supercomputer_conf):
+           supercomputer, supercomputer_conf, lig, lig_itp, lig_posre):
 
+    # Check supercomputer parameters
     params = read_sc_params(supercomputer_conf, supercomputer)
+
+    # Check ligand parameters
+    if lig and !lig_itp or !lig_posre:
+        sys.exit("Ligand itp and position restraints files are needed when dealing with a ligand in the structure. Please check it and try again.")
 
     # Check optional parameters
     #   modules: [optional] Computer-specific modules to be loaded
@@ -143,6 +148,9 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
 
     template_yaml_path = base_dir.joinpath('workflows', 'PMX', 'pmx_cv.yaml')
     template_py_path = base_dir.joinpath('workflows', 'PMX', 'pmx_cv_cufix_term.py')
+    if lig:
+        template_yaml_path = base_dir.joinpath('workflows', 'PMX', 'pmx_prot_lig.yaml')
+        template_py_path = base_dir.joinpath('workflows', 'PMX', 'pmx_prot_lig.py')
 
     # Get input trajs
     traj_wt_tpr_path = wt_top
@@ -187,6 +195,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     run_number = 0
     run_dir = working_dir_path.joinpath("wf_pmx")
     config_yaml_path = working_dir_path.joinpath(f"pmx_biobb.yaml")
+    wf_py_path_tmp = working_dir_path.joinpath(f"pmx_biobb.py.tmp")
     wf_py_path = working_dir_path.joinpath(f"pmx_biobb.py")
     prolog_path = working_dir_path.joinpath(f"prolog_biobb.sh")
     launch_path = working_dir_path.joinpath(f"launch_biobb.sh")
@@ -211,7 +220,11 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     with open(wf_py_path_tmp, "rt") as fin:
         with open(wf_py_path, "wt") as fout:
             for line in fin:
-                fout.write(line.replace('XXXX', params['num_cores_node']))
+                fout.write(line.replace('XXXX', str(params['num_cores_node'])))
+                if lig:
+                    fout.write(line.replace('RMV_LIG', lig))
+                    fout.write(line.replace('LIG_ITP', lig_itp))
+                    fout.write(line.replace('LIG_POSRE', lig_posre))
 
     # Read yaml template file
     config_dict = get_template_config_dict(template_yaml_path)
@@ -322,6 +335,9 @@ def main():
     parser.add_argument('--free_energy_dt', required=False, default=0.002, type=float, help="(0.002) [float] Integration time in picoseconds")
     parser.add_argument('-sc', '--supercomputer', required=True, default='mn', type=str, help="Supercomputer name or id, included in the supercomputer-specific configuration file (sc_conf parameter).")
     parser.add_argument('-sc_conf', '--supercomputer_conf', required=True, default='sc_conf.yml', type=str, help="Supercomputer-specific parameters, such as MPI library or modules.")
+    parser.add_argument('-lig', '--lig_name', required=False, default='', type=str, help="Ligand 3-letter code name (e.g. IRE).")
+    parser.add_argument('-lig_itp', '--lig_itp', required=False, default='', type=str, help="Ligand topology file in GROMACS itp format. Absolute path needed.")
+    parser.add_argument('-lig_posre', '--lig_posre', required=False, default='', type=str, help="Ligand position restraints file in GROMACS itp format. Absolute path needed.")
     args = parser.parse_args()
 
     # Specific call of each building block
@@ -351,6 +367,9 @@ def main():
            mut_end=args.mut_end,
            supercomputer=args.supercomputer,
            supercomputer_conf=args.supercomputer_conf,
+           lig=args.lig_name,
+           lig_itp=args.lig_itp,
+           lig_posre=args.lig_posre,
            base_dir=Path(args.base_dir)
            )
 
