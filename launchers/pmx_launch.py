@@ -77,14 +77,15 @@ def read_sc_params(supercomputer_conf, supercomputer):
 def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_nodes, compss_version, ions, fe_nsteps, fe_length,
            base_dir, compss_debug, time, output_dir, fe_dt, num_frames, wt_trjconv_skip, mut_trjconv_skip,
            wt_start, wt_end, mut_start, mut_end, job_name,
-           supercomputer, supercomputer_conf, lig, lig_itp, lig_posre):
+           supercomputer, supercomputer_conf, lig, lig_itp, lig_posre, his):
 
     # Check supercomputer parameters
     params = read_sc_params(supercomputer_conf, supercomputer)
 
     # Check ligand parameters
-    if lig and !lig_itp or !lig_posre:
-        sys.exit("Ligand itp and position restraints files are needed when dealing with a ligand in the structure. Please check it and try again.")
+    if lig:
+        if (not lig_itp or not lig_posre):
+            sys.exit("Ligand itp and position restraints files are needed when dealing with a ligand in the structure. Please check it and try again.")
 
     # Check optional parameters
     #   modules: [optional] Computer-specific modules to be loaded
@@ -104,7 +105,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     if 'project_name' in params:
         project_name = params['project_name']
 
-    queue = "default"
+    #queue = "default"
     if 'queue' in params:
         queue = params['queue']
 
@@ -221,10 +222,6 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
         with open(wf_py_path, "wt") as fout:
             for line in fin:
                 fout.write(line.replace('XXXX', str(params['num_cores_node'])))
-                if lig:
-                    fout.write(line.replace('RMV_LIG', lig))
-                    fout.write(line.replace('LIG_ITP', lig_itp))
-                    fout.write(line.replace('LIG_POSRE', lig_posre))
 
     # Read yaml template file
     config_dict = get_template_config_dict(template_yaml_path)
@@ -255,6 +252,12 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     config_dict['step4_gmx_makendx']['properties']['selection'] = " a D*\\n0 & ! {}\\nname {} FREEZE".format(str(ndx1),str(ndx2))
     config_dict['step9_gmx_grompp']['properties']['mdp']['nsteps'] = fe_nsteps
     config_dict['step9_gmx_grompp']['properties']['mdp']['delta-lambda'] =  float(f'{1 / fe_nsteps:.0g}')
+    if lig:
+        config_dict['step1.2_remove_ligand']['properties']['ligand'] =  lig
+        config_dict['step2.2_lig_gmx_appendLigand']['paths']['input_itp_path'] =  lig_itp
+        config_dict['step2.2_lig_gmx_appendLigand']['paths']['input_posres_itp_path'] =  lig_posre
+    if his:
+        config_dict['step2_gmx_pdb2gmx']['properties']['his'] = his
 
     with open(config_yaml_path, 'w') as config_yaml_file:
         config_yaml_file.write(yaml.dump(config_dict))
@@ -338,6 +341,7 @@ def main():
     parser.add_argument('-lig', '--lig_name', required=False, default='', type=str, help="Ligand 3-letter code name (e.g. IRE).")
     parser.add_argument('-lig_itp', '--lig_itp', required=False, default='', type=str, help="Ligand topology file in GROMACS itp format. Absolute path needed.")
     parser.add_argument('-lig_posre', '--lig_posre', required=False, default='', type=str, help="Ligand position restraints file in GROMACS itp format. Absolute path needed.")
+    parser.add_argument('-his', '--histidine_list', required=False, default='', type=str, help="List of Histidine types in the structure. 0=HID, 1=HIE, 2=HIP. e.g. 0 1 1 2 0")
     args = parser.parse_args()
 
     # Specific call of each building block
@@ -370,6 +374,7 @@ def main():
            lig=args.lig_name,
            lig_itp=args.lig_itp,
            lig_posre=args.lig_posre,
+           his=args.histidine_list,
            base_dir=Path(args.base_dir)
            )
 

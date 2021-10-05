@@ -29,6 +29,7 @@ from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
 from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
 from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
 from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
+from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import append_ligand
 
 # pycompss: biobb analysis modules
 from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmximage
@@ -36,6 +37,8 @@ from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import g
 
 # pycompss: biobb structure utils modules
 from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extractatoms
+from biobb_adapters.pycompss.biobb_structure_utils.utils.remove_ligand import remove_ligand
+from biobb_adapters.pycompss.biobb_structure_utils.utils.sort_gro_residues import sort_gro_residues
 
 @constraint(computing_units="XXXX")
 @multinode(computing_nodes="1")
