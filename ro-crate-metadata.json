@@ -588,7 +588,7 @@
       "@id": "https://pypi.org/project/numpy/1.21.2/",
       "@type": "SoftwareApplication",
       "license": {
-        "@id": "./"
+        "@id": "https://spdx.org/licenses/BSD-3-Clause"
       },
       "name": "numpy",
       "version": "1.21.1"
