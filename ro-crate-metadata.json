@@ -80,6 +80,9 @@
       },
       "description": "AmberTools is a set of programs for biomolecular simulation and analysis",
       "installUrl": "https://anaconda.org/conda-forge/ambertools",
+      "license": {
+        "@id": "https://spdx.org/licenses/GPL-3.0-or-later"
+      },
       "name": "AmberTools20",
       "softwareHelp": "http://ambermd.org/doc12/Amber20.pdf",
       "url": "http://ambermd.org/AmberTools.php",
@@ -704,6 +707,13 @@
       "identifier": "LGPL-3.0-only",
       "name": "GNU Lesser General Public License v3.0 only",
       "url": "https://www.gnu.org/licenses/lgpl-3.0-standalone.html"
+    },
+    {
+      "@id": "https://spdx.org/licenses/GPL-3.0-or-later",
+      "@type": "CreativeWork",
+      "identifier": "GPL-3.0-or-later",
+      "name": "GNU General Public License v3.0 or later",
+      "url": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
     },
     {
       "@id": "https://www.cs.manchester.ac.uk/",
