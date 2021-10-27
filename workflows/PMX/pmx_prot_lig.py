@@ -29,7 +29,7 @@ from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
 from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
 from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
 from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
-from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import append_ligand
+from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import appendligand
 
 # pycompss: biobb analysis modules
 from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmximage
@@ -37,8 +37,8 @@ from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import g
 
 # pycompss: biobb structure utils modules
 from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extractatoms
-from biobb_adapters.pycompss.biobb_structure_utils.utils.remove_ligand import remove_ligand
-from biobb_adapters.pycompss.biobb_structure_utils.utils.sort_gro_residues import sort_gro_residues
+from biobb_adapters.pycompss.biobb_structure_utils.utils.remove_ligand import removeligand
+from biobb_adapters.pycompss.biobb_structure_utils.utils.sort_gro_residues import sortgroresidues
 
 @constraint(computing_units="XXXX")
 @multinode(computing_nodes="1")
@@ -72,6 +72,21 @@ def check_structure_and_run_ndx(ensemble, output_structure_path, input_structure
 @task(input_gro=FILE_IN, mod_gro=FILE_OUT, on_failure="IGNORE")
 def fix_term(input_gro, mod_gro):
 
+    # List of Standard Protein Residues
+    std_residues = ['ALA','ARG','ASP','ASN','GLU','GLN','THR','TYR','LYS','PRO','HIS','GLY','TRP','SER','CYS','LEU','ILE','PHE','MET','VAL']
+
+    # Append Histidine types
+    std_residues.append(['HIE','HID','HIP','HISD','HISE','HISP'])
+
+    # Append Amber SS-bridge CYS (CYX)
+    std_residues.append(['CYX'])
+
+    # Append ionizable types
+    std_residues.append(['GLH','ASH','LYP'])
+
+    # Append DNA & RNA nucleotides
+    std_residues.append(['DC','DA','DG','DT','A','C','G','T','RC','RA','RG','RU'])
+
     copyfile(input_gro, mod_gro)
 
     cmd_grep_nter = "grep H3 " + input_gro + " | cut -c1-8"
@@ -83,7 +98,7 @@ def fix_term(input_gro, mod_gro):
     for nter_old in nter_residues.splitlines():
         r = re.compile(" +([0-9]+)([a-zA-Z]+)")
         m = r.match(nter_old)
-        if m:
+        if m and m.groups()[1] in std_residues:
             nter_new = 'N'.join(m.groups())
             len_nter_new = str(len(nter_old)+1)
             nter_new_formatted = ("{:>"+len_nter_new+"}").format(nter_new)
@@ -102,7 +117,7 @@ def fix_term(input_gro, mod_gro):
     for cter_old in cter_residues.splitlines():
         r = re.compile(" +([0-9]+)([a-zA-Z]+)")
         m = r.match(cter_old)
-        if m:
+        if m and m.groups()[1] in std_residues:
             cter_new = 'C'.join(m.groups())
             len_cter_new = str(len(nter_old)+1)
             cter_new_formatted = ("{:>"+len_cter_new+"}").format(cter_new)
@@ -180,7 +195,7 @@ def main(config, system=None):
 
             # step1.2_remove_ligand
             global_log.info(ensemble + " " + pdb_name + " Step 1.2 Remove ligand")
-            remove_ligand(**paths['step1.2_remove_ligand'], properties=prop['step1.2_remove_ligand'])
+            removeligand(**paths['step1.2_remove_ligand'], properties=prop['step1.2_remove_ligand'])
 
             # step2_gmx_pdb2gmx
             global_log.info(ensemble + " " + pdb_name + " Step 2: gmx pdb2gmx: Generate Topology")
@@ -188,11 +203,11 @@ def main(config, system=None):
 
             # step2.1_sort_gro
             global_log.info(ensemble + " " + pdb_name + " Step 2.1 Sort gro residues")
-            sort_gro_residues(**paths['step2.1_sort_gro'], properties=prop['step2.1_sort_gro'])
+            sortgroresidues(**paths['step2.1_sort_gro'], properties=prop['step2.1_sort_gro'])
 
             # step2.2_lig_gmx_appendLigand
             global_log.info(ensemble + " " + pdb_name +" Step 2.2_lig: gmx appendLigand: Append a ligand to a GROMACS topology")
-            append_ligand(**paths["step2.2_lig_gmx_appendLigand"], properties=prop["step2.2_lig_gmx_appendLigand"])
+            appendligand(**paths["step2.2_lig_gmx_appendLigand"], properties=prop["step2.2_lig_gmx_appendLigand"])
 
             # step3_pmx_gentop
             global_log.info(ensemble + " " + pdb_name +" Step 3: pmx gentop: Generate Hybrid Topology")
