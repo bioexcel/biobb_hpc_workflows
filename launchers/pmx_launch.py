@@ -75,9 +75,9 @@ def read_sc_params(supercomputer_conf, supercomputer):
         return params[supercomputer]
 
 def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_nodes, compss_version, ions, fe_nsteps, fe_length,
-           base_dir, compss_debug, time, output_dir, fe_dt, num_frames, wt_trjconv_skip, mut_trjconv_skip,
+           base_dir, compss_debug, time, task_timeout, output_dir, fe_dt, num_frames, wt_trjconv_skip, mut_trjconv_skip,
            wt_start, wt_end, mut_start, mut_end, job_name,
-           supercomputer, supercomputer_conf, lig, lig_itp, lig_posre, his):
+           supercomputer, supercomputer_conf, lig, lig_itp, lig_posre, his, mpibin):
 
     # Check supercomputer parameters
     params = read_sc_params(supercomputer_conf, supercomputer)
@@ -145,7 +145,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     ndx2 = ndx2 + (nmuts + ions)*2
 
     base_dir = Path(base_dir)
-    pth_path = Path.home().joinpath('.local', 'lib', 'python3.6', 'site-packages', 'biobb.pth')
+#    pth_path = Path.home().joinpath('.local', 'lib', 'python3.6', 'site-packages', 'biobb.pth')
 
     template_yaml_path = base_dir.joinpath('workflows', 'PMX', 'pmx_cv.yaml')
     template_py_path = base_dir.joinpath('workflows', 'PMX', 'pmx_cv_cufix_term.py')
@@ -252,6 +252,9 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     config_dict['step4_gmx_makendx']['properties']['selection'] = " a D*\\n0 & ! {}\\nname {} FREEZE".format(str(ndx1),str(ndx2))
     config_dict['step9_gmx_grompp']['properties']['mdp']['nsteps'] = fe_nsteps
     config_dict['step9_gmx_grompp']['properties']['mdp']['delta-lambda'] =  float(f'{1 / fe_nsteps:.0g}')
+    config_dict['step6_gmx_mdrun']['properties']['mpi_bin'] = mpibin
+    config_dict['step8_gmx_mdrun']['properties']['mpi_bin'] = mpibin
+    config_dict['step10_gmx_mdrun']['properties']['mpi_bin'] = mpibin
     if lig:
         config_dict['step1.2_remove_ligand']['properties']['ligand'] =  lig
         config_dict['step2.2_lig_gmx_appendLigand']['paths']['input_itp_path'] =  lig_itp
@@ -284,6 +287,7 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
             prolog_file.write(f"# Extra environment variables\n")
             for new_env in extra_env:
                 prolog_file.write(f"export {new_env}\n")
+        prolog_file.write(f"export TASK_TIME_OUT={task_timeout}\n")
 
     # Create launch
     with open(launch_path, 'w') as launch_file:
@@ -320,6 +324,7 @@ def main():
     parser.add_argument('-mut_trj', '--mut_trajectory', required=True, default='mut.xtc', type=str, help="(mut.xtc) [Path to the MUT trajectory]")
     parser.add_argument('-q', '--queue', required=False, default='bsc_ls', type=str, help="(bsc_ls) [bsc_ls|debug]")
     parser.add_argument('-t', '--time', required=False, default=120, type=int, help="(120) [integer] Time in minutes")
+    parser.add_argument('-tt', '--task_timeout', required=False, default=864000, type=int, help="(864000) [integer] Task timeout in seconds (default 10 days)")
     parser.add_argument('-nn', '--num_nodes', required=False, default=1, type=int, help="(1) [integer]")
     parser.add_argument('-cv', '--compss_version', required=False, default='2.6.1', type=str, help="(2.6.1) [version_name]")
     parser.add_argument('-d', '--compss_debug', required=False, help="Compss debug mode", action='store_true')
@@ -342,6 +347,7 @@ def main():
     parser.add_argument('-lig_itp', '--lig_itp', required=False, default='', type=str, help="Ligand topology file in GROMACS itp format. Absolute path needed.")
     parser.add_argument('-lig_posre', '--lig_posre', required=False, default='', type=str, help="Ligand position restraints file in GROMACS itp format. Absolute path needed.")
     parser.add_argument('-his', '--histidine_list', required=False, default='', type=str, help="List of Histidine types in the structure. 0=HID, 1=HIE, 2=HIP. e.g. 0 1 1 2 0")
+    parser.add_argument('--mpi_bin', required=False, default='srun', type=str, help="MPI binary (e.g. srun, mpirun)")
     args = parser.parse_args()
 
     # Specific call of each building block
@@ -353,6 +359,7 @@ def main():
            mut_trj=args.mut_trajectory,
            queue=args.queue,
            time=args.time,
+           task_timeout=args.task_timeout,
            num_nodes=args.num_nodes,
            compss_version=args.compss_version,
            ions=args.ions,
@@ -375,6 +382,7 @@ def main():
            lig_itp=args.lig_itp,
            lig_posre=args.lig_posre,
            his=args.histidine_list,
+           mpibin=args.mpi_bin,
            base_dir=Path(args.base_dir)
            )
 

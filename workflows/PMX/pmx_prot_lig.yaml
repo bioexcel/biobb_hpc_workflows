@@ -182,7 +182,7 @@ step9_gmx_grompp:
   properties:
     gmx_lib: XXXX/biobb_wf_pmxligand/mutff45
     gmx_path: gmx_mpi
-    maxwarn: 2
+    maxwarn: 3
     simulation_type: free
     mdp:
       nsteps: 25000
