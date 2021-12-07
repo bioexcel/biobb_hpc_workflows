@@ -35,9 +35,9 @@ def read_sc_params(supercomputer_conf, supercomputer):
         return params[supercomputer]
 
 def launch(input_structures, queue, num_nodes, compss_version, md_length,
-           base_dir, compss_debug, time, output_dir, job_name, mpi_nodes,
+           base_dir, compss_debug, time, task_timeout, output_dir, job_name, mpi_nodes,
            gmxlib, system, ff, concentration, box_type, box_size,
-           supercomputer, supercomputer_conf):
+           supercomputer, supercomputer_conf, mpibin):
 
     params = read_sc_params(supercomputer_conf, supercomputer)
 
@@ -59,7 +59,7 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
     if 'project_name' in params:
         project_name = params['project_name']
 
-    queue = "default"
+    #queue = "default"
     if 'queue' in params:
         queue = params['queue']
 
@@ -78,6 +78,10 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
     extra_env = ()
     if 'extra_env' in params:
         extra_env = params['extra_env'].split(',')
+
+    sc_cfg = supercomputer
+    if 'cfg_path' in params:
+        sc_cfg = params['cfg_path']
 
     base_dir = Path(params['workflows_path'])
 
@@ -148,6 +152,12 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
     config_dict['step2_editconf']['properties']['box_type'] = box_type
     config_dict['step2_editconf']['properties']['distance_to_molecule'] = box_size
 
+    # MPI binary
+    config_dict['step7_mdrun_min']['properties']['mpi_bin'] = mpibin
+    config_dict['step10_mdrun_nvt']['properties']['mpi_bin'] = mpibin
+    config_dict['step12_mdrun_npt']['properties']['mpi_bin'] = mpibin
+    config_dict['step14_mdrun_md']['properties']['mpi_bin'] = mpibin
+
     if (system == "DNA"):
         config_dict['step9_grompp_nvt']['properties']['mdp']['tc_grps'] =  "DNA Water_and_ions"
         config_dict['step11_grompp_npt']['properties']['mdp']['tc_grps'] =  "DNA Water_and_ions"
@@ -194,6 +204,7 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
             prolog_file.write(f"# Extra environment variables\n")
             for new_env in extra_env:
                 prolog_file.write(f"export {new_env}\n")
+        prolog_file.write(f"export TASK_TIME_OUT={task_timeout}\n")
 
     # Create launch
     with open(launch_path, 'w') as launch_file:
@@ -203,14 +214,18 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
         launch_file.write(f"enqueue_compss ")
         if compss_debug:
             launch_file.write(f"-d --keep_workingdir ")
+
         if num_nodes == 1 or num_nodes == mpi_nodes :
             launch_file.write(f"--worker_in_master_cpus={params['num_cores_node']} ")
+        else:
+            launch_file.write(f"--worker_in_master_cpus=0 ")
+
         if project_name:
             launch_file.write(f"--project_name={project_name} ")
         launch_file.write(f"--job_name={job_name}  --num_nodes={num_nodes} \
 --exec_time={str(time)} --base_log_dir=$PWD --worker_working_dir=$PWD \
 --master_working_dir=$PWD --network=ethernet --qos={queue}  \
---sc_cfg={supercomputer}.cfg --worker_in_master_cpus=0 --queue={partition} \
+--sc_cfg={sc_cfg}.cfg --queue={partition} \
 --env_script={prolog_path} {wf_py_path} --config {config_yaml_path} ")
         launch_file.write(f"\n")
 
@@ -227,6 +242,7 @@ def main():
     parser.add_argument('-c', '--concentration', required=False, default=0.05, type=float, help="(0.05) System ionic concentration (mol/liter)")
     parser.add_argument('-q', '--queue', required=False, default='default', type=str, help="(bsc_ls) [bsc_ls|debug]")
     parser.add_argument('-t', '--time', required=False, default=120, type=int, help="(120) [integer] Time in minutes")
+    parser.add_argument('-tt', '--task_timeout', required=False, default=864000, type=int, help="(864000) [integer] Task timeout in seconds (default 10 days)")
     parser.add_argument('-nn', '--num_nodes', required=False, default=1, type=int, help="(1) [integer]")
     parser.add_argument('-cv', '--compss_version', required=False, default='2.6.1', type=str, help="(2.6.1) [version_name]")
     parser.add_argument('-d', '--compss_debug', required=False, help="Compss debug mode", action='store_true')
@@ -238,6 +254,7 @@ def main():
     parser.add_argument('-gl', '--gromacs_lib', required=False, default='.', type=str, help="Gromacs lib, path where to find the force field libraries.")
     parser.add_argument('-sc', '--supercomputer', required=True, default='mn', type=str, help="Supercomputer name or id, included in the supercomputer-specific configuration file (sc_conf parameter).")
     parser.add_argument('-sc_conf', '--supercomputer_conf', required=True, default='sc_conf.yml', type=str, help="Supercomputer-specific parameters, such as MPI library or modules.")
+    parser.add_argument('--mpi_bin', required=False, default='srun', type=str, help="MPI binary (e.g. srun, mpirun)")
     args = parser.parse_args()
 
     # ALL possible force fields
@@ -261,6 +278,7 @@ def main():
     launch(input_structures=args.input_structures,
            queue=args.queue,
            time=args.time,
+           task_timeout=args.task_timeout,
            num_nodes=args.num_nodes,
            compss_version=args.compss_version,
            compss_debug=args.compss_debug,
@@ -276,6 +294,7 @@ def main():
            concentration=args.concentration,
            supercomputer=args.supercomputer,
            supercomputer_conf=args.supercomputer_conf,
+           mpibin=args.mpi_bin,
            base_dir=Path(args.base_dir)
            )
 

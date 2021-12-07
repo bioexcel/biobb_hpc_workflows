@@ -13,6 +13,8 @@
 #   extra_env: [optional] Optional environment variables, separated by commas
 #   queue: [optional] Queue name
 #   partition: [optional] Queue partition
+#   cfg_path: [optional] Path to the PyCOMPSs Supercomputer configuration file (cfg)
+
 
 # BSC Marenostrum4
 mn:
@@ -60,3 +62,12 @@ lusitania:
   modules_load: intel16 gromacs
   mpi_env: SLURM
   num_cores_node: 20
+
+# SOFIA TECH PARK Discoverer
+discoverer:
+  workflows_path: /discofs/usrbioex2/biobb_hpc_workflows
+  biobb_path: /discofs/usrbioex2/biobb_v3.7_pycompss_v2.9.2
+  cfg_path: /discofs/usrbioex2/discoverer
+  modules_load: gromacs/2021/latest-intel-nogpu-mpi
+  mpi_env: IMPI
+  num_cores_node: 64
