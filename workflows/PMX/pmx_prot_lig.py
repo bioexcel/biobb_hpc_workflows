@@ -29,16 +29,16 @@ from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
 from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
 from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
 from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
-from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import appendligand
+from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import append_ligand
 
 # pycompss: biobb analysis modules
-from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmximage
-from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import gmxtrjconvstrens
+from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmx_image
+from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import gmx_trjconv_str_ens
 
 # pycompss: biobb structure utils modules
-from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extractatoms
-from biobb_adapters.pycompss.biobb_structure_utils.utils.remove_ligand import removeligand
-from biobb_adapters.pycompss.biobb_structure_utils.utils.sort_gro_residues import sortgroresidues
+from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extract_atoms
+from biobb_adapters.pycompss.biobb_structure_utils.utils.remove_ligand import remove_ligand
+from biobb_adapters.pycompss.biobb_structure_utils.utils.sort_gro_residues import sort_gro_residues
 
 @constraint(computing_units="XXXX")
 @multinode(computing_nodes="1")
@@ -185,7 +185,7 @@ def main(config, system=None):
 
             # step1.1_check_dummies
             global_log.info(ensemble + " " + pdb_name + " Step 1.1 Check for dummy atoms")
-            extractatoms(**paths['step1.1_check_dummies'], properties=prop['step1.1_check_dummies'])
+            extract_atoms(**paths['step1.1_check_dummies'], properties=prop['step1.1_check_dummies'])
             #compss_wait_on_file(paths['step1.1_check_dummies']['output_structure_path'])
             #try:
             #    dummy = bool(os.path.getsize(paths['step1.1_check_dummies']['output_structure_path']))
@@ -195,7 +195,7 @@ def main(config, system=None):
 
             # step1.2_remove_ligand
             global_log.info(ensemble + " " + pdb_name + " Step 1.2 Remove ligand")
-            removeligand(**paths['step1.2_remove_ligand'], properties=prop['step1.2_remove_ligand'])
+            remove_ligand(**paths['step1.2_remove_ligand'], properties=prop['step1.2_remove_ligand'])
 
             # step2_gmx_pdb2gmx
             global_log.info(ensemble + " " + pdb_name + " Step 2: gmx pdb2gmx: Generate Topology")
@@ -203,11 +203,11 @@ def main(config, system=None):
 
             # step2.1_sort_gro
             global_log.info(ensemble + " " + pdb_name + " Step 2.1 Sort gro residues")
-            sortgroresidues(**paths['step2.1_sort_gro'], properties=prop['step2.1_sort_gro'])
+            sort_gro_residues(**paths['step2.1_sort_gro'], properties=prop['step2.1_sort_gro'])
 
             # step2.2_lig_gmx_appendLigand
             global_log.info(ensemble + " " + pdb_name +" Step 2.2_lig: gmx appendLigand: Append a ligand to a GROMACS topology")
-            appendligand(**paths["step2.2_lig_gmx_appendLigand"], properties=prop["step2.2_lig_gmx_appendLigand"])
+            append_ligand(**paths["step2.2_lig_gmx_appendLigand"], properties=prop["step2.2_lig_gmx_appendLigand"])
 
             # step3_pmx_gentop
             global_log.info(ensemble + " " + pdb_name +" Step 3: pmx gentop: Generate Hybrid Topology")

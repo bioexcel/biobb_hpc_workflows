@@ -125,6 +125,10 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     if 'extra_env' in params:
         extra_env = params['extra_env'].split(',')
 
+    sc_cfg = supercomputer
+    if 'cfg_path' in params:
+        sc_cfg = params['cfg_path']
+
     base_dir = Path(params['workflows_path'])
 
     #if pmx_resnum == 0:
@@ -300,12 +304,15 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
 #        if num_nodes == 1 or num_nodes == mpi_nodes :
         if num_nodes == 1 :
             launch_file.write(f"--worker_in_master_cpus={params['num_cores_node']} ")
+        else:
+            launch_file.write(f"--worker_in_master_cpus=0 ")
+
         if project_name:
             launch_file.write(f"--project_name={project_name} ")
         launch_file.write(f"--job_name={job_name}  --num_nodes={num_nodes} \
 --exec_time={str(time)} --base_log_dir=$PWD --worker_working_dir=$PWD \
 --master_working_dir=$PWD --network=ethernet --qos={queue}  \
---sc_cfg={supercomputer}.cfg --worker_in_master_cpus=0 --queue={partition} \
+--sc_cfg={sc_cfg}.cfg --queue={partition} \
 --env_script={prolog_path} {wf_py_path} --config {config_yaml_path} ")
         launch_file.write(f"\n")
 

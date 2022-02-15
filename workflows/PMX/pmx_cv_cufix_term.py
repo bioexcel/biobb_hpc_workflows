@@ -31,16 +31,16 @@ from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
 from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
 
 # pycompss: biobb analysis modules
-from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmximage
-from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import gmxtrjconvstrens
+from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmx_image
+from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_trjconv_str_ens import gmx_trjconv_str_ens
 
 # pycompss: biobb structure utils modules
-from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extractatoms
+from biobb_adapters.pycompss.biobb_structure_utils.utils.extract_atoms import extract_atoms
 
 @constraint(computing_units="XXXX")
 @multinode(computing_nodes="1")
 @task(output_structure_path = FILE_IN, input_structure_path = FILE_IN, output_ndx_path= FILE_OUT, input_gro_path=FILE_IN, output_tpr_path=FILE_OUT, input_top_zip_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_xtc_path=FILE_OUT, output_log_path=FILE_OUT, on_failure="IGNORE")
-def check_structure_and_run_ndx(ensemble, output_structure_path, input_structure_path, output_ndx_path, properties_makendx, input_gro_path, input_top_zip_path, output_tpr_path, properties_grompp, output_trr_path, output_gro_path, output_edr_path, output_xtc_path, output_log_path, properties_mdrun, **kwargs):
+def check_structure_and_run_ndx(ensemble, output_structure_path, input_structure_path, output_ndx_path, properties_makendx, input_gro_path, input_top_zip_path, output_tpr_path, properties_grompp, output_trr_path, output_gro_path, output_edr_path, output_xtc_path=None, output_log_path=None, properties_mdrun=None, **kwargs):
     try:
         dummy = bool(os.path.getsize(output_structure_path))
         if not dummy:
@@ -132,12 +132,12 @@ def main(config, system=None):
         global_log.info(ensemble+" Step 0: gmx image: Imaging trajectories to remove PBC issues")
         ensemble_paths['step0_image']['input_traj_path'] = conf.properties['input_trajs'][ensemble]['input_traj_path']
         ensemble_paths['step0_image']['input_top_path'] = conf.properties['input_trajs'][ensemble]['input_tpr_path']
-        gmximage(**ensemble_paths["step0_image"], properties=ensemble_prop["step0_image"])
+        gmx_image(**ensemble_paths["step0_image"], properties=ensemble_prop["step0_image"])
 
         # step1_trjconv
         global_log.info(ensemble+" Step 1: gmx trjconv: Extract snapshots from equilibrium trajectories")
         ensemble_paths['step1_trjconv_'+ensemble]['input_top_path'] = conf.properties['input_trajs'][ensemble]['input_tpr_path']
-        gmxtrjconvstrens(**ensemble_paths['step1_trjconv_'+ensemble], properties=ensemble_prop['step1_trjconv_'+ensemble])
+        gmx_trjconv_str_ens(**ensemble_paths['step1_trjconv_'+ensemble], properties=ensemble_prop['step1_trjconv_'+ensemble])
 
     for ensemble, mutation in conf.properties['mutations'].items():
         ensemble_prop = conf.get_prop_dic(prefix=ensemble)
@@ -167,7 +167,7 @@ def main(config, system=None):
 
             # step1.1_check_dummies
             global_log.info(ensemble + " " + pdb_name + " Step 1.1 Check for dummy atoms")
-            extractatoms(**paths['step1.1_check_dummies'], properties=prop['step1.1_check_dummies'])
+            extract_atoms(**paths['step1.1_check_dummies'], properties=prop['step1.1_check_dummies'])
             #compss_wait_on_file(paths['step1.1_check_dummies']['output_structure_path'])
             #try:
             #    dummy = bool(os.path.getsize(paths['step1.1_check_dummies']['output_structure_path']))

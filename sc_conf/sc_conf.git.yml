@@ -65,9 +65,9 @@ lusitania:
 
 # SOFIA TECH PARK Discoverer
 discoverer:
-  workflows_path: /discofs/usrbioex2/biobb_hpc_workflows
-  biobb_path: /discofs/usrbioex2/biobb_v3.7_pycompss_v2.9.2
-  cfg_path: /discofs/usrbioex2/discoverer
+  workflows_path: XXXX/biobb_hpc_workflows
+  biobb_path: XXXX/biobb_v3.7_pycompss_v2.9.2
+  cfg_path: XXXX/discoverer
   modules_load: gromacs/2021/latest-intel-nogpu-mpi
   mpi_env: IMPI
-  num_cores_node: 64
+  num_cores_node: 128

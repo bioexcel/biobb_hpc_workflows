@@ -118,7 +118,6 @@ step6_gmx_mdrun:
     output_gro_path: emout.gro
     output_edr_path: emout.edr
     output_log_path: emout.log
-    output_xtc_path: emout.xtc
   properties:
     gmx_path: gmx_mpi
     mpi_bin: srun

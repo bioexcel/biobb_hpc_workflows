@@ -188,12 +188,14 @@ def launch(mutation, wt_str, queue, num_nodes, compss_version, md_length, ff,
             launch_file.write(f"-d --keep_workingdir ")
         if num_nodes == 1 or num_nodes == mpi_nodes :
             launch_file.write(f"--worker_in_master_cpus={params['num_cores_node']} ")
+        else:
+            launch_file.write(f"--worker_in_master_cpus=0 ")
         if project_name:
             launch_file.write(f"--project_name={project_name} ")
         launch_file.write(f"--job_name={job_name}  --num_nodes={num_nodes} \
 --exec_time={str(time)} --base_log_dir=$PWD --worker_working_dir=$PWD \
 --master_working_dir=$PWD --network=ethernet --qos={queue}  \
---sc_cfg={sc_cfg}.cfg --worker_in_master_cpus=0 --queue={partition} \
+--sc_cfg={sc_cfg}.cfg --queue={partition} \
 --env_script={prolog_path} {wf_py_path} --config {config_yaml_path} ")
         launch_file.write(f"\n")
 
