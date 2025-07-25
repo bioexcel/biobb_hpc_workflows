@@ -25,11 +25,11 @@ from biobb_adapters.pycompss.biobb_pmx.pmx.pmxgentop import pmxgentop
 from biobb_adapters.pycompss.biobb_pmx.pmx.pmxanalyse import pmxanalyse
 
 # pycompss: biobb md modules
-from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
-from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
-from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
-from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
-from biobb_adapters.pycompss.biobb_md.gromacs_extra.append_ligand import append_ligand
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.pdb2gmx import pdb2gmx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.make_ndx import make_ndx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.grompp import grompp
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.mdrun import mdrun
+from biobb_adapters.pycompss.biobb_gromacs.gromacs_extra.append_ligand import append_ligand
 
 # pycompss: biobb analysis modules
 from biobb_adapters.pycompss.biobb_analysis.gromacs.gmx_image import gmx_image

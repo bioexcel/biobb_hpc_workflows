@@ -1,9 +1,10 @@
-working_dir_path: str_mds
-can_write_console_log: True
-restart: False
+global_properties:
+  working_dir_path: str_mds
+  can_write_console_log: True
+  restart: False
 
-# List of structures to be simulated
-input_structures: ['/home/bscxxxx/str.pdb','/home/bscxxxx/str2.pdb','/home/bscxxxx/str3.pdb']
+  # List of structures to be simulated
+  input_structures: ['/home/bscxxxx/str.pdb','/home/bscxxxx/str2.pdb','/home/bscxxxx/str3.pdb']
 
 step1_pdb2gmx:
   paths:
@@ -68,7 +69,7 @@ step7_mdrun_min:
     output_log_path: min.log
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step8_make_ndx:
   paths:
@@ -100,7 +101,7 @@ step10_mdrun_nvt:
     output_cpt_path: nvt.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step11_grompp_npt:
   paths:
@@ -126,7 +127,7 @@ step12_mdrun_npt:
     output_cpt_path: npt.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step13_grompp_md:
   paths:
@@ -152,4 +153,4 @@ step14_mdrun_md:
     output_cpt_path: md.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi

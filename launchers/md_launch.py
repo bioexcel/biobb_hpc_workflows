@@ -129,7 +129,7 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
     config_dict = get_template_config_dict(template_yaml_path)
 
     # Update config_dict
-    config_dict['working_dir_path'] = str(run_dir)
+    config_dict['global_properties']['working_dir_path'] = str(run_dir)
 
     # Length of the simulations
     config_dict['step13_grompp_md']['properties']['mdp']['nsteps'] = int((md_length*1000)/0.002)
@@ -176,8 +176,8 @@ def launch(input_structures, queue, num_nodes, compss_version, md_length,
         else:
             structures = structures + "," + line.rstrip()
 
-    config_dict['input_structures'] = structures
-    print(config_dict['input_structures'])
+    config_dict['global_properties']['input_structures'] = structures
+    print(config_dict['global_properties']['input_structures'])
 
     with open(config_yaml_path, 'w') as config_yaml_file:
         config_yaml_file.write(yaml.dump(config_dict))

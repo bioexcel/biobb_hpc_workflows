@@ -13,13 +13,13 @@ from biobb_common.configuration import settings
 from biobb_common.tools import file_utils as fu
 
 # pycompss: biobb md modules
-from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
-from biobb_adapters.pycompss.biobb_md.gromacs.editconf import editconf
-from biobb_adapters.pycompss.biobb_md.gromacs.solvate import solvate
-from biobb_adapters.pycompss.biobb_md.gromacs.genion import genion
-from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
-from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
-from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.pdb2gmx import pdb2gmx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.editconf import editconf
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.solvate import solvate
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.genion import genion
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.make_ndx import make_ndx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.grompp import grompp
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.mdrun import mdrun
 
 def main(config, system=None):
     start_time = time.time()
@@ -28,7 +28,7 @@ def main(config, system=None):
     global_prop = conf.get_prop_dic()
     global_paths = conf.get_paths_dic()
 
-    for structure in conf.properties['input_structures'].split(','):
+    for structure in conf.properties['global_properties']['input_structures'].split(','):
 
         prefix_str = os.path.basename(structure)
         prefix_str = prefix_str.replace('.','_')

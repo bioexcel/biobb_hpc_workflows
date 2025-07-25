@@ -1,18 +1,19 @@
-working_dir_path: wf_pmx_10ns
-can_write_console_log: True
-restart: False
+global_properties:
+  working_dir_path: wf_pmx_10ns
+  can_write_console_log: True
+  restart: False
 
-mutations:
-  stateA: 6Gln,13Lys
-  stateB: 6Arg,13Asn
+  mutations:
+    stateA: 6Gln,13Lys
+    stateB: 6Arg,13Asn
 
-input_trajs:
-  stateA:
-    input_tpr_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/WT/md_wf/step13_grompp_md/gppmd.tpr
-    input_traj_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/WT/md_wf/step14_mdrun_md/md.xtc
-  stateB:
-    input_tpr_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/MutGroups/mut_sets_all/A_Arg6Gln-A_Asn13Lys/step13_grompp_md/gppmd.tpr
-    input_traj_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/MutGroups/mut_sets_all/A_Arg6Gln-A_Asn13Lys/step14_mdrun_md/md.xtc
+  input_trajs:
+    stateA:
+      input_tpr_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/WT/md_wf/step13_grompp_md/gppmd.tpr
+      input_traj_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/WT/md_wf/step14_mdrun_md/md.xtc
+    stateB:
+      input_tpr_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/MutGroups/mut_sets_all/A_Arg6Gln-A_Asn13Lys/step13_grompp_md/gppmd.tpr
+      input_traj_path: XXXX/BioExcel/COVID-19/RATG13/Mutations/RATG13-AFFINIS-COMPLEX/MutGroups/mut_sets_all/A_Arg6Gln-A_Asn13Lys/step14_mdrun_md/md.xtc
 
 step0_image:
   paths:
@@ -23,7 +24,7 @@ step0_image:
     ur: compact
     pbc: mol
     center: True
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step1_trjconv_stateA:
   paths:
@@ -34,7 +35,7 @@ step1_trjconv_stateA:
     skip: 100
     output_name: frame
     output_type: gro
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step1_trjconv_stateB:
   paths:
@@ -45,7 +46,7 @@ step1_trjconv_stateB:
     skip: 100
     output_name: frame
     output_type: gro
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step1_pmx_mutate:
   paths:
@@ -69,7 +70,7 @@ step2_gmx_pdb2gmx:
     #ignh: True
     #his: 0 0 1 1 0 0 0
     gmx_lib: XXXX/biobb_wf_pmxligand/mutff45
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step3_pmx_gentop:
   paths:
@@ -85,7 +86,7 @@ step4_gmx_makendx:
     output_ndx_path: index_pmx.ndx
   properties:
     selection : 'a D*\n0 & ! 26\nname 27 FREEZE'
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step5_gmx_grompp:
   paths:
@@ -95,7 +96,7 @@ step5_gmx_grompp:
     output_tpr_path: em.tpr
   properties:
     gmx_lib: XXXX/biobb_wf_pmxligand/mutff45
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     maxwarn: 2
     simulation_type: minimization
     mdp:
@@ -119,7 +120,7 @@ step6_gmx_mdrun:
     output_edr_path: emout.edr
     output_log_path: emout.log
   properties:
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     mpi_bin: srun
 
 step7_gmx_grompp:
@@ -129,7 +130,7 @@ step7_gmx_grompp:
     output_tpr_path: eq.tpr
   properties:
     gmx_lib: XXXX/biobb_wf_pmxligand/mutff45
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     maxwarn: 2
     simulation_type: free
     mdp:
@@ -148,7 +149,7 @@ step8_gmx_mdrun:
     output_log_path: eqout.log
     output_xtc_path: eqout.xtc
   properties:
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     mpi_bin: srun
 
 step9_gmx_grompp:
@@ -159,7 +160,7 @@ step9_gmx_grompp:
     output_tpr_path: ti.tpr
   properties:
     gmx_lib: XXXX/biobb_wf_pmxligand/mutff45
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     maxwarn: 2
     simulation_type: free
     mdp:
@@ -182,7 +183,7 @@ step10_gmx_mdrun:
     output_xtc_path: ti.xtc
     output_dhdl_path: ti_dhdl.xvg
   properties:
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
     mpi_bin: srun
 
 step11_pmx_analyse:

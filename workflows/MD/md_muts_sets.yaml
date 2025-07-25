@@ -1,11 +1,12 @@
-working_dir_path: mut_sets_all
-can_write_console_log: True
-restart: False
+global_properties:
+  working_dir_path: mut_sets_all
+  can_write_console_log: True
+  restart: False
 
-# List of mutations
-mutations: [['WT'],['A:Arg6Gln','A:Asn13Lys'],['A:Glu31Asn','A:Lys43Asn'],['A:Asp45Asn','A:Asn311Glu'],['A:Glu307Gln','A:Lys341Leu'],['A:Asp336Ala','A:Arg367Tyr'],['A:Asp366Ala','A:Arg582Gly'],['A:Thr3Ile'],['A:Asp5Glu'],['A:Ile9Thr'],['A:Ser22Phe'],['A:Ser369Ala'],['A:Tyr372Phe']]
+  # List of mutations
+  mutations: [['WT'],['A:Arg6Gln','A:Asn13Lys'],['A:Glu31Asn','A:Lys43Asn'],['A:Asp45Asn','A:Asn311Glu'],['A:Glu307Gln','A:Lys341Leu'],['A:Asp336Ala','A:Arg367Tyr'],['A:Asp366Ala','A:Arg582Gly'],['A:Thr3Ile'],['A:Asp5Glu'],['A:Ile9Thr'],['A:Ser22Phe'],['A:Ser369Ala'],['A:Tyr372Phe']]
 
-input_pdb: wt.pdb
+  input_pdb: wt.pdb
 
 step1_mutate:
   paths:
@@ -76,7 +77,7 @@ step8_mdrun_min:
     output_log_path: min.log
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step9_grompp_nvt:
   paths:
@@ -100,7 +101,7 @@ step10_mdrun_nvt:
     output_cpt_path: nvt.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step11_grompp_npt:
   paths:
@@ -125,7 +126,7 @@ step12_mdrun_npt:
     output_cpt_path: npt.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi
 
 step13_grompp_md:
   paths:
@@ -150,4 +151,4 @@ step14_mdrun_md:
     output_cpt_path: md.cpt
   properties:
     mpi_bin: srun
-    gmx_path: gmx_mpi
+    binary_path: gmx_mpi

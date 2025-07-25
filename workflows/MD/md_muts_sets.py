@@ -16,13 +16,13 @@ from biobb_common.tools import file_utils as fu
 from biobb_adapters.pycompss.biobb_model.model.mutate import mutate
 
 # pycompss: biobb md modules
-from biobb_adapters.pycompss.biobb_md.gromacs.pdb2gmx import pdb2gmx
-from biobb_adapters.pycompss.biobb_md.gromacs.editconf import editconf
-from biobb_adapters.pycompss.biobb_md.gromacs.solvate import solvate
-from biobb_adapters.pycompss.biobb_md.gromacs.genion import genion
-from biobb_adapters.pycompss.biobb_md.gromacs.make_ndx import make_ndx
-from biobb_adapters.pycompss.biobb_md.gromacs.grompp import grompp
-from biobb_adapters.pycompss.biobb_md.gromacs.mdrun import mdrun
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.pdb2gmx import pdb2gmx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.editconf import editconf
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.solvate import solvate
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.genion import genion
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.make_ndx import make_ndx
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.grompp import grompp
+from biobb_adapters.pycompss.biobb_gromacs.gromacs.mdrun import mdrun
 
 def main(config, system=None):
     start_time = time.time()
@@ -32,7 +32,7 @@ def main(config, system=None):
     global_paths = conf.get_paths_dic()
 
     mutations = []
-    for mut_set in conf.properties['mutations'].split('+'):
+    for mut_set in conf.properties['global_properties']['mutations'].split('+'):
         mutations.append([mut_set])
 
     #for mutation_list in conf.properties['mutations']:
@@ -44,7 +44,7 @@ def main(config, system=None):
             mut_prop = conf.get_prop_dic(prefix="WT")
             mut_paths = conf.get_paths_dic(prefix="WT")
 
-            mutpdb = conf.properties['input_pdb']
+            mutpdb = conf.properties['global_properties']['input_pdb']
 
         else:
 
@@ -60,7 +60,7 @@ def main(config, system=None):
             mut_prop = conf.get_prop_dic(prefix=mutation_code)
             mut_paths = conf.get_paths_dic(prefix=mutation_code)
 
-            mut_paths['step1_mutate']['input_pdb_path'] = conf.properties['input_pdb']
+            mut_paths['step1_mutate']['input_pdb_path'] = conf.properties['global_properties']['input_pdb']
             mut_prop['step1_mutate']['mutation_list'] = str_mut_list
 
             global_log.info("step1_mutate: Modeling a particular residue mutation")

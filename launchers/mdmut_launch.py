@@ -37,7 +37,7 @@ def read_sc_params(supercomputer_conf, supercomputer):
 def launch(mutation, wt_str, queue, num_nodes, compss_version, md_length, ff,
            base_dir, compss_debug, time, task_timeout, output_dir, job_name, mpi_nodes,
            cumulative, gmxlib,
-           supercomputer, supercomputer_conf, mpibin):
+           supercomputer, supercomputer_conf, w_in_m_cpus, mpibin):
 
     params = read_sc_params(supercomputer_conf, supercomputer)
 
@@ -133,9 +133,9 @@ def launch(mutation, wt_str, queue, num_nodes, compss_version, md_length, ff,
     # Read yaml template file
     config_dict = get_template_config_dict(template_yaml_path)
     # Update config_dict
-    config_dict['working_dir_path'] = str(run_dir)
-    config_dict['mutations'] = mutation
-    config_dict['input_pdb'] = wt_str
+    config_dict['global_properties']['working_dir_path'] = str(run_dir)
+    config_dict['global_properties']['mutations'] = mutation
+    config_dict['global_properties']['input_pdb'] = wt_str
     config_dict['step13_grompp_md']['properties']['mdp']['nsteps'] = int((md_length*1000)/0.002)
     config_dict['step2_pdb2gmx']['properties']['gmxlib'] = gmxlib
     config_dict['step5_grompp_genion']['properties']['gmxlib'] = gmxlib
@@ -173,10 +173,15 @@ def launch(mutation, wt_str, queue, num_nodes, compss_version, md_length, ff,
             prolog_file.write(f"export MULTINODE_MPI_EXTRA_FLAGS=\"{mpi_flags}\"\n")
         prolog_file.write(f"\n")
         if extra_env:
-            prolog_file.write(f"# Extra environment variables\n")
+            prolog_file.write("# Extra environment variables\n")
             for new_env in extra_env:
                 prolog_file.write(f"export {new_env}\n")
         prolog_file.write(f"export TASK_TIME_OUT={task_timeout}\n")
+
+        # MN5 libgfortran3 patch
+        if (supercomputer == "mn5"):
+            prolog_file.write("\n# MN5 libgfortran3 patch\n")
+            prolog_file.write("export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/apps/GPP/ANACONDA/2023.07/envs/libgfortran3/lib\n")
 
     # Create launch
     with open(launch_path, 'w') as launch_file:
@@ -186,8 +191,10 @@ def launch(mutation, wt_str, queue, num_nodes, compss_version, md_length, ff,
         launch_file.write(f"enqueue_compss ")
         if compss_debug:
             launch_file.write(f"-d --keep_workingdir ")
-        if num_nodes == 1 or num_nodes == mpi_nodes :
+        if num_nodes == 1 or num_nodes == mpi_nodes:
             launch_file.write(f"--worker_in_master_cpus={params['num_cores_node']} ")
+        elif w_in_m_cpus > 0:
+            launch_file.write(f"--worker_in_master_cpus={w_in_m_cpus} ")
         else:
             launch_file.write(f"--worker_in_master_cpus=0 ")
         if project_name:
@@ -223,6 +230,7 @@ def main():
     parser.add_argument('-sc', '--supercomputer', required=True, default='mn', type=str, help="Supercomputer name or id, included in the supercomputer-specific configuration file (sc_conf parameter).")
     parser.add_argument('-sc_conf', '--supercomputer_conf', required=True, default='sc_conf.yml', type=str, help="Supercomputer-specific parameters, such as MPI library or modules.")
     parser.add_argument('--mpi_bin', required=False, default='srun', type=str, help="MPI binary (e.g. srun, mpirun)")
+    parser.add_argument('--w_in_m_cpus', required=False, default=0, type=int, help="PyCOMPSs worker in master CPUs")
     args = parser.parse_args()
 
     # Specific call of each building block
@@ -244,6 +252,7 @@ def main():
            supercomputer=args.supercomputer,
            supercomputer_conf=args.supercomputer_conf,
            mpibin=args.mpi_bin,
+           w_in_m_cpus=args.w_in_m_cpus,
            base_dir=Path(args.base_dir)
            )
 

@@ -230,19 +230,19 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     # Read yaml template file
     config_dict = get_template_config_dict(template_yaml_path)
     # Update config_dict
-    config_dict['working_dir_path'] = str(run_dir)
+    config_dict['global_properties']['working_dir_path'] = str(run_dir)
     forward_mut = forward_mutations(mutation,pmx_resnum)
     reverse_mut = reverse_mutations(mutation,pmx_resnum)
     #config_dict['mutations']['stateA'] = f"{mutation_dict['wt']}{str(pmx_resnum)}{mutation_dict['mt']}"
-    config_dict['mutations']['stateA'] = forward_mut
-    config_dict['mutations']['stateB'] = reverse_mut
+    config_dict['global_properties']['mutations']['stateA'] = forward_mut
+    config_dict['global_properties']['mutations']['stateB'] = reverse_mut
     #reverse_mut = reverse_mutations(mutation)
     #config_dict['mutations']['stateA'] = mutation
     #config_dict['mutations']['stateB'] = reverse_mut
-    config_dict['input_trajs']['stateA']['input_tpr_path'] = str(traj_wt_tpr_path)
-    config_dict['input_trajs']['stateA']['input_traj_path'] = str(traj_wt_xtc_path)
-    config_dict['input_trajs']['stateB']['input_tpr_path'] = str(traj_mut_tpr_path)
-    config_dict['input_trajs']['stateB']['input_traj_path'] = str(traj_mut_xtc_path)
+    config_dict['global_properties']['input_trajs']['stateA']['input_tpr_path'] = str(traj_wt_tpr_path)
+    config_dict['global_properties']['input_trajs']['stateA']['input_traj_path'] = str(traj_wt_xtc_path)
+    config_dict['global_properties']['input_trajs']['stateB']['input_tpr_path'] = str(traj_mut_tpr_path)
+    config_dict['global_properties']['input_trajs']['stateB']['input_traj_path'] = str(traj_mut_xtc_path)
     config_dict['step1_trjconv_stateA']['properties']['skip'] = wt_trjconv_skip
     config_dict['step1_trjconv_stateA']['properties']['start'] = wt_start
     config_dict['step1_trjconv_stateA']['properties']['end'] = wt_end

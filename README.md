@@ -1,7 +1,14 @@
 # BioExcel Building Blocks (BioBB) High Performance Computing (HPC) Workflow repository
 
+BioExcel workflows for HPC resources. Using [BioBB](https://mmb.irbbarcelona.org/biobb/) and [PyCOMPSs](https://compss-doc.readthedocs.io/en/latest/). 
 
-We are working on some new workflows that will be added to the current list of workflows and launchers:
+See:
+```
+Jorge Ejarque, Pau Andrio, Adam Hospital, Javier Conejero, Daniele Lezzi, Josep LL. Gelpi and Rosa Mª Badia
+The BioExcel methodology for developing dynamic, scalable, reliable and portable computational biomolecular workflows
+2022 IEEE 18th International Conference on e-Science (e-Science), Salt Lake City, UT, USA, 2022, pp. 357-366
+```
+doi: [10.1109/eScience55777.2022.00049](https://doi.org/10.1109/eScience55777.2022.00049)
 
 * Workflows for MD:
     * [md_list](workflows/MD/md_list.py): Performs a system setup and runs a molecular dynamics simulation on each one of the structures listed in the YAML properties file.
@@ -16,17 +23,14 @@ We are working on some new workflows that will be added to the current list of w
     * [mdmut_launch](launchers/mdmut_launch.py): Launcher for the [md_muts_sets](workflows/MD/md_muts_sets.py) and [md_add_muts_wt](workflows/MD/md_add_muts_wt.py) workflows.
     * [pmx_launch](launchers/pmx_launch.py): Launcher for the [pmx_cv_cufix_term](workflows/PMX/pmx_cv_cufix_term.py).
 
-The launchers are available in:
-    * Mare Nostrum IV (MN4) at the Barcelona Supercomputing Center (BSC) (`/apps/BIOBB/workflows`)
-
 ### Installation
 
-* Download and install BioBB HPC Conda Pack (BioBB library + PyCOMPSs Workflow manager):<br>
-https://mmb.irbbarcelona.org/biobb/condapacks/biobb_v3.6_pycompss_v2.9.tar.gz
+* Download and install BioBB HPC Conda Pack (BioBB library):<br>
+https://mmb.irbbarcelona.org/biobb/condapacks/biobb_2025.1.tar.gz
    ```
-      mkdir biobb_v3.6_pycompss_v2.9
-      tar -zxf biobb_v3.6_pycompss_v2.9.tar.gz -C biobb_v3.6_pycompss_v2.9
-      source biobb_v3.6_pycompss_v2.9/bin/activate
+      mkdir biobb_2025.1
+      tar -zxf biobb_2025.1.tar.gz -C biobb_2025.1
+      source biobb_2025.1/bin/activate
       conda-unpack
    ```
 
@@ -50,21 +54,21 @@ The template should be modified with specific HPC cluster/supercomputer paths. I
 
 ### Testing
 
-* Different tests can be found in the ([README.doc](README.doc)) file.
+* Different tests can be found in the ([launchers/README](launchers/README.md)) file.
 * Test data can be found in https://mmb.irbbarcelona.org/biobb/condapacks/test_data.tgz
 
 ### Biobb modules used
 
 * [biobb_pmx](https://github.com/bioexcel/biobb_pmx): Tools to setup and run Alchemical Free Energy calculations.
-* [biobb_md](https://github.com/bioexcel/biobb_md): Tools to setup and run Molecular Dynamics simulations.
+* [biobb_gromacs](https://github.com/bioexcel/biobb_gromacs): Tools to setup and run Molecular Dynamics simulations using the GROMACS MD engine.
 * [biobb_analysis](https://github.com/bioexcel/biobb_analysis): Tools to analyse Molecular Dynamics trajectories.
 * [biobb_structure_utils](https://github.com/bioexcel/biobb_structure_utils): Tools to  modify or extract information from a PDB structure file.
 
 ## Copyright & Licensing
-This software has been developed in the [MMB group](http://mmb.irbbarcelona.org) at the [BSC](http://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/) for the [European BioExcel](http://bioexcel.eu/), funded by the European Commission (EU H2020 [823830](http://cordis.europa.eu/projects/823830), EU H2020 [675728](http://cordis.europa.eu/projects/675728)).
+This software has been developed in the [MMB group](http://mmb.irbbarcelona.org) at the [BSC](http://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/) for the [European BioExcel](http://bioexcel.eu/), funded by the European Commission (EU Horizon Europe [101093290](http://cordis.europa.eu/projects/101093290), EU H2020 [823830](http://cordis.europa.eu/projects/823830), EU H2020 [675728](http://cordis.europa.eu/projects/675728)).
 
-* (c) 2015-2021 [Barcelona Supercomputing Center](https://www.bsc.es/)
-* (c) 2015-2021 [Institute for Research in Biomedicine](https://www.irbbarcelona.org/)
+* (c) 2015-2025 [Barcelona Supercomputing Center](https://www.bsc.es/)
+* (c) 2015-2025 [Institute for Research in Biomedicine](https://www.irbbarcelona.org/)
 
 Licensed under the
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), see the file LICENSE for details.
