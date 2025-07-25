@@ -4,7 +4,7 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 
 - **BioExcel Building Blocks (BioBB)**: [http://mmb.irbbarcelona.org/biobb/](http://mmb.irbbarcelona.org/biobb/)
 - **PyCOMPSs**: [https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar](https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar)
-- **BioBB HPC Conda Pack**: [https://mmb.irbbarcelona.org/biobb/availability/condapacks](https://mmb.irbbarcelona.org/biobb/availability/condapacks)
+- **BioBB HPC Conda Pack**: [https://mmb.irbbarcelona.org/biobb/availability/download](https://mmb.irbbarcelona.org/biobb/availability/download)
 
 ---
 
