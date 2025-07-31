@@ -25,7 +25,7 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 - `md_muts_sets`: Run MD for each mutation in a structure.
 - `md_add_muts_wt`: Apply multiple mutations to a structure and run MD per variant.
 
-### ⚛️ Free Energy Calculation (PMX)
+### Free Energy Calculation (PMX)
 
 - `pmx_cv_cufix_term`: Fast-growth mutation free energy calc from equilibrium trajectories.
 
@@ -41,7 +41,7 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 
 ## 3) Examples of Use
 
-### 🔬 Example 1: Launching MD simulation for a single structure
+### Example 1: Launching MD simulation for a single structure
 
 1.1 The Lysozyme protein structure is used as a test case. The execution uses 4 nodes in MPI. The length of the simulation is 5ns and the force-field used is Charmm27.
 
