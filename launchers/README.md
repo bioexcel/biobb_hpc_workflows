@@ -4,11 +4,11 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 
 - **BioExcel Building Blocks (BioBB)**: [http://mmb.irbbarcelona.org/biobb/](http://mmb.irbbarcelona.org/biobb/)
 - **PyCOMPSs**: [https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar](https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar)
-- **BioBB HPC Conda Pack**: [https://mmb.irbbarcelona.org/biobb/availability/download](https://mmb.irbbarcelona.org/biobb/availability/download)
+- **BioBB HPC Conda Packs**: [https://mmb.irbbarcelona.org/biobb/availability/download](https://mmb.irbbarcelona.org/biobb/availability/download)
 
 ---
 
-## 📁 Index
+## Index
 
 1. [Workflows Library](#1-workflows-library)
 2. [Workflow Launchers](#2-workflow-launchers)
@@ -19,7 +19,7 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 
 ## 1) Workflows Library
 
-### 🧬 Workflows for MD
+### Workflows for MD
 
 - `md_list`: Setup and run MD on listed structures.
 - `md_muts_sets`: Run MD for each mutation in a structure.
@@ -49,7 +49,7 @@ Collection of pre-exascale biomolecular simulation workflows built using the Bio
 python md_launch.py -i test_data/LISTS/charmm.list -q default -nn 4 -mpi 4 -jn charmm -t 120 -l 5 -o Charmm -f charmm27
 ```
 
-### 🧬 Example 2: Launching MD simulations for a list of PDB structures
+### Example 2: Launching MD simulations for a list of PDB structures
 
 2.1 The miniABC list (https://doi.org/10.1093/nar/gkz905) is used as a test dataset. The list is formed by 13 nucleic acids eighteen-mers containing all possible tetramers. 14 nodes are used, 1 of them reserved for PyCOMPSs. The system box type, size and ionic concentration are given as parameters.
 
@@ -63,7 +63,7 @@ python md_launch.py -i test_data/LISTS/miniABC.list -q default -nn 14 -mpi 1 -jn
 python md_launch.py -i test_data/LISTS/prot-dna.list -q default -nn 16 -mpi 8 -jn protDNA -t 120 -l 5 -o protDNA --system Protein-DNA
 ```
 
-### 🧬 Example 3: Mutations on Protein Structures
+### Example 3: Mutations on Protein Structures
 
 3.1 Modeling a particular mutation (Alanine 369 to Serine) identified between the Angiotensin-Converting Enzime (ACE) protein in human versus the same protein in the Rhinolophus affinis species (bat). Two MD simulations are run in the same job, one for the WT protein (without the mutation) and another one with the modeled mutation (A369S). 16 nodes are used, using 8 nodes x MD simulation in MPI.
 
@@ -83,7 +83,7 @@ python mdmut_launch.py -wt test_data/hACE-ZN.pdb -m WT+A:Ala369Ser -l 5 -nn 16 -
 python mdmut_launch.py -wt test_data/RBD-hACE.pdb -m WT+A:Ala369Ser -l 5 -nn 16 -mpi 8 -o MDs-RBD-hACE -jn MDsCOMPLEX -t 360 -q default -sc_conf sc_conf.yml -sc mn5 --w_in_m_cpus 112
 ```
 
-### ⚛️ Example 4: Free Energy Calculations (PMX)
+### Example 4: Free Energy Calculations (PMX)
 
 Computing the effect of a particular residue mutation on the protein binding free energy using non-equilibrium approximation (fast growth thermodynamic integration).
 
@@ -110,11 +110,11 @@ python pmx_launch.py -m Ala369Ser -wt_top test_data/CV/RBD-hACE/WT/gppmd.tpr -wt
 
 ---
 
-## 5) ⚖️ Copyright & Licensing
+## 5) Copyright & Licensing
 
-This software has been developed in the MMB group at the BSC & IRB for the European BioExcel project, funded by the European Commission (EU H2020 823830, EU H2020 675728).
+This software has been developed in the MMB group at the BSC & IRB for the European BioExcel project, funded by the European Commission (EU Horizon Europe 101093290, EU H2020 823830, EU H2020 675728).
 
-© 2015–2021 Barcelona Supercomputing Center  
-© 2015–2021 Institute for Research in Biomedicine
+© 2015–2025 Barcelona Supercomputing Center  
+© 2015–2025 Institute for Research in Biomedicine
 
 Licensed under the Apache License 2.0 — see the LICENSE file for details.
