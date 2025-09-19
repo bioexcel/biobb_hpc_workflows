@@ -271,11 +271,17 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
     with open(config_yaml_path, 'w') as config_yaml_file:
         config_yaml_file.write(yaml.dump(config_dict))
 
+    activate_script = Path(f"{params['biobb_path']}/bin/activate")
+    if not activate_script.exists():
+        activate_script = Path(f"{params['biobb_path']}/bin/activate.sh")
+    if not activate_script.exists():
+        sys.exit(f"Activation script not found in {params['biobb_path']}/bin/. Please check the path and try again.")
+
     # Creating prolog (env_script) file
     with open(prolog_path, 'w') as prolog_file:
-        prolog_file.write(f"#!/bin/bash\n\n")
-        prolog_file.write(f"# BioBB + PyCOMPSs environment\n")
-        prolog_file.write(f"source {params['biobb_path']}/bin/activate\n\n")
+        prolog_file.write("#!/bin/bash\n\n")
+        prolog_file.write("# BioBB + PyCOMPSs environment\n")
+        prolog_file.write(f"source {activate_script}\n\n")
         if modules:
             prolog_file.write(f"# Machine-specific modules environment (load)\n")
             prolog_file.write(f"module load {modules}\n\n")
@@ -297,10 +303,10 @@ def launch(mutation, pmx_resnum, wt_top, wt_trj, mut_top, mut_trj, queue, num_no
 
     # Create launch
     with open(launch_path, 'w') as launch_file:
-        launch_file.write(f"#!/bin/bash\n\n")
-        launch_file.write(f"# BioBB + PyCOMPSs environment\n")
-        launch_file.write(f"source {params['biobb_path']}/bin/activate\n\n")
-        launch_file.write(f"enqueue_compss ")
+        launch_file.write("#!/bin/bash\n\n")
+        launch_file.write("# BioBB + PyCOMPSs environment\n")
+        launch_file.write(f"source {activate_script}\n\n")
+        launch_file.write("enqueue_compss ")
         if compss_debug:
             launch_file.write(f"-d --keep_workingdir ")
 #        if num_nodes == 1 or num_nodes == mpi_nodes :
