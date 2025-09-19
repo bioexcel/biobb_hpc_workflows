@@ -26,6 +26,16 @@ mn:
   mpi_env: SLURM
   num_cores_node: 48
 
+# BSC Marenostrum5
+mn5:
+  workflows_path: XXXX/BioExcel/biobb_hpc_workflows
+  biobb_path: XXXX/BioExcel/compss_env/env
+  modules_load: intel/2024.2 impi/2021.13 mkl/2024.2  gromacs/2025.2 java-openjdk
+  extra_env: JAVA_TOOL_OPTIONS=-Xss1280k
+  mpi_env: SLURM
+  num_cores_node: 112
+  project_name: irb95
+
 # EPCC Cirrus
 cirrus:
   workflows_path: XXXX/BioExcel/BioBB_HPC/workflows
