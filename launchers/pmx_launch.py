@@ -2,9 +2,10 @@
 
 from pathlib import Path
 import argparse
-from Bio.PDB.Polypeptide import three_to_one
-from Bio.PDB.Polypeptide import one_to_three
-import re,os, sys
+from Bio.Data.PDBData import protein_letters_3to1, protein_letters_1to3
+import re
+import os
+import sys
 import shutil
 import subprocess
 import oyaml as yaml
@@ -13,8 +14,8 @@ def get_mutation_dict(mutation):
     if mutation.strip()[1].isdigit():
         pattern = re.compile(r"[A-Z]*:*(?P<wt>[a-zA-Z]{1})(?P<resnum>\d+)(?P<mt>[a-zA-Z]{1})")
         mut_dict = pattern.match(mutation.strip()).groupdict()
-        mut_dict['wt'] = one_to_three(mut_dict['wt'].upper())
-        mut_dict['mt'] = one_to_three(mut_dict['mt'].upper())
+        mut_dict['wt'] = protein_letters_1to3(mut_dict['wt'].upper())
+        mut_dict['mt'] = protein_letters_1to3(mut_dict['mt'].upper())
     else:
         pattern = re.compile(r"[A-Z]*:*(?P<wt>[a-zA-Z]{3})(?P<resnum>\d+)(?P<mt>[a-zA-Z]{3})")
         mut_dict = pattern.match(mutation.strip()).groupdict()
@@ -45,7 +46,8 @@ def reverse_mutations(mutation,pmx_resnum):
 
 def three_to_one_mutation(mutation):
     mut_dict = get_mutation_dict(mutation)
-    return f"{mut_dict.get('resnum')}{three_to_one(mut_dict.get('mt').upper())}"
+    return f"{mut_dict.get('resnum')}{protein_letters_3to1(mut_dict.get('mt').upper())}"
+
 
 def get_template_config_dict(config_yaml_path):
     with open(config_yaml_path) as config_yaml_file:
