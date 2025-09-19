@@ -20,9 +20,9 @@ from biobb_common.configuration import settings
 from biobb_common.tools import file_utils as fu
 
 # pycompss: biobb pmx modules
-from biobb_adapters.pycompss.biobb_pmx.pmx.pmxmutate import pmxmutate
-from biobb_adapters.pycompss.biobb_pmx.pmx.pmxgentop import pmxgentop
-from biobb_adapters.pycompss.biobb_pmx.pmx.pmxanalyse import pmxanalyse
+from biobb_adapters.pycompss.biobb_pmx.pmxbiobb.pmxmutate import pmxmutate
+from biobb_adapters.pycompss.biobb_pmx.pmxbiobb.pmxgentop import pmxgentop
+from biobb_adapters.pycompss.biobb_pmx.pmxbiobb.pmxanalyse import pmxanalyse
 
 # pycompss: biobb md modules
 from biobb_adapters.pycompss.biobb_gromacs.gromacs.pdb2gmx import pdb2gmx
